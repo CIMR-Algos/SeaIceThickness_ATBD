@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction, purpose and scope" href="introduction_purpose_scope.html" />
@@ -157,6 +159,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
    Python notebook placeholder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+   testing julia notebooks for SIT ATBD
   </a>
  </li>
  <li class="toctree-l1">
@@ -269,6 +276,45 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="definitions-used-in-this-atbd">
 <h1>Definitions used in this ATBD<a class="headerlink" href="#definitions-used-in-this-atbd" title="Permalink to this headline">¶</a></h1>
 <p>Here follows a glossary, or list of definitions</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ATBD</p></td>
+<td><p>Algorithm Theoretical Basis Document</p></td>
+</tr>
+<tr class="row-odd"><td><p>CIMR</p></td>
+<td><p>Copernicus Imaging Microwave Radiometer</p></td>
+</tr>
+<tr class="row-even"><td><p>IODD</p></td>
+<td><p>Input/Ouput Data Definition</p></td>
+</tr>
+<tr class="row-odd"><td><p>PSD</p></td>
+<td><p>Product Specification Document</p></td>
+</tr>
+<tr class="row-even"><td><p>PVP</p></td>
+<td><p>Product Validation Plan</p></td>
+</tr>
+<tr class="row-odd"><td><p>SIC</p></td>
+<td><p>Sea Ice Concentration</p></td>
+</tr>
+<tr class="row-even"><td><p>SIT</p></td>
+<td><p>Sea Ice Thickness</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMOS</p></td>
+<td><p>Soil Moisture Ocean Salinity</p></td>
+</tr>
+<tr class="row-even"><td><p>SMAP</p></td>
+<td><p>Soil Moisture Active/Passive</p></td>
+</tr>
+<tr class="row-odd"><td><p>TB</p></td>
+<td><p>Brightness Temperature</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
     <script type="text/x-thebe-config">

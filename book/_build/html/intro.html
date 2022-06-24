@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Abstract" href="abstract.html" />
@@ -156,6 +158,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
    Python notebook placeholder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+   testing julia notebooks for SIT ATBD
   </a>
  </li>
  <li class="toctree-l1">
@@ -267,7 +274,11 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="atbd-template">
 <h1>ATBD Template<a class="headerlink" href="#atbd-template" title="Permalink to this headline">¶</a></h1>
-<p>This document describes the algorithm theoretical basis for the x product.</p>
+<p>This document holds the Algorithm Theoretical Basis Document (ATBD),
+Input/Ouput Data Definition (IODD), Product Specification Document (PSD), and
+Product Validation Plan (PVP) for the retrieval of sea-ice Thickness. It was
+prepared as part of the Copernicus Imaging Microwave Radiometer (CIMR) Mission
+Requirement Consolidation (MRC) study.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
@@ -279,10 +290,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="L2_product_definition.html">Level-2 product definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline_algorithm_definition.html">Baseline Algorithm Definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm_input_output_data_definition.html">Algorithm Input and Output Data Definition (IODD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm_input_output_data_definition.html#sea-ice-thickness-input-and-output-data-definition">Sea Ice Thickness Input and Output Data Definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm_performance_assessment.html">Algorithm Performance Assessment (Version 2 ATBD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm_performance_assessment.html#version-2-atbd-roadmap-for-future-atbd-development">Version 2 ATBD: Roadmap for future ATBD development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebook comments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Python notebook placeholder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">testing julia notebooks for SIT ATBD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References (example)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex.html">Annex</a></li>
 </ul>

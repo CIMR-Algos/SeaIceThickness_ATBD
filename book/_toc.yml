@@ -4,32 +4,34 @@
 format: jb-book
 root: intro
 chapters:
-- file: abstract
+- file: abstract.md
   title: Abstract
-- file: applicable_ref_docs
+- file: applicable_ref_docs.md
   title: Applicable and Reference Documents
-- file: acronyms
+- file: acronyms.md
   title: Acronyms
-- file: definitions
+- file: definitions.md
   title: Definitions
-- file: introduction_purpose_scope
+- file: introduction_purpose_scope.md
   title: Introduction, purpose and scope
-- file: background_justification_algorithm
+- file: background_justification_algorithm.md
   title: Background and justification of selected algorithm
-- file: L2_product_definition
+- file: L2_product_definition.md
   title: Level-2 product definition
-- file: baseline_algorithm_definition
+- file: baseline_algorithm_definition.md
   title: Baseline Algorithm Definition
-- file: algorithm_input_output_data_definition
+- file: algorithm_input_output_data_definition.md
   title: Algorithm Input and Output Data Definition (IODD)
-- file: algorithm_performance_assessment
+- file: algorithm_performance_assessment.md
   title: Algorithm Performance Assessment 
-- file: markdown-notebooks
+- file: markdown-notebooks.md
   title: Notebook comments
-- file: notebooks
+- file: notebooks.ipynb
   title: Python notebook placeholder
-- file: references
+- file: CIMR_SIT_retrieval_ATBD.ipynb
+  title: testing julia notebooks for SIT ATBD
+- file: references.md
   title: References (example)
-- file: annex
+- file: annex.md
   title: Annex
 

@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIMR SIT ATBD Notebook &#8212; ATBD Template</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   ATBD Template
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="applicable_ref_docs.html">
+   Applicable and Reference Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acronyms.html">
+   Acronyms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="definitions.html">
+   Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction_purpose_scope.html">
+   Introduction, purpose and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="background_justification_algorithm.html">
+   Background and justification of selected algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L2_product_definition.html">
+   Level-2 product definition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="baseline_algorithm_definition.html">
+   Baseline Algorithm Definition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="algorithm_input_output_data_definition.html">
+   Algorithm Input and Output Data Definition (IODD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment (Version 2 ATBD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebook comments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Python notebook placeholder
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   testing julia notebooks for SIT ATBD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References (example)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/CIMR_SIT_retrieval_ATBD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/CIMR-Algos/ATBD-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/CIMR-Algos/ATBD-Template/master?urlpath=tree/docs/CIMR_SIT_retrieval_ATBD.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CIMR SIT ATBD Notebook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cimr-sit-atbd-notebook">
+<h1>CIMR SIT ATBD Notebook<a class="headerlink" href="#cimr-sit-atbd-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">LaTeXStrings</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">Optim</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">BenchmarkTools</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
+<span class="n">Q</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">^</span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
+<span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">I</span><span class="p">((</span><span class="mf">232.2</span><span class="p">,</span><span class="mf">108.3</span><span class="p">,</span><span class="mf">13.4</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">Q</span><span class="p">((</span><span class="mf">33.8</span><span class="p">,</span><span class="mf">81.2</span><span class="p">,</span><span class="mf">33.7</span><span class="p">,</span><span class="mf">1.64</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fQ (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span><span class="p">(</span><span class="n">II</span><span class="p">,</span><span class="n">QQ</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">II</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">QQ</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
+<span class="n">retrieval</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>retrieval (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrieval2</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">optimize</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">minimum</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>retrieval2 (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrieval2</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>251.2806485537714
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Qs</span><span class="o">=</span><span class="mi">20</span><span class="o">:</span><span class="mi">90</span><span class="w"></span>
+<span class="n">Is</span><span class="o">=</span><span class="mi">100</span><span class="o">:</span><span class="mi">270</span><span class="w"></span>
+<span class="n">out</span><span class="o">=</span><span class="p">[</span><span class="n">retrieval</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ii</span><span class="o">=</span><span class="n">Is</span><span class="p">,</span><span class="n">qq</span><span class="o">=</span><span class="n">Qs</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">contour</span><span class="p">(</span><span class="n">Qs</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">out</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">],</span><span class="n">contour_labels</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w"></span>
+<span class="n">sit</span><span class="o">=</span><span class="mi">0</span><span class="o">:</span><span class="mi">90</span><span class="w"></span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">fQ</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">fI</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span><span class="w"></span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Polarization difference Q [K]&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Intensity I [K]&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="c">#savefig(&quot;retrieval_curve.png&quot;)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/CIMR_SIT_retrieval_ATBD_9_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_9_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cfdd</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">=</span><span class="mf">1.33</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="o">*</span><span class="n">duration</span><span class="p">)</span><span class="o">^</span><span class="mf">0.58</span><span class="w"></span>
+<span class="n">dcfdd</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">=</span><span class="mf">1.33</span><span class="o">*</span><span class="mf">0.58</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="o">*</span><span class="n">duration</span><span class="p">)</span><span class="o">^</span><span class="mf">0.42</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dcfdd (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">days</span><span class="o">=</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">80</span><span class="w"></span>
+
+<span class="n">max_ig</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">=</span><span class="n">cfdd</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">cfdd</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sit</span><span class="o">*</span><span class="mf">1.33</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)))</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.58</span><span class="p">)</span><span class="w"></span>
+<span class="n">plot</span><span class="p">(</span><span class="n">gridlinewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">]</span><span class="w">    </span>
+<span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">cfdd</span><span class="o">.</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">days</span><span class="p">),</span><span class="n">max_ig</span><span class="o">.</span><span class="p">((</span><span class="n">temp</span><span class="p">,),</span><span class="n">days</span><span class="p">)</span><span class="o">*</span><span class="mf">0.68</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">latexstring</span><span class="p">(</span><span class="s">&quot;T_{</span><span class="se">\\</span><span class="s">mbox{air}} = </span><span class="si">$temp</span><span class="s"> ^</span><span class="se">\\</span><span class="s">circ </span><span class="se">\\</span><span class="s">mbox{C}&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="n">xlims!</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">51.5</span><span class="p">)</span><span class="w"></span>
+<span class="n">title!</span><span class="p">((</span><span class="s">&quot;daily SIT increase at different temperatures&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;ice thickness [cm]&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;ice thickness uncertainty [cm]&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/CIMR_SIT_retrieval_ATBD_11_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_11_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">owf</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">owtbh</span><span class="o">=</span><span class="mi">65</span><span class="w"></span>
+<span class="w">    </span><span class="n">owtbv</span><span class="o">=</span><span class="mi">155</span><span class="w"></span>
+<span class="w">    </span><span class="n">owi</span><span class="o">=</span><span class="n">owtbv</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">owtbh</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="n">owq</span><span class="o">=</span><span class="n">owtbv</span><span class="o">-</span><span class="n">owtbh</span><span class="w"></span>
+<span class="w">    </span><span class="n">IR</span><span class="o">=</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">QR</span><span class="o">=</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">I</span><span class="o">=</span><span class="n">IR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">owf</span><span class="p">)</span><span class="o">+</span><span class="n">owi</span><span class="o">*</span><span class="n">owf</span><span class="w"></span>
+<span class="w">    </span><span class="n">Q</span><span class="o">=</span><span class="n">QR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">owf</span><span class="p">)</span><span class="o">+</span><span class="n">owq</span><span class="o">*</span><span class="n">owf</span><span class="w"></span>
+<span class="w">    </span><span class="n">retrieval</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="n">owerr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">))</span><span class="o">+</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)))</span><span class="o">*</span><span class="mf">0.5</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">retrerr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">ra</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">IR</span><span class="o">=</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">QR</span><span class="o">=</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">ixmax</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="o">+</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">QR</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">ixmin</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="o">-</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">QR</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">qxmax</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="p">,</span><span class="n">QR</span><span class="o">+</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">qxmin</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="p">,</span><span class="n">QR</span><span class="o">-</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="c">#mean((x.-[ixmax,ixmin,qxmax,qxmin]).^2)^0.5</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="o">.-</span><span class="p">[</span><span class="n">ixmax</span><span class="p">,</span><span class="n">ixmin</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="o">.-</span><span class="p">[</span><span class="n">qxmax</span><span class="p">,</span><span class="n">qxmin</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mf">0.5</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span><span class="o">=-</span><span class="p">(</span><span class="n">sit</span><span class="o">/</span><span class="mf">1.33</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.58</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">cfdd_unc</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">t</span><span class="o">=</span><span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">cfdd</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">cfdd</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="mf">0.68</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="c">#retrieval(IR*)</span><span class="w"></span>
+<span class="c">#plot(owmix.(0:50,-0.05).-owmix.(0:50,0.0))</span><span class="w"></span>
+<span class="c">#plot!(owmix.(0:50,0.0)-owmix.(0:50, 0.05))</span><span class="w"></span>
+
+<span class="w">    </span><span class="c">#(owmix.(0:200,0.05))</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="n">comb_error</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">cfdd_unc</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">retrerr</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">owerr</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>comb_error (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">owerr</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;open water error (5%)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">retrerr</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">,(</span><span class="mi">5</span><span class="p">,)),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;retrieval error (TB uncertainty=5K)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">cfdd_unc</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;daily SIT variability (-25°C)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">comb_error</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;total uncertainty&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="ss">:topleft</span><span class="p">)</span><span class="w"></span>
+<span class="n">xlims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
+<span class="n">ylims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;SIT [cm]&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;SIT error [cm]&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="w"></span>
+<span class="c">#savefig(&quot;/home/huntemann/Seafile/myHome/CIMR_errors.png&quot;)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/CIMR_SIT_retrieval_ATBD_13_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_13_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrerr</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.80421038985012
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.7"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.7",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.7'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Content with notebooks</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="references.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By CIMR Devalgo<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
