@@ -5,10 +5,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CIMR SIT ATBD Notebook &#8212; ATBD Template</title>
+    <title>Sea ice thickness retrieval implementation &#8212; ATBD Template</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +19,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,24 +36,27 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="references.html" />
-    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Establishing relation TB to ice thickness" href="training_data_smos53.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +108,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   ATBD Template
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ATBD Template
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="abstract.html">
    Abstract
@@ -161,9 +177,14 @@ const thebe_selector_output = ".output, .cell_output"
    Python notebook placeholder
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="training_data_smos53.html">
+   The brightness temperature to ice thickness relation
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   testing julia notebooks for SIT ATBD
+   The ice thickness retrieval
   </a>
  </li>
  <li class="toctree-l1">
@@ -179,12 +200,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -192,315 +218,442 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/CIMR_SIT_retrieval_ATBD.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/CIMR-Algos/ATBD-Template/master?urlpath=tree/docs/CIMR_SIT_retrieval_ATBD.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/CIMR-Algos/ATBD-Template"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/CIMR_SIT_retrieval_ATBD.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/CIMR-Algos/ATBD-Template"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
     </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieval-definition">
+   retrieval definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties">
+   Uncertainties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daily-ice-thickness-variation">
+     Daily ice thickness variation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#propagation-of-brightness-temperature-uncertainty">
+     Propagation of brightness temperature uncertainty
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainty-from-full-ice-cover-assumption">
+     Uncertainty from full ice cover assumption
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-uncertainty">
+     Total uncertainty
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/CIMR-Algos/ATBD-Template/master?urlpath=tree/docs/CIMR_SIT_retrieval_ATBD.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
     </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-        </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>CIMR SIT ATBD Notebook</h1>
+                <h1>Sea ice thickness retrieval implementation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieval-definition">
+   retrieval definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties">
+   Uncertainties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daily-ice-thickness-variation">
+     Daily ice thickness variation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#propagation-of-brightness-temperature-uncertainty">
+     Propagation of brightness temperature uncertainty
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainty-from-full-ice-cover-assumption">
+     Uncertainty from full ice cover assumption
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-uncertainty">
+     Total uncertainty
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cimr-sit-atbd-notebook">
-<h1>CIMR SIT ATBD Notebook<a class="headerlink" href="#cimr-sit-atbd-notebook" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="sea-ice-thickness-retrieval-implementation">
+<h1>Sea ice thickness retrieval implementation<a class="headerlink" href="#sea-ice-thickness-retrieval-implementation" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>The retrieval uses the fitted parameters from individual fits of ice thickness to brightness temperatures and a minimization scheme including uncertainties using the error covariance matrix of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> at 1.4 GHz. In contrast to the original Huntemann et al. 2014 retrieval, the upper limit is not determined capped but left open, very loosely constrained by a background ice thickness. For comparison the original fit parameters from Huntemann et al. 2014 in the lastest version are used for comparison and evaluation. However, the original parameters where obtained for an incidence angle range from 40° to 50° while the new fit parameters were obtained to match the CIMR incidence angle of 53°. The equations used for their fits are <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> and <a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(7)</a>. <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> is also used for fitting horizontal and vertical polarization directly to the ice thickness dependence. The inversion of this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to optain the ice thickness.</p>
+<div class="cell tag_hidden-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
-<span class="k">using</span><span class="w"> </span><span class="n">LaTeXStrings</span><span class="w"></span>
-<span class="k">using</span><span class="w"> </span><span class="n">Optim</span><span class="w"></span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
+<span class="n">Q</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">^</span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
+
+
+<span class="c">#reading fit parameters from file</span><span class="w"></span>
+<span class="n">params</span><span class="o">=</span><span class="n">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s">&quot;fit_params.yml&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">tbh_params</span><span class="p">,</span><span class="n">tbv_params</span><span class="p">,</span><span class="n">pI</span><span class="p">,</span><span class="n">pQ</span><span class="o">=</span><span class="n">getindex</span><span class="o">.</span><span class="p">(</span><span class="kt">Ref</span><span class="p">(</span><span class="n">params</span><span class="p">),[</span><span class="s">&quot;ph&quot;</span><span class="p">,</span><span class="s">&quot;pv&quot;</span><span class="p">,</span><span class="s">&quot;pI&quot;</span><span class="p">,</span><span class="s">&quot;pQ&quot;</span><span class="p">])</span><span class="w"></span>
+
+<span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">I</span><span class="p">(</span><span class="n">pI</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">Q</span><span class="p">(</span><span class="n">pQ</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">ff</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
+<span class="n">sit_h</span><span class="o">=</span><span class="n">ff</span><span class="p">(</span><span class="n">tbh_params</span><span class="p">)</span><span class="w"></span>
+<span class="n">sit_v</span><span class="o">=</span><span class="n">ff</span><span class="p">(</span><span class="n">tbv_params</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>in Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 2</span></a> the fitted values were shown which are used for the inversion.</p>
+</div>
+<div class="section" id="retrieval-definition">
+<h2>retrieval definition<a class="headerlink" href="#retrieval-definition" title="Permalink to this headline">#</a></h2>
+<p>The retrieval is following a typical scheme with the objective to minimize</p>
+<div class="math notranslate nohighlight" id="equation-eq-chi2">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-chi2" title="Permalink to this equation">#</a></span>\[
+χ^2(\mathbf y,\mathbf x,\mathbf S_e,\mathbf S_a,\mathbf x_a)=\left(\mathbf y-F(\mathbf x)\right)^\mathbf{T}\mathbf S_e^{-1}(\mathbf y-F(\mathbf x))+(\mathbf x_a-\mathbf x)^{\mathbf T}\mathbf S_a^{-1}(\mathbf x_a - \mathbf x) 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf y= \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span> is the vector of input (measured) brightness temperatures, <span class="math notranslate nohighlight">\(\mathbf x\)</span> is the result vector (in case of the retrieval of only one quantity, ice thickness, this is a scalar),  <span class="math notranslate nohighlight">\(\mathbf S_e\)</span> is the error covariance matrix of the input brightness temperatures, <span class="math notranslate nohighlight">\(\mathbf S_a\)</span> is the covariance matrix of the background values (in this case a scalar), <span class="math notranslate nohighlight">\(\textbf x_a\)</span> is the background value (ice thickness) and <span class="math notranslate nohighlight">\(F\)</span> is the forward operator, in our caes the individual fit function for a given ice thickness, i.e.,
+<span class="math notranslate nohighlight">\(F(\mathbf x) = \begin{bmatrix}f_h(\mathbf x)\\ f_v(\mathbf x)\end{bmatrix}\)</span></p>
+<p>The optimal solution <span class="math notranslate nohighlight">\(\hat {\mathbf y}\)</span> which minimizes equation <a class="reference internal" href="#equation-eq-chi2">(8)</a> is found by iteration.
+The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</span> can then be obtained as</p>
+<div class="math notranslate nohighlight" id="equation-eq-error">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-error" title="Permalink to this equation">#</a></span>\[
+\mathbf {\hat S}_a= (\mathbf S_a^{-1}+\mathbf{ \hat M}^\mathbf T \mathbf S_e^{-1}\mathbf {\hat M})^{-1}, 
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf {\hat M}\)</span> is the Jacobian of the optimal solution of <a class="reference internal" href="#equation-eq-chi2">(8)</a> which is in this case also a scalar.</p>
+<p>Some variables are fixed in this scheme, this is the background ice thickness <span class="math notranslate nohighlight">\(\mathbf x_a=x_a=100\)</span> cm and its variance <span class="math notranslate nohighlight">\(\mathbf S_a=S_a=20000\ cm^2\)</span> which is practically used to very loosly contrain the ice thickness. Others parameters are obtained from the CIMR satellite like <span class="math notranslate nohighlight">\(\mathbf y= \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span>, the brightness temperatures at L-band, and the diagonal components of the error covariance matrix <span class="math notranslate nohighlight">\(\mathbf S_a\)</span>, for the offdiagonal of <span class="math notranslate nohighlight">\(\mathbf S_a\)</span> there is no good estimate, but it is not expected that the uncertainties of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> are uncorrelated. For the lack of a better estimate, we claim a correlation of 0.6 which results in off diagonal elements of <span class="math notranslate nohighlight">\(0.6*\sigma_{Tbh}\sigma_{TBv}\)</span>. For illustration of the algorithm we use</p>
+<div class="math notranslate nohighlight" id="equation-eq-tberror">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-tberror" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf S_a = \begin{bmatrix}25 &amp; 15\\ 15 &amp; 25\end{bmatrix}
+\end{split}\]</div>
+<div class="cell tag_remove-output tag_hidden-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">BenchmarkTools</span><span class="w"></span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c"># easy retrieval method</span><span class="w"></span>
+<span class="w">    </span><span class="c"># Ta is a vector of length of input for one single retrieval length N</span><span class="w"></span>
+<span class="w">    </span><span class="c"># Se is the error covariance matrix of the input, i.e. length N x N</span><span class="w"></span>
+<span class="w">    </span><span class="c"># Sa is the error covariance matrix of the output, i.e. length M x M (the error of the background value)</span><span class="w"></span>
+<span class="w">    </span><span class="c"># xa is a background value where Sa is the error of, i.e. a vector of length M</span><span class="w"></span>
+<span class="w">    </span><span class="c"># F is a forward model receiving a input vector of length N and return an output of length M</span><span class="w"></span>
+<span class="w">    </span><span class="c"># ymin and ymax are the limits of the oupt regime where ot search in, both are of length M</span><span class="w"></span>
+<span class="w">    </span><span class="c"># returns Y, the output vector</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c">#defining error function to menimize as χ² </span><span class="w"></span>
+<span class="w">    </span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Se</span><span class="o">\</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">)</span><span class="o">=</span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">)</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sa</span><span class="o">\</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">xa</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">maximize</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;-</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="o">=</span><span class="n">optimize</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">),</span><span class="n">xa</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">y</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">M</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">yerr</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">Sa</span><span class="p">)</span><span class="o">+</span><span class="n">M</span><span class="o">&#39;*</span><span class="n">inv</span><span class="p">(</span><span class="n">Se</span><span class="p">)</span><span class="o">*</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">yerr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="w">    </span>
+<span class="n">Fw_TB</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">sit_h</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="n">sit_v</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span><span class="w"></span>
+<span class="n">Fw_IQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span><span class="w"></span>
+
+<span class="n">c</span><span class="o">=</span><span class="mi">15</span><span class="w"></span>
+<span class="n">retrieval</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">retrieval</span><span class="p">([</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],[</span><span class="mi">25</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="n">c</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="n">fill</span><span class="p">(</span><span class="mf">20000.</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
-<span class="n">Q</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">^</span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
-<span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">I</span><span class="p">((</span><span class="mf">232.2</span><span class="p">,</span><span class="mf">108.3</span><span class="p">,</span><span class="mf">13.4</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">Q</span><span class="p">((</span><span class="mf">33.8</span><span class="p">,</span><span class="mf">81.2</span><span class="p">,</span><span class="mf">33.7</span><span class="p">,</span><span class="mf">1.64</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fQ (generic function with 1 method)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
+<p>The comparison will be done with a least squares fit based <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-retrieval from Huntemann et al. 2014, i.e., the cost function is</p>
+<div class="math notranslate nohighlight" id="equation-eq-iqcost">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-iqcost" title="Permalink to this equation">#</a></span>\[
+c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
+\]</div>
+<p>which is minimized to obtain the best ice thickness <span class="math notranslate nohighlight">\(x\)</span> for a given measured <span class="math notranslate nohighlight">\(I_m\)</span> and <span class="math notranslate nohighlight">\(Q_m\)</span>.</p>
+<div class="cell tag_hidden-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span><span class="p">(</span><span class="n">II</span><span class="p">,</span><span class="n">QQ</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">II</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">QQ</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
-<span class="n">retrieval</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"> </span>
+<span class="n">retrieval_hun</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="uncertainties">
+<h2>Uncertainties<a class="headerlink" href="#uncertainties" title="Permalink to this headline">#</a></h2>
+<p>The uncertainty follows Patilea et. al, 2019 using three terms:</p>
+<ul class="simple">
+<li><p>uncertainty from the training data ice thickness increase within one day</p></li>
+<li><p>the native uncertainty from the deviation of uncertainty of brightness temperatures</p></li>
+<li><p>The uncertainty from the ice concentration (not full ice coverage)</p></li>
+</ul>
+<p>Technically, these uncertainties should be considered forward model errors and treated as such.</p>
+<div class="section" id="daily-ice-thickness-variation">
+<h3>Daily ice thickness variation<a class="headerlink" href="#daily-ice-thickness-variation" title="Permalink to this headline">#</a></h3>
+<p>an empirical model of the ice thickness increase was proposed by Lebedev 1918, with the so called cummulative freezing degree days. The idea is the negative air temperature over time is a proxy for the physical ice thickness increase. The original formulation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-cfdd-sit">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-cfdd-sit" title="Permalink to this equation">#</a></span>\[
+d_{\text{ice}}(\Theta) = 1.33*{\Theta}^{-0.58}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-cfdd">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-cfdd" title="Permalink to this equation">#</a></span>\[\Theta = \sum_{\text{days}} T_{\text {air}}+1.8\ {}^\circ \text C \text ,
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(T_{air}\)</span> being the daily average air temperature. The exponent of <span class="math notranslate nohighlight">\(\Theta\)</span> in equation <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a> was found to vary depending on the location, snow accumulation and wind and cloud conditions. <a class="reference internal" href="#fig-sitchange"><span class="std std-numref">Fig. 9</span></a> shows the SIT uncertainty from daily ice thickness variations from <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a> for three different reference temperatures. For the following we use <span class="math notranslate nohighlight">\(-25\ \text{°C}\)</span> as uncertainty reference for contribution to the combined error calculation.
+Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>, for a fixed temperature, the cumulative freezing degree days to reach a certain ice thickness is</p>
+<div class="math notranslate nohighlight">
+\[t_{\text{S}}(\text{d}_{\text{ice}},T)=-(\text{d}_{\text{ice}}/1.33)^{(1/0.58)}/(T+1.8)
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-sic-uncertainty">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-sic-uncertainty" title="Permalink to this equation">#</a></span>\[ \sigma_{\text{growth}} = 0.68\ (d_{\text{ice}}(t_\text{S}+1\ \text {day})-d_{\text{ice}}(t_\text{S}))
+\]</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>retrieval (generic function with 1 method)
-</pre></div>
+<div class="figure align-default" id="fig-sitchange">
+<img alt="_images/f2380706798f72eb168a9d324f1c5bf76efca5a9209b8d36451ad59e6a563217.svg" src="_images/f2380706798f72eb168a9d324f1c5bf76efca5a9209b8d36451ad59e6a563217.svg" /><p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrieval2</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">optimize</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">minimum</span><span class="w"></span>
-</pre></div>
 </div>
+<div class="section" id="propagation-of-brightness-temperature-uncertainty">
+<h3>Propagation of brightness temperature uncertainty<a class="headerlink" href="#propagation-of-brightness-temperature-uncertainty" title="Permalink to this headline">#</a></h3>
+<p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described in <a class="reference internal" href="#equation-eq-error">(9)</a> and is a direct result of the sensitivity of the forward model to changes in brightness temperature.</p>
 </div>
+<div class="section" id="uncertainty-from-full-ice-cover-assumption">
+<h3>Uncertainty from full ice cover assumption<a class="headerlink" href="#uncertainty-from-full-ice-cover-assumption" title="Permalink to this headline">#</a></h3>
+<p>The assumption of the full ice coverage originates from the uknown ice concentration. It can occur that a part of the footprint is open water which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> in for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 2</span></a> gives the open water tie point, i.e. at 0cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
+<div class="math notranslate nohighlight">
+\[ T_{b,h/v}(\text{SIC})=T_{b,h/v}*\text{SIC} + p_{1,h/v}*(1-\text{SIC})\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight" id="equation-eq-sicerror">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-sicerror" title="Permalink to this equation">#</a></span>\[ σ_\text{SIC} = 1/2 \left(F^{-1}\left(T_{b,h/v}(0.95)\right)+F^{-1}\left(T_{b,h/v}(1.05)\right)\right)
+\]</div>
+</div>
+<div class="section" id="total-uncertainty">
+<h3>Total uncertainty<a class="headerlink" href="#total-uncertainty" title="Permalink to this headline">#</a></h3>
+<p>The overall uncertainty is calculated as a composition of individual uncertainties in the parameter space, i.e. on ice thickness directly as</p>
+<div class="math notranslate nohighlight" id="equation-eq-totaluncertainty">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-totaluncertainty" title="Permalink to this equation">#</a></span>\[ 
+σ_\text{tot}=\sqrt{\left(σ_{\text{SIC}}^2+σ_\text{growth}^2 + \sigma_\text{retr}^2\right)}
+\]</div>
+<p>The indiviual terms as well as the total uncertainty are shown in <a class="reference internal" href="#fig-siterrors"><span class="std std-numref">Fig. 10</span></a>. At small ice thickness the largest contribution is from the ice growth error up to about <span class="math notranslate nohighlight">\(15\ \text{cm}\)</span>. From there, the sensitivity to changes in ice thickness gets smaller and the uncertainty from the SIC takes over the higher contribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ice concentration error is not a fixed function of the ice thickness as it is evaluated in the brightness temperature space and thus depends on the input brightness temperatures.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>retrieval2 (generic function with 1 method)
-</pre></div>
+<div class="figure align-default" id="fig-siterrors">
+<img alt="_images/abafe9ddceeefb306f4ca9587d141e370063a49e146b0613fd997dfd926af056.svg" src="_images/abafe9ddceeefb306f4ca9587d141e370063a49e146b0613fd997dfd926af056.svg" /><p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrieval2</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>251.2806485537714
-</pre></div>
+<div class="figure align-default" id="fig-retrievalcomp">
+<img alt="_images/ce56900ebfc70cb80812ffec8b129e24ada06c26e499459fea7a112b5d884ab2.svg" src="_images/ce56900ebfc70cb80812ffec8b129e24ada06c26e499459fea7a112b5d884ab2.svg" /><p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Comparison of retrievals in <span class="math notranslate nohighlight">\(I-Q\)</span>-space, left: new HV based retrieval with soft upper limit, right: original retrieval design</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Qs</span><span class="o">=</span><span class="mi">20</span><span class="o">:</span><span class="mi">90</span><span class="w"></span>
-<span class="n">Is</span><span class="o">=</span><span class="mi">100</span><span class="o">:</span><span class="mi">270</span><span class="w"></span>
-<span class="n">out</span><span class="o">=</span><span class="p">[</span><span class="n">retrieval</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ii</span><span class="o">=</span><span class="n">Is</span><span class="p">,</span><span class="n">qq</span><span class="o">=</span><span class="n">Qs</span><span class="p">];</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">contour</span><span class="p">(</span><span class="n">Qs</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">out</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">],</span><span class="n">contour_labels</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w"></span>
-<span class="n">sit</span><span class="o">=</span><span class="mi">0</span><span class="o">:</span><span class="mi">90</span><span class="w"></span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">fQ</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">fI</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span><span class="w"></span>
-<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Polarization difference Q [K]&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Intensity I [K]&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="c">#savefig(&quot;retrieval_curve.png&quot;)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/CIMR_SIT_retrieval_ATBD_9_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_9_0.svg" /></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cfdd</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">=</span><span class="mf">1.33</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="o">*</span><span class="n">duration</span><span class="p">)</span><span class="o">^</span><span class="mf">0.58</span><span class="w"></span>
-<span class="n">dcfdd</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">=</span><span class="mf">1.33</span><span class="o">*</span><span class="mf">0.58</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="o">-</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="o">*</span><span class="n">duration</span><span class="p">)</span><span class="o">^</span><span class="mf">0.42</span><span class="p">)</span><span class="w"></span>
-</pre></div>
+<div class="figure align-default" id="fig-newretrievalhv">
+<img alt="_images/c194834d798ca7397418a2dc681771e91da25927abfedc6123f95d7dafc7eb95.svg" src="_images/c194834d798ca7397418a2dc681771e91da25927abfedc6123f95d7dafc7eb95.svg" /><p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">new retrieval in <span class="math notranslate nohighlight">\(H-V\)</span>-space, bright area in the upper part means 100+cm ice thickness</span><a class="headerlink" href="#fig-newretrievalhv" title="Permalink to this image">#</a></p>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dcfdd (generic function with 1 method)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">days</span><span class="o">=</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">80</span><span class="w"></span>
-
-<span class="n">max_ig</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">=</span><span class="n">cfdd</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">cfdd</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sit</span><span class="o">*</span><span class="mf">1.33</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)))</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.58</span><span class="p">)</span><span class="w"></span>
-<span class="n">plot</span><span class="p">(</span><span class="n">gridlinewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">]</span><span class="w">    </span>
-<span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">cfdd</span><span class="o">.</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">days</span><span class="p">),</span><span class="n">max_ig</span><span class="o">.</span><span class="p">((</span><span class="n">temp</span><span class="p">,),</span><span class="n">days</span><span class="p">)</span><span class="o">*</span><span class="mf">0.68</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">latexstring</span><span class="p">(</span><span class="s">&quot;T_{</span><span class="se">\\</span><span class="s">mbox{air}} = </span><span class="si">$temp</span><span class="s"> ^</span><span class="se">\\</span><span class="s">circ </span><span class="se">\\</span><span class="s">mbox{C}&quot;</span><span class="p">))</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">xlims!</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">51.5</span><span class="p">)</span><span class="w"></span>
-<span class="n">title!</span><span class="p">((</span><span class="s">&quot;daily SIT increase at different temperatures&quot;</span><span class="p">))</span><span class="w"></span>
-<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;ice thickness [cm]&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;ice thickness uncertainty [cm]&quot;</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/CIMR_SIT_retrieval_ATBD_11_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_11_0.svg" /></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">owf</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">owtbh</span><span class="o">=</span><span class="mi">65</span><span class="w"></span>
-<span class="w">    </span><span class="n">owtbv</span><span class="o">=</span><span class="mi">155</span><span class="w"></span>
-<span class="w">    </span><span class="n">owi</span><span class="o">=</span><span class="n">owtbv</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">owtbh</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
-<span class="w">    </span><span class="n">owq</span><span class="o">=</span><span class="n">owtbv</span><span class="o">-</span><span class="n">owtbh</span><span class="w"></span>
-<span class="w">    </span><span class="n">IR</span><span class="o">=</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">QR</span><span class="o">=</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">I</span><span class="o">=</span><span class="n">IR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">owf</span><span class="p">)</span><span class="o">+</span><span class="n">owi</span><span class="o">*</span><span class="n">owf</span><span class="w"></span>
-<span class="w">    </span><span class="n">Q</span><span class="o">=</span><span class="n">QR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">owf</span><span class="p">)</span><span class="o">+</span><span class="n">owq</span><span class="o">*</span><span class="n">owf</span><span class="w"></span>
-<span class="w">    </span><span class="n">retrieval</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-
-<span class="n">owerr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">))</span><span class="o">+</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">owmix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)))</span><span class="o">*</span><span class="mf">0.5</span><span class="w"></span>
-
-<span class="k">function</span><span class="w"> </span><span class="n">retrerr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">ra</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">IR</span><span class="o">=</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">QR</span><span class="o">=</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">ixmax</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="o">+</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">QR</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">ixmin</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="o">-</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">QR</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">qxmax</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="p">,</span><span class="n">QR</span><span class="o">+</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="n">qxmin</span><span class="o">=</span><span class="n">retrieval</span><span class="p">(</span><span class="n">IR</span><span class="p">,</span><span class="n">QR</span><span class="o">-</span><span class="n">ra</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="c">#mean((x.-[ixmax,ixmin,qxmax,qxmin]).^2)^0.5</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="o">.-</span><span class="p">[</span><span class="n">ixmax</span><span class="p">,</span><span class="n">ixmin</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="o">.-</span><span class="p">[</span><span class="n">qxmax</span><span class="p">,</span><span class="n">qxmin</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mf">0.5</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-
-<span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span><span class="o">=-</span><span class="p">(</span><span class="n">sit</span><span class="o">/</span><span class="mf">1.33</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">0.58</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span><span class="w"></span>
-
-<span class="k">function</span><span class="w"> </span><span class="n">cfdd_unc</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">t</span><span class="o">=</span><span class="n">sittime</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">cfdd</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">cfdd</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="mf">0.68</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-
-
-<span class="w">    </span><span class="c">#retrieval(IR*)</span><span class="w"></span>
-<span class="c">#plot(owmix.(0:50,-0.05).-owmix.(0:50,0.0))</span><span class="w"></span>
-<span class="c">#plot!(owmix.(0:50,0.0)-owmix.(0:50, 0.05))</span><span class="w"></span>
-
-<span class="w">    </span><span class="c">#(owmix.(0:200,0.05))</span><span class="w"></span>
-<span class="k">function</span><span class="w"> </span><span class="n">comb_error</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">cfdd_unc</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">retrerr</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">owerr</span><span class="p">(</span><span class="n">sit</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>comb_error (generic function with 1 method)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">owerr</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;open water error (5%)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">retrerr</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">,(</span><span class="mi">5</span><span class="p">,)),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;retrieval error (TB uncertainty=5K)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">cfdd_unc</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;daily SIT variability (-25°C)&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sit</span><span class="p">,</span><span class="n">comb_error</span><span class="o">.</span><span class="p">(</span><span class="n">sit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;total uncertainty&quot;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="ss">:topleft</span><span class="p">)</span><span class="w"></span>
-<span class="n">xlims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
-<span class="n">ylims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
-<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;SIT [cm]&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;SIT error [cm]&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="w"></span>
-<span class="c">#savefig(&quot;/home/huntemann/Seafile/myHome/CIMR_errors.png&quot;)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/CIMR_SIT_retrieval_ATBD_13_0.svg" src="_images/CIMR_SIT_retrieval_ATBD_13_0.svg" /></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">retrerr</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.80421038985012
-</pre></div>
 </div>
 </div>
 </div>
@@ -515,27 +668,29 @@ const thebe_selector_output = ".output, .cell_output"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "julia-1.7"
+            mode: "julia-sit-atbd-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-1.7",
+            kernelName: "julia-sit-atbd-1.8",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'julia-1.7'</script>
+    <script>kernelName = 'julia-sit-atbd-1.8'</script>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="training_data_smos53.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Content with notebooks</p>
+            <p class="prev-next-title">Establishing relation TB to ice thickness</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="references.html" title="next page">
@@ -546,24 +701,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By CIMR Devalgo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By CIMR Devalgo<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
