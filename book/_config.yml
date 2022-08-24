@@ -9,6 +9,7 @@ logo: logo.jpg
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  timeout: 120
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -22,6 +23,7 @@ bibtex_bibfiles:
 # Format the citation style
 sphinx:
   config:
+    nb_render_markdown_format: myst
     bibtex_reference_style: author_year
   extra_extensions:
     - sphinxcontrib.mermaid

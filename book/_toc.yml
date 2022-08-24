@@ -28,8 +28,10 @@ chapters:
   title: Notebook comments
 - file: notebooks.ipynb
   title: Python notebook placeholder
+- file: training_data_smos53.ipynb
+  title: The brightness temperature to ice thickness relation
 - file: CIMR_SIT_retrieval_ATBD.ipynb
-  title: testing julia notebooks for SIT ATBD
+  title: The ice thickness retrieval
 - file: references.md
   title: References (example)
 - file: annex.md
