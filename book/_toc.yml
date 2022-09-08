@@ -32,6 +32,8 @@ chapters:
   title: The brightness temperature to ice thickness relation
 - file: CIMR_SIT_retrieval_ATBD.ipynb
   title: The ice thickness retrieval
+- file: Validation.ipynb
+  title: Performance evaluation of SIT retrieval
 - file: references.md
   title: References (example)
 - file: annex.md
