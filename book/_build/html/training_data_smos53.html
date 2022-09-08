@@ -188,6 +188,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Validation.html">
+   Performance evaluation of SIT retrieval
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="references.html">
    References (example)
   </a>
@@ -477,7 +482,7 @@ In this document we are using the sama data from SMOS and the cumulative freezin
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-tbsmos">
-<img alt="_images/2015aa7056aa990707e7b2dbf78b5df70c49f6fd371755a6c9630011dfa9b117.svg" src="_images/2015aa7056aa990707e7b2dbf78b5df70c49f6fd371755a6c9630011dfa9b117.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Ice thickness to brightness temperature relation showing the original SMOS data for the three resions from Huntemann et. al, 2014 extracted at 53° incidence angle</span><a class="headerlink" href="#fig-tbsmos" title="Permalink to this image">#</a></p>
+<img alt="_images/d11bfac6abcb0017bc3d86a2d8d7cf3eb79caf3ec58abaf29bf329e79217d4c8.svg" src="_images/d11bfac6abcb0017bc3d86a2d8d7cf3eb79caf3ec58abaf29bf329e79217d4c8.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Ice thickness to brightness temperature relation showing the original SMOS data for the three resions from Huntemann et. al, 2014 extracted at 53° incidence angle</span><a class="headerlink" href="#fig-tbsmos" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -485,8 +490,7 @@ In this document we are using the sama data from SMOS and the cumulative freezin
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-kararegions">
-<img alt="_images/d56346bc704b42105c6cf39fe04eaa1d0d5dfcb33d953742c3b10ba037dad54d.png" src="_images/d56346bc704b42105c6cf39fe04eaa1d0d5dfcb33d953742c3b10ba037dad54d.png" />
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Regions in the Kara and Barents Seas from the 2010 training data from Huntemann et al. 2014</span><a class="headerlink" href="#fig-kararegions" title="Permalink to this image">#</a></p>
+<img alt="_images/facb6d3d66f655d1247cc458b2dc7eb037a9fe27880e307da3015687f7165c2b.svg" src="_images/facb6d3d66f655d1247cc458b2dc7eb037a9fe27880e307da3015687f7165c2b.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Regions in the Kara and Barents Seas from the 2010 training data from Huntemann et al. 2014</span><a class="headerlink" href="#fig-kararegions" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -521,28 +525,28 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 </thead>
 <tbody>
 <tr class="row-even"><td><p>horizontal <span class="math notranslate nohighlight">\(T_{b,h}\)</span></p></td>
-<td><p>75.172</p></td>
-<td><p>217.283</p></td>
-<td><p>20.723</p></td>
+<td><p>74.527</p></td>
+<td><p>217.795</p></td>
+<td><p>21.021</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>vertical <span class="math notranslate nohighlight">\(T_{b,v}\)</span></p></td>
-<td><p>145.359</p></td>
-<td><p>247.861</p></td>
-<td><p>12.302</p></td>
+<td><p>145.170</p></td>
+<td><p>247.636</p></td>
+<td><p>12.509</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>intensity <span class="math notranslate nohighlight">\(I=(T_{b,v}+T_{b,h})/2\)</span></p></td>
-<td><p>110.311</p></td>
-<td><p>231.499</p></td>
-<td><p>16.583</p></td>
+<td><p>109.891</p></td>
+<td><p>231.596</p></td>
+<td><p>16.829</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>polarization difference <span class="math notranslate nohighlight">\(I=(T_{b,v}-T_{b,h})\)</span></p></td>
-<td><p>70.674</p></td>
-<td><p>35.237</p></td>
-<td><p>38.259</p></td>
-<td><p>2.199</p></td>
+<td><p>71.086</p></td>
+<td><p>34.322</p></td>
+<td><p>38.731</p></td>
+<td><p>2.142</p></td>
 </tr>
 </tbody>
 </table>
@@ -555,7 +559,7 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-tbsitfit">
-<img alt="_images/17ee985c461b6b4dc0a4fe1560c948574a15a811a08b7b4273775e21c350da59.svg" src="_images/17ee985c461b6b4dc0a4fe1560c948574a15a811a08b7b4273775e21c350da59.svg" /><p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Ice thickness to brightness temperature relation showing both fits <span class="math notranslate nohighlight">\(T_{b,h}, T_{b,v}\)</span> and <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(Q\)</span></span><a class="headerlink" href="#fig-tbsitfit" title="Permalink to this image">#</a></p>
+<img alt="_images/76f333678d26f6b83406c0f2ff98acb933a018196891660b826a2f41b723ffaf.svg" src="_images/76f333678d26f6b83406c0f2ff98acb933a018196891660b826a2f41b723ffaf.svg" /><p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Ice thickness to brightness temperature relation showing both fits <span class="math notranslate nohighlight">\(T_{b,h}, T_{b,v}\)</span> and <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(Q\)</span></span><a class="headerlink" href="#fig-tbsitfit" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -563,7 +567,7 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-qfitcomp">
-<img alt="_images/eb4e95039836b468439cc71fbfa9a0fdd623841b2f2e6f9871360a1e2062359d.svg" src="_images/eb4e95039836b468439cc71fbfa9a0fdd623841b2f2e6f9871360a1e2062359d.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Comparison fo fifunction in Q space between original Q fit and individual <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> fit</span><a class="headerlink" href="#fig-qfitcomp" title="Permalink to this image">#</a></p>
+<img alt="_images/5fc0a0d8dd6f5a3a186649ba151fbd767b69c6e5f5a422da31ce45194cb94863.svg" src="_images/5fc0a0d8dd6f5a3a186649ba151fbd767b69c6e5f5a422da31ce45194cb94863.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Comparison fo fifunction in Q space between original Q fit and individual <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> fit</span><a class="headerlink" href="#fig-qfitcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -571,7 +575,7 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-iqcomp">
-<img alt="_images/bf5b34424e20d8f6be52241bf38efe6c18222032659f283b2b179fe35af750c5.svg" src="_images/bf5b34424e20d8f6be52241bf38efe6c18222032659f283b2b179fe35af750c5.svg" /><p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Comparison of fit function in <span class="math notranslate nohighlight">\(I-Q\)</span>-space</span><a class="headerlink" href="#fig-iqcomp" title="Permalink to this image">#</a></p>
+<img alt="_images/06d67d8627c098f93de14c54b6c800ceb02a6f4faf801003a433e2b6ebce991a.svg" src="_images/06d67d8627c098f93de14c54b6c800ceb02a6f4faf801003a433e2b6ebce991a.svg" /><p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Comparison of fit function in <span class="math notranslate nohighlight">\(I-Q\)</span>-space</span><a class="headerlink" href="#fig-iqcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>

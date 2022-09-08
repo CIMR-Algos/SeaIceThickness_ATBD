@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="References" href="references.html" />
+    <link rel="next" title="Performance evaluation of Sea ice thickness retrieval" href="Validation.html" />
     <link rel="prev" title="Establishing relation TB to ice thickness" href="training_data_smos53.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    The ice thickness retrieval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Validation.html">
+   Performance evaluation of SIT retrieval
   </a>
  </li>
  <li class="toctree-l1">
@@ -479,26 +484,6 @@ title="Print to PDF"
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>The retrieval uses the fitted parameters from individual fits of ice thickness to brightness temperatures and a minimization scheme including uncertainties using the error covariance matrix of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> at 1.4 GHz. In contrast to the original Huntemann et al. 2014 retrieval, the upper limit is not determined capped but left open, very loosely constrained by a background ice thickness. For comparison the original fit parameters from Huntemann et al. 2014 in the lastest version are used for comparison and evaluation. However, the original parameters where obtained for an incidence angle range from 40° to 50° while the new fit parameters were obtained to match the CIMR incidence angle of 53°. The equations used for their fits are <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> and <a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(7)</a>. <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> is also used for fitting horizontal and vertical polarization directly to the ice thickness dependence. The inversion of this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to optain the ice thickness.</p>
-<div class="cell tag_hidden-input tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
-<span class="n">Q</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">^</span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
-
-
-<span class="c">#reading fit parameters from file</span><span class="w"></span>
-<span class="n">params</span><span class="o">=</span><span class="n">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s">&quot;fit_params.yml&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="n">tbh_params</span><span class="p">,</span><span class="n">tbv_params</span><span class="p">,</span><span class="n">pI</span><span class="p">,</span><span class="n">pQ</span><span class="o">=</span><span class="n">getindex</span><span class="o">.</span><span class="p">(</span><span class="kt">Ref</span><span class="p">(</span><span class="n">params</span><span class="p">),[</span><span class="s">&quot;ph&quot;</span><span class="p">,</span><span class="s">&quot;pv&quot;</span><span class="p">,</span><span class="s">&quot;pI&quot;</span><span class="p">,</span><span class="s">&quot;pQ&quot;</span><span class="p">])</span><span class="w"></span>
-
-<span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">I</span><span class="p">(</span><span class="n">pI</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">Q</span><span class="p">(</span><span class="n">pQ</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-
-<span class="n">ff</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
-<span class="n">sit_h</span><span class="o">=</span><span class="n">ff</span><span class="p">(</span><span class="n">tbh_params</span><span class="p">)</span><span class="w"></span>
-<span class="n">sit_v</span><span class="o">=</span><span class="n">ff</span><span class="p">(</span><span class="n">tbv_params</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>in Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 2</span></a> the fitted values were shown which are used for the inversion.</p>
 </div>
 <div class="section" id="retrieval-definition">
@@ -522,7 +507,7 @@ The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</spa
 <span class="eqno">(10)<a class="headerlink" href="#equation-eq-tberror" title="Permalink to this equation">#</a></span>\[\begin{split}
 \mathbf S_a = \begin{bmatrix}25 &amp; 15\\ 15 &amp; 25\end{bmatrix}
 \end{split}\]</div>
-<div class="cell tag_remove-output tag_hidden-input docutils container">
+<div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c"># easy retrieval method</span><span class="w"></span>
@@ -564,7 +549,7 @@ The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</spa
 c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
 \]</div>
 <p>which is minimized to obtain the best ice thickness <span class="math notranslate nohighlight">\(x\)</span> for a given measured <span class="math notranslate nohighlight">\(I_m\)</span> and <span class="math notranslate nohighlight">\(Q_m\)</span>.</p>
-<div class="cell tag_hidden-input tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span><span class="p">(</span><span class="n">II</span><span class="p">,</span><span class="n">QQ</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">II</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">QQ</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
 <span class="n">retrieval_hun</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"> </span>
@@ -603,7 +588,7 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-sitchange">
-<img alt="_images/f2380706798f72eb168a9d324f1c5bf76efca5a9209b8d36451ad59e6a563217.svg" src="_images/f2380706798f72eb168a9d324f1c5bf76efca5a9209b8d36451ad59e6a563217.svg" /><p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
+<img alt="_images/840b21d125775d45bbb40d5922f418f2ac1ebec40bf793107abfdc5dd2f4fe94.svg" src="_images/840b21d125775d45bbb40d5922f418f2ac1ebec40bf793107abfdc5dd2f4fe94.svg" /><p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -627,9 +612,9 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
 <p>The overall uncertainty is calculated as a composition of individual uncertainties in the parameter space, i.e. on ice thickness directly as</p>
 <div class="math notranslate nohighlight" id="equation-eq-totaluncertainty">
 <span class="eqno">(16)<a class="headerlink" href="#equation-eq-totaluncertainty" title="Permalink to this equation">#</a></span>\[ 
-σ_\text{tot}=\sqrt{\left(σ_{\text{SIC}}^2+σ_\text{growth}^2 + \sigma_\text{retr}^2\right)}
+σ_\text{tot}=\sqrt{\left(σ_{\text{SIC}}^2+σ_\text{growth}^2 + \sigma_\text{retr}^2\right)},
 \]</div>
-<p>The indiviual terms as well as the total uncertainty are shown in <a class="reference internal" href="#fig-siterrors"><span class="std std-numref">Fig. 10</span></a>. At small ice thickness the largest contribution is from the ice growth error up to about <span class="math notranslate nohighlight">\(15\ \text{cm}\)</span>. From there, the sensitivity to changes in ice thickness gets smaller and the uncertainty from the SIC takes over the higher contribution.</p>
+<p>assuming they are uncorrelated. The indiviual terms as well as the total uncertainty are shown in <a class="reference internal" href="#fig-siterrors"><span class="std std-numref">Fig. 10</span></a>. At small ice thickness the largest contribution is from the ice growth error up to about <span class="math notranslate nohighlight">\(15\ \text{cm}\)</span>. From there, the sensitivity to changes in ice thickness gets smaller and the uncertainty from the SIC takes over the higher contribution.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The ice concentration error is not a fixed function of the ice thickness as it is evaluated in the brightness temperature space and thus depends on the input brightness temperatures.</p>
@@ -637,21 +622,14 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-siterrors">
-<img alt="_images/abafe9ddceeefb306f4ca9587d141e370063a49e146b0613fd997dfd926af056.svg" src="_images/abafe9ddceeefb306f4ca9587d141e370063a49e146b0613fd997dfd926af056.svg" /><p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
+<img alt="_images/06f2d48c6c33ea74fd70e173ee00431827be95fb8f51c25443c0d61ea7b7969b.svg" src="_images/06f2d48c6c33ea74fd70e173ee00431827be95fb8f51c25443c0d61ea7b7969b.svg" /><p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-retrievalcomp">
-<img alt="_images/ce56900ebfc70cb80812ffec8b129e24ada06c26e499459fea7a112b5d884ab2.svg" src="_images/ce56900ebfc70cb80812ffec8b129e24ada06c26e499459fea7a112b5d884ab2.svg" /><p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Comparison of retrievals in <span class="math notranslate nohighlight">\(I-Q\)</span>-space, left: new HV based retrieval with soft upper limit, right: original retrieval design</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="figure align-default" id="fig-newretrievalhv">
-<img alt="_images/c194834d798ca7397418a2dc681771e91da25927abfedc6123f95d7dafc7eb95.svg" src="_images/c194834d798ca7397418a2dc681771e91da25927abfedc6123f95d7dafc7eb95.svg" /><p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">new retrieval in <span class="math notranslate nohighlight">\(H-V\)</span>-space, bright area in the upper part means 100+cm ice thickness</span><a class="headerlink" href="#fig-newretrievalhv" title="Permalink to this image">#</a></p>
+<img alt="_images/e80a9315f7cac2dd93faa33c7c52c22fa8112b05200c3849f2628cc293d29ac2.svg" src="_images/e80a9315f7cac2dd93faa33c7c52c22fa8112b05200c3849f2628cc293d29ac2.svg" /><p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -693,10 +671,10 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
             <p class="prev-next-title">Establishing relation TB to ice thickness</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="references.html" title="next page">
+    <a class='right-next' id="next-link" href="Validation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Performance evaluation of Sea ice thickness retrieval</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
