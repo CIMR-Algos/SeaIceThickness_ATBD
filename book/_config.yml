@@ -18,7 +18,7 @@ latex:
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - cryoS.bib
+  - references.bib
 
 # Format the citation style
 sphinx:
@@ -27,6 +27,11 @@ sphinx:
     bibtex_reference_style: author_year
   extra_extensions:
     - sphinxcontrib.mermaid
+      
+parse:
+  myst_enable_extensions:
+  - deflist
+
 
 
 # Information about where the book exists on the web
