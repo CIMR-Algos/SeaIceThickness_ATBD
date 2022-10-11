@@ -7,8 +7,7 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
 
 
 
-### Input data
-
+## Input data
 
 | Field | Description | Shape/Amount |
 | ---   | ----------- | ------------ |
@@ -16,7 +15,7 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
 | L1B NeΔT | Radiometric accuracy of the channels | full swath or section of it (Nscans, Npos) |
 | sea-ice and land mask | A recent sea-ice concentration field including land information | SIC and land-mask collocated to swath. |
 
-### Output data
+## Output data
 
 | Field | Description | Shape/Amount |
 | ----- | ----------- | ------------ |
@@ -24,15 +23,14 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
 | SIT uncertainty (4 fields) | Retrieval uncertainties: the total uncertainty as well as the 3 contributions separately. | full swath or section of it (Nscans, Npos) |
 | Status Flag | A flag indicating status of retrieval, e.g. “nominal”, “over land”, “ice-free”, “50+cm” | full swath or section of it (Nscans, Npos) |
 
-
 Note: over land areas, only the status flags will have a valid value, all the others will have “NaN” (_FillValue). Over ice-free ocean, the SIT will be 0 cm.
 
 
-### Auxiliary data
+## Auxiliary data
+Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be less accurate without them. This includes the {term}`TEC` for the transformation from TOA to surface brightness temperature.
 
-Subsection text
+## Ancillary data
+Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas from the retrieval.
 
-### Ancillary data
 
-Subsection text
 

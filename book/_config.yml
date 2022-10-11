@@ -1,14 +1,14 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: ATBD Template
+title: ATBD Sea Ice Thickness
 author: CIMR Devalgo
 logo: logo.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
   timeout: 120
 
 # Define the name of the latex output file for PDF builds
@@ -31,7 +31,7 @@ sphinx:
 parse:
   myst_enable_extensions:
   - deflist
-
+  - dollarmath
 
 
 # Information about where the book exists on the web

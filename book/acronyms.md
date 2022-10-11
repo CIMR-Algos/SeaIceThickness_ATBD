@@ -2,6 +2,21 @@
 
 Here follows a formatted list of acronyms
 ```{glossary}
+ATBD
+    Algorithm Theoretical Basis Document
+
+IODD
+    Input/Output Data Definition
+
+PSD
+    Product Specification Document
+
+PVP
+    Product Validation Plan
+
+MRC
+    Mission Requirement Consolidation
+
 SMOS
     {term}`Soil Moisture and Ocean Salinity`
 
@@ -11,10 +26,10 @@ SMAP
 SIC
     {term}`Sea Ice Concentration`
 
-SIT 
+SIT
     {term}`Sea Ice Thickness`
 
-CIMR 
+CIMR
     {term}`Copernicus Imaging Microwave Radiometer`
 
 TB

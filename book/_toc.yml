@@ -20,22 +20,19 @@ chapters:
   title: Level-2 product definition
 - file: baseline_algorithm_definition.md
   title: Baseline Algorithm Definition
+  sections:
+  - file: CIMR_SIT_retrieval_ATBD.ipynb
+    title: The ice thickness retrieval
 - file: algorithm_input_output_data_definition.md
   title: Algorithm Input and Output Data Definition (IODD)
 - file: algorithm_performance_assessment.md
-  title: Algorithm Performance Assessment 
-- file: markdown-notebooks.md
-  title: Notebook comments
-- file: notebooks.ipynb
-  title: Python notebook placeholder
-- file: training_data_smos53.ipynb
-  title: The brightness temperature to ice thickness relation
-- file: CIMR_SIT_retrieval_ATBD.ipynb
-  title: The ice thickness retrieval
+  title: Algorithm Performance Assessment
 - file: Validation.ipynb
   title: Performance evaluation of SIT retrieval
 - file: references.md
-  title: References (example)
+  title: References
 - file: annex.md
   title: Annex
+  sections:
+  - file: training_data_smos53.ipynb
 
