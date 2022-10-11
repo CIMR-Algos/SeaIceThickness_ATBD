@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Level-2 product definition &#8212; ATBD Template</title>
+    <title>Level-2 product definition &#8212; ATBD Sea Ice Thickness</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -41,7 +41,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -98,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    ATBD Template
+                    ATBD Sea Ice Thickness
                 </a>
             </li>
         </ul>
@@ -150,10 +150,22 @@ const thebe_selector_output = ".output, .cell_output"
    Level-2 product definition
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="baseline_algorithm_definition.html">
    Baseline Algorithm Definition
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+     The ice thickness retrieval
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="algorithm_input_output_data_definition.html">
@@ -166,39 +178,31 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebook comments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Python notebook placeholder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="training_data_smos53.html">
-   The brightness temperature to ice thickness relation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-   The ice thickness retrieval
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Validation.html">
    Performance evaluation of SIT retrieval
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   References (example)
+   References
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="annex.html">
    Annex
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -349,7 +353,57 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="level-2-product-definition">
 <h1>Level-2 product definition<a class="headerlink" href="#level-2-product-definition" title="Permalink to this headline">#</a></h1>
-<p>Definition</p>
+<p>The Level-2b product is the result of the processing from Level-1b brightness
+temperatures to Level-2b ice thickness. The product is provided in the native
+grid of the CIMR instrument at L-band frequency, which means it contains 135
+samples per scan. Multiplied by the number of scans for each orbit gives the
+number of retrieved ice thickness values per orbit. The product is provided in netCDF format and contains the
+following variables following the <a class="reference external" href="http://cfconventions.org/">CF conventions</a>:</p>
+<table class="colwidths-auto table" id="product-variables">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable name</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>dimensions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sea_ice_thickness</span></code></p></td>
+<td><p>m</p></td>
+<td><p>n_scans * n_samples_earth</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sea_ice_thickness</span> <span class="pre">standard_error</span></code></p></td>
+<td><p>m</p></td>
+<td><p>n_scans * n_samples_earth</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sea_ice_thickness</span> <span class="pre">quality_flag</span></code></p></td>
+<td><p>1</p></td>
+<td><p>n_scans * n_samples_earth</p></td>
+</tr>
+</tbody>
+</table>
+<p>The dimension follow the definition of the original CIMR L1b product.</p>
+<p>The quality flag is a 8-bit mask with the following bits:</p>
+<table class="colwidths-auto table" id="product-flags">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Validity of the retrieved ice thickness (set for valid)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Landmask (set for land)</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Ice shelf mask (set for ice shelf)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3-8</p></td>
+<td><p>Reserved</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
     <script type="text/x-thebe-config">

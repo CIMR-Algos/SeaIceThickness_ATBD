@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction, purpose and scope &#8212; ATBD Template</title>
+    <title>Introduction, purpose and scope &#8212; ATBD Sea Ice Thickness</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -41,7 +41,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -49,8 +49,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -100,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -112,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    ATBD Template
+                    ATBD Sea Ice Thickness
                 </a>
             </li>
         </ul>
@@ -152,10 +150,22 @@ const thebe_selector_output = ".output, .cell_output"
    Level-2 product definition
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="baseline_algorithm_definition.html">
    Baseline Algorithm Definition
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+     The ice thickness retrieval
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="algorithm_input_output_data_definition.html">
@@ -168,39 +178,31 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebook comments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Python notebook placeholder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="training_data_smos53.html">
-   The brightness temperature to ice thickness relation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-   The ice thickness retrieval
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Validation.html">
    Performance evaluation of SIT retrieval
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   References (example)
+   References
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="annex.html">
    Annex
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -325,41 +327,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-a-table-with-a-label">
-   Here is an example of a table with a label
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Seasons
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -371,24 +344,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-a-table-with-a-label">
-   Here is an example of a table with a label
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Seasons
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -398,100 +353,21 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-purpose-and-scope">
 <h1>Introduction, purpose and scope<a class="headerlink" href="#introduction-purpose-and-scope" title="Permalink to this headline">#</a></h1>
-<p>Here comes an introduction and the purpose and scope of the ATBD</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is an example of a note</p>
-</div>
-<div class="section" id="here-is-an-example-of-a-table-with-a-label">
-<h2>Here is an example of a table with a label<a class="headerlink" href="#here-is-an-example-of-a-table-with-a-label" title="Permalink to this headline">#</a></h2>
-<table class="colwidths-auto table" id="gridscdr">
-<thead>
-<tr class="row-odd"><th class="head"><p>Id</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{n}_{x}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{n}_{y}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{A}_{x}\)</span> [km]</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{A}_{y}\)</span> [km]</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{B}_{x}\)</span> [km]</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{B}_{y}\)</span> [km]</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nh_ease2-750</span></code>, <code class="docutils literal notranslate"><span class="pre">sh_ease2-750</span></code></p></td>
-<td><p>144</p></td>
-<td><p>144</p></td>
-<td><p>75.0</p></td>
-<td><p>75.0</p></td>
-<td><p>-5375.0</p></td>
-<td><p>5375.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nh_ease2-250</span></code>, <code class="docutils literal notranslate"><span class="pre">sh_ease2-250</span></code></p></td>
-<td><p>432</p></td>
-<td><p>432</p></td>
-<td><p>25.0</p></td>
-<td><p>25.0</p></td>
-<td><p>-5387.5</p></td>
-<td><p>5387.5</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nh_ease2-125</span></code>, <code class="docutils literal notranslate"><span class="pre">sh_ease2-125</span></code></p></td>
-<td><p>864</p></td>
-<td><p>864</p></td>
-<td><p>12.5</p></td>
-<td><p>12.5</p></td>
-<td><p>-5393.75</p></td>
-<td><p>5393.75</p></td>
-</tr>
-</tbody>
-</table>
-<p>Here is a citation, <span id="id1">[<a class="reference internal" href="references.html#id8" title="M. J. Brodzik, B. Billingsley, T. Haran, B. Raup, and M. H. Savoie. EASE-Grid 2.0: Incremental but Significant Improvements for Earth-Gridded Data Sets. ISPRS International Journal of Geo-Information, 1(1):32 – 45, 2012. \doi 10.3390/ijgi1010032.">Brodzik <em>et al.</em>, 2012</a>]</span></p>
-<p>Here is an example of how to label a section:</p>
-</div>
-<div class="section" id="id2">
-<h2>Seasons<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>The  sea-ice drift CDR has global coverage and thus cover all sea ice in
-the Northern Hemisphere (NH) and Southern Hemisphere (SH). The quality
-of the drift estimates vary with season, and it is convenient to refer
-to winter, summer, and transition periods. The definition of these
-periods are in .</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Northern Hemisphere</p></th>
-<th class="head"><p>Southern Hemisphere</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Winter</p></td>
-<td><p>Nov - Apr</p></td>
-<td><p>Apr - Sept</p></td>
-</tr>
-<tr class="row-odd"><td><p>Spring</p></td>
-<td><p>May</p></td>
-<td><p>Oct</p></td>
-</tr>
-<tr class="row-even"><td><p>Summer</p></td>
-<td><p>Jun - Sept</p></td>
-<td><p>Nov - Feb</p></td>
-</tr>
-<tr class="row-odd"><td><p>Autumn</p></td>
-<td><p>Oct</p></td>
-<td><p>Mar</p></td>
-</tr>
-</tbody>
-</table>
-<p>Here is an example of how to insert and label images:</p>
-<div class="figure align-default" id="inv-params-nh">
-<img alt="_images/inv_params_nh_2013-2020_jul.jpg" src="_images/inv_params_nh_2013-2020_jul.jpg" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Figure caption here!</span><a class="headerlink" href="#inv-params-nh" title="Permalink to this image">#</a></p>
-</div>
-<div class="figure align-default" id="inv-params-sh">
-<img alt="_images/inv_params_sh_2012-2019_dec.jpg" src="_images/inv_params_sh_2012-2019_dec.jpg" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Second figure caption</span><a class="headerlink" href="#inv-params-sh" title="Permalink to this image">#</a></p>
-</div>
-<p>These maps of parameters and residuals are saved in a monthly parameter
-file. In Figures <a class="reference internal" href="#inv-params-nh"><span class="std std-numref">Fig. 1</span></a> and <a class="reference internal" href="#inv-params-sh"><span class="std std-numref">Fig. 2</span></a>
-examples of these parameters are shown.</p>
-</div>
+<p>This is a ATBD of <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> retrieval algorithm for <a class="reference internal" href="acronyms.html#term-CIMR"><span class="xref std std-term">CIMR</span></a>. It method
+described supposed to act on the CIMR L1b brightness temperatures and
+corresponding output will be L2b, i.e. Swath based brightness temperature in
+original footprint coordinates. For the retrieval only L-band brightness
+temperatures will be used in H and V polarization. Required information for the
+retrieval include the <a class="reference internal" href="acronyms.html#term-TEC"><span class="xref std std-term">TEC</span></a> and the <a class="reference internal" href="acronyms.html#term-TB"><span class="xref std std-term">TB</span></a> uncertainties. The
+algorithm is based on the work of <span id="id1">[]</span> and works originally on
+intensity and polarization difference. In this ATBD the algorithm is modified
+to use directly instrument provided horizontal and vertical polarization,
+including their uncertainties.</p>
+<p>This document is describing the algorithm and processing steps and the
+processing of the L2b <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> product. The document is inteded for the CIMR
+users and interested parties. It is not intended to replace a product usere
+guide. The algorithm is implemented in the <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> retrieval software
+package which is distributed in the “algorithm” directory of this repository.</p>
 </div>
 
     <script type="text/x-thebe-config">

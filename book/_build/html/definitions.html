@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Definitions used in this ATBD &#8212; ATBD Template</title>
+    <title>Definitions used in this ATBD &#8212; ATBD Sea Ice Thickness</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -41,7 +41,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -98,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    ATBD Template
+                    ATBD Sea Ice Thickness
                 </a>
             </li>
         </ul>
@@ -150,10 +150,22 @@ const thebe_selector_output = ".output, .cell_output"
    Level-2 product definition
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="baseline_algorithm_definition.html">
    Baseline Algorithm Definition
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+     The ice thickness retrieval
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="algorithm_input_output_data_definition.html">
@@ -166,39 +178,31 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebook comments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Python notebook placeholder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="training_data_smos53.html">
-   The brightness temperature to ice thickness relation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-   The ice thickness retrieval
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Validation.html">
    Performance evaluation of SIT retrieval
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   References (example)
+   References
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="annex.html">
    Annex
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -350,45 +354,22 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="definitions-used-in-this-atbd">
 <h1>Definitions used in this ATBD<a class="headerlink" href="#definitions-used-in-this-atbd" title="Permalink to this headline">#</a></h1>
 <p>Here follows a glossary, or list of definitions</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>ATBD</p></td>
-<td><p>Algorithm Theoretical Basis Document</p></td>
-</tr>
-<tr class="row-odd"><td><p>CIMR</p></td>
-<td><p>Copernicus Imaging Microwave Radiometer</p></td>
-</tr>
-<tr class="row-even"><td><p>IODD</p></td>
-<td><p>Input/Ouput Data Definition</p></td>
-</tr>
-<tr class="row-odd"><td><p>PSD</p></td>
-<td><p>Product Specification Document</p></td>
-</tr>
-<tr class="row-even"><td><p>PVP</p></td>
-<td><p>Product Validation Plan</p></td>
-</tr>
-<tr class="row-odd"><td><p>SIC</p></td>
-<td><p>Sea Ice Concentration</p></td>
-</tr>
-<tr class="row-even"><td><p>SIT</p></td>
-<td><p>Sea Ice Thickness</p></td>
-</tr>
-<tr class="row-odd"><td><p>SMOS</p></td>
-<td><p>Soil Moisture Ocean Salinity</p></td>
-</tr>
-<tr class="row-even"><td><p>SMAP</p></td>
-<td><p>Soil Moisture Active/Passive</p></td>
-</tr>
-<tr class="row-odd"><td><p>TB</p></td>
-<td><p>Brightness Temperature</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="glossary simple">
+<dt id="term-Soil-Moisture-and-Ocean-Salinity">Soil Moisture and Ocean Salinity<a class="headerlink" href="#term-Soil-Moisture-and-Ocean-Salinity" title="Permalink to this term">#</a></dt><dd><p>The Soil Moisture and Ocean Salinity is a Satellite based L-Band Radiometer launched by ESA in 2009.</p>
+</dd>
+<dt id="term-Soil-Moisture-Active-Passive">Soil Moisture Active/Passive<a class="headerlink" href="#term-Soil-Moisture-Active-Passive" title="Permalink to this term">#</a></dt><dd><p>The Soil Moisture Active/Passive is a Satellite based L-Band Radiometer launched by NASA in 2015.</p>
+</dd>
+<dt id="term-Sea-Ice-Concentration">Sea Ice Concentration<a class="headerlink" href="#term-Sea-Ice-Concentration" title="Permalink to this term">#</a></dt><dd><p>The Sea Ice Concentration is the fraction of the sea surface covered by sea ice. It is a measure of the amount of sea ice in a given area. It is usually expressed as a percentage.</p>
+</dd>
+<dt id="term-Sea-Ice-Thickness">Sea Ice Thickness<a class="headerlink" href="#term-Sea-Ice-Thickness" title="Permalink to this term">#</a></dt><dd><p>The Sea Ice Thickness is the thickness of the sea ice. It is usually expressed in meters.</p>
+</dd>
+<dt id="term-Copernicus-Imaging-Microwave-Radiometer">Copernicus Imaging Microwave Radiometer<a class="headerlink" href="#term-Copernicus-Imaging-Microwave-Radiometer" title="Permalink to this term">#</a></dt><dd><p>The Copernicus Imaging Microwave Radiometer is a Microwave Radiometer which launch is planned by ESA in 2028.</p>
+</dd>
+<dt id="term-Brightness-Temperature">Brightness Temperature<a class="headerlink" href="#term-Brightness-Temperature" title="Permalink to this term">#</a></dt><dd><p>The Brightness Temperature is the temperature of a surface as seen by a passive microwave sensor. It is a measure of the amount of energy emitted by a surface. It is usually expressed in Kelvin.</p>
+</dd>
+<dt id="term-Total-Electron-Content">Total Electron Content<a class="headerlink" href="#term-Total-Electron-Content" title="Permalink to this term">#</a></dt><dd><p>The Total Electron Content is the total number of electrons per unit volume in the path between the satellite and the earth. It is usually expressed in electrons per square meter. Higher TEC values lead to higher rotation of the polarization plane of the microwave radiation.</p>
+</dd>
+</dl>
 </div>
 
     <script type="text/x-thebe-config">

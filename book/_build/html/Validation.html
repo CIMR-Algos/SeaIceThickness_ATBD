@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Performance evaluation of Sea ice thickness retrieval &#8212; ATBD Template</title>
+    <title>Performance evaluation of Sea ice thickness retrieval &#8212; ATBD Sea Ice Thickness</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -41,7 +41,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="references.html" />
-    <link rel="prev" title="Sea ice thickness retrieval implementation" href="CIMR_SIT_retrieval_ATBD.html" />
+    <link rel="prev" title="Algorithm Performance Assessment (Version 2 ATBD)" href="algorithm_performance_assessment.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -112,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    ATBD Template
+                    ATBD Sea Ice Thickness
                 </a>
             </li>
         </ul>
@@ -152,10 +152,22 @@ const thebe_selector_output = ".output, .cell_output"
    Level-2 product definition
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="baseline_algorithm_definition.html">
    Baseline Algorithm Definition
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+     The ice thickness retrieval
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="algorithm_input_output_data_definition.html">
@@ -167,26 +179,6 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Performance Assessment (Version 2 ATBD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebook comments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Python notebook placeholder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="training_data_smos53.html">
-   The brightness temperature to ice thickness relation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-   The ice thickness retrieval
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Performance evaluation of SIT retrieval
@@ -194,13 +186,25 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   References (example)
+   References
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="annex.html">
    Annex
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -384,21 +388,21 @@ title="Print to PDF"
 It contains brightness temperatures and thin ice thickness retrieved from SMOS. For this evaluation of the algorithm, it can not be used directly since the 53° degree incidence angle equivalent brightness temperatures are not part of the dataset. We extracted the corresponding locations at the given days from SMOS L1C data in version 7.24.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Figure <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 12</span></a> shows the direct comparison of the reference dataset. The algorithm shows slightly higher ice thickness. A least square fit result in a slope of 1.5 and y-intersection of -3.0. The discrepency might come from the difference in incidence angle or the difference in the data version from the SMOS satellite. While the original dataset had a fixed upper limit at <span class="math notranslate nohighlight">\(50\ \text{cm}\)</span> ice thickness, the retrieval described here does not have this limit. The correlation coefficient between the datasets is <span class="math notranslate nohighlight">\(r=\)</span> 0.8.</p>
+<p>Figure <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 4</span></a> shows the direct comparison of the reference dataset. The algorithm shows slightly higher ice thickness. A least square fit result in a slope of 1.5 and y-intersection of -3.0. The discrepency might come from the difference in incidence angle or the difference in the data version from the SMOS satellite. While the original dataset had a fixed upper limit at <span class="math notranslate nohighlight">\(50\ \text{cm}\)</span> ice thickness, the retrieval described here does not have this limit. The correlation coefficient between the datasets is <span class="math notranslate nohighlight">\(r=\)</span> 0.8.</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-refcompare">
-<img alt="_images/f1949426e0a3327052a0d9f802128b74bd03e1b089fd430037752d611e3065d1.svg" src="_images/f1949426e0a3327052a0d9f802128b74bd03e1b089fd430037752d611e3065d1.svg" /><p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
+<img alt="_images/a0e35f2640ead09d15c644aa3f784690138a7749be7e71d408e893564e88dea9.svg" src="_images/a0e35f2640ead09d15c644aa3f784690138a7749be7e71d408e893564e88dea9.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
-<p>In Figure <a class="reference internal" href="#fig-rrdplocs"><span class="std std-numref">Fig. 13</span></a> the locations an corresponding ice thicknesses are shown which resultet in a valid data point in the comparsion to <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 12</span></a>. Most data points are coming from the Barents and Kara Seas as well as the Chuckchi Sea, while only few data points come from the Laptev Sea and the Baffin Bay area.</p>
+<p>In Figure <a class="reference internal" href="#fig-rrdplocs"><span class="std std-numref">Fig. 5</span></a> the locations an corresponding ice thicknesses are shown which resultet in a valid data point in the comparsion to <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 4</span></a>. Most data points are coming from the Barents and Kara Seas as well as the Chuckchi Sea, while only few data points come from the Laptev Sea and the Baffin Bay area.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-rrdplocs">
-<img alt="_images/7c683c0670f97687ba39c8cdfbe83fa3ab47cb86a5fe3677fedf4b7fc8447a39.svg" src="_images/7c683c0670f97687ba39c8cdfbe83fa3ab47cb86a5fe3677fedf4b7fc8447a39.svg" /><p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
+<img alt="_images/f981b6c4c2a0f66107cde6e2a02d6e827baea80f2a845388ed77c9452fadc2b3.svg" src="_images/f981b6c4c2a0f66107cde6e2a02d6e827baea80f2a845388ed77c9452fadc2b3.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -413,16 +417,16 @@ It contains brightness temperatures and thin ice thickness retrieved from SMOS. 
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "julia-sit-atbd-1.8"
+            mode: "julia-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-sit-atbd-1.8",
+            kernelName: "julia-1.8",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'julia-sit-atbd-1.8'</script>
+    <script>kernelName = 'julia-1.8'</script>
 
               </div>
               
@@ -431,11 +435,11 @@ It contains brightness temperatures and thin ice thickness retrieved from SMOS. 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="CIMR_SIT_retrieval_ATBD.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="algorithm_performance_assessment.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Sea ice thickness retrieval implementation</p>
+            <p class="prev-next-title">Algorithm Performance Assessment (Version 2 ATBD)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="references.html" title="next page">

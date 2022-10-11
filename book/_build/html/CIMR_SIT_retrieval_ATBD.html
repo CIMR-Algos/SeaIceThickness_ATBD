@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sea ice thickness retrieval implementation &#8212; ATBD Template</title>
+    <title>Sea ice thickness retrieval implementation &#8212; ATBD Sea Ice Thickness</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -41,7 +41,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Performance evaluation of Sea ice thickness retrieval" href="Validation.html" />
-    <link rel="prev" title="Establishing relation TB to ice thickness" href="training_data_smos53.html" />
+    <link rel="next" title="Algorithm Input and Output Data Definition (IODD)" href="algorithm_input_output_data_definition.html" />
+    <link rel="prev" title="Baseline Algorithm Definition" href="baseline_algorithm_definition.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Template</h1>
+      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -112,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    ATBD Template
+                    ATBD Sea Ice Thickness
                 </a>
             </li>
         </ul>
@@ -152,10 +152,22 @@ const thebe_selector_output = ".output, .cell_output"
    Level-2 product definition
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="baseline_algorithm_definition.html">
    Baseline Algorithm Definition
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     The ice thickness retrieval
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="algorithm_input_output_data_definition.html">
@@ -168,39 +180,31 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebook comments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Python notebook placeholder
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="training_data_smos53.html">
-   The brightness temperature to ice thickness relation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   The ice thickness retrieval
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="Validation.html">
    Performance evaluation of SIT retrieval
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   References (example)
+   References
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="annex.html">
    Annex
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -483,31 +487,36 @@ title="Print to PDF"
 <h1>Sea ice thickness retrieval implementation<a class="headerlink" href="#sea-ice-thickness-retrieval-implementation" title="Permalink to this headline">#</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<p>The retrieval uses the fitted parameters from individual fits of ice thickness to brightness temperatures and a minimization scheme including uncertainties using the error covariance matrix of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> at 1.4 GHz. In contrast to the original Huntemann et al. 2014 retrieval, the upper limit is not determined capped but left open, very loosely constrained by a background ice thickness. For comparison the original fit parameters from Huntemann et al. 2014 in the lastest version are used for comparison and evaluation. However, the original parameters where obtained for an incidence angle range from 40° to 50° while the new fit parameters were obtained to match the CIMR incidence angle of 53°. The equations used for their fits are <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> and <a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(7)</a>. <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(6)</a> is also used for fitting horizontal and vertical polarization directly to the ice thickness dependence. The inversion of this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to optain the ice thickness.</p>
-<p>in Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 2</span></a> the fitted values were shown which are used for the inversion.</p>
+<p>The retrieval uses the fitted parameters from individual fits of ice thickness to brightness temperatures and a minimization scheme including uncertainties using the error covariance matrix of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> at 1.4 GHz. In contrast to the original Huntemann et al. 2014 retrieval, the upper limit is not determined capped but left open, very loosely constrained by a background ice thickness. For comparison the original fit parameters from Huntemann et al. 2014 in the lastest version are used for comparison and evaluation. However, the original parameters where obtained for an incidence angle range from 40° to 50° while the new fit parameters were obtained to match the CIMR incidence angle of 53°. The equations used for their fits are <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(11)</a> and <a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(12)</a>. <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(11)</a> is also used for fitting horizontal and vertical polarization directly to the ice thickness dependence. The inversion of this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to optain the ice thickness.</p>
+<p>in Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> the fitted values were shown which are used for the inversion.</p>
 </div>
 <div class="section" id="retrieval-definition">
 <h2>retrieval definition<a class="headerlink" href="#retrieval-definition" title="Permalink to this headline">#</a></h2>
 <p>The retrieval is following a typical scheme with the objective to minimize</p>
 <div class="math notranslate nohighlight" id="equation-eq-chi2">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-chi2" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-chi2" title="Permalink to this equation">#</a></span>\[
 χ^2(\mathbf y,\mathbf x,\mathbf S_e,\mathbf S_a,\mathbf x_a)=\left(\mathbf y-F(\mathbf x)\right)^\mathbf{T}\mathbf S_e^{-1}(\mathbf y-F(\mathbf x))+(\mathbf x_a-\mathbf x)^{\mathbf T}\mathbf S_a^{-1}(\mathbf x_a - \mathbf x) 
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf y= \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span> is the vector of input (measured) brightness temperatures, <span class="math notranslate nohighlight">\(\mathbf x\)</span> is the result vector (in case of the retrieval of only one quantity, ice thickness, this is a scalar),  <span class="math notranslate nohighlight">\(\mathbf S_e\)</span> is the error covariance matrix of the input brightness temperatures, <span class="math notranslate nohighlight">\(\mathbf S_a\)</span> is the covariance matrix of the background values (in this case a scalar), <span class="math notranslate nohighlight">\(\textbf x_a\)</span> is the background value (ice thickness) and <span class="math notranslate nohighlight">\(F\)</span> is the forward operator, in our caes the individual fit function for a given ice thickness, i.e.,
 <span class="math notranslate nohighlight">\(F(\mathbf x) = \begin{bmatrix}f_h(\mathbf x)\\ f_v(\mathbf x)\end{bmatrix}\)</span></p>
-<p>The optimal solution <span class="math notranslate nohighlight">\(\hat {\mathbf y}\)</span> which minimizes equation <a class="reference internal" href="#equation-eq-chi2">(8)</a> is found by iteration.
+<p>The optimal solution <span class="math notranslate nohighlight">\(\hat {\mathbf y}\)</span> which minimizes equation <a class="reference internal" href="#equation-eq-chi2">(2)</a> is found by iteration.
 The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</span> can then be obtained as</p>
 <div class="math notranslate nohighlight" id="equation-eq-error">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-error" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-error" title="Permalink to this equation">#</a></span>\[
 \mathbf {\hat S}_a= (\mathbf S_a^{-1}+\mathbf{ \hat M}^\mathbf T \mathbf S_e^{-1}\mathbf {\hat M})^{-1}, 
 \]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf {\hat M}\)</span> is the Jacobian of the optimal solution of <a class="reference internal" href="#equation-eq-chi2">(8)</a> which is in this case also a scalar.</p>
+<p>with <span class="math notranslate nohighlight">\(\mathbf {\hat M}\)</span> is the Jacobian of the optimal solution of <a class="reference internal" href="#equation-eq-chi2">(2)</a> which is in this case also a scalar.</p>
 <p>Some variables are fixed in this scheme, this is the background ice thickness <span class="math notranslate nohighlight">\(\mathbf x_a=x_a=100\)</span> cm and its variance <span class="math notranslate nohighlight">\(\mathbf S_a=S_a=20000\ cm^2\)</span> which is practically used to very loosly contrain the ice thickness. Others parameters are obtained from the CIMR satellite like <span class="math notranslate nohighlight">\(\mathbf y= \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span>, the brightness temperatures at L-band, and the diagonal components of the error covariance matrix <span class="math notranslate nohighlight">\(\mathbf S_a\)</span>, for the offdiagonal of <span class="math notranslate nohighlight">\(\mathbf S_a\)</span> there is no good estimate, but it is not expected that the uncertainties of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> are uncorrelated. For the lack of a better estimate, we claim a correlation of 0.6 which results in off diagonal elements of <span class="math notranslate nohighlight">\(0.6*\sigma_{Tbh}\sigma_{TBv}\)</span>. For illustration of the algorithm we use</p>
 <div class="math notranslate nohighlight" id="equation-eq-tberror">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-tberror" title="Permalink to this equation">#</a></span>\[\begin{split}
-\mathbf S_a = \begin{bmatrix}25 &amp; 15\\ 15 &amp; 25\end{bmatrix}
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-tberror" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf S_e = \begin{bmatrix}25 &amp; 15\\ 15 &amp; 25\end{bmatrix}
 \end{split}\]</div>
 <div class="cell tag_remove-output tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c"># easy retrieval method</span><span class="w"></span>
@@ -520,43 +529,89 @@ The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</spa
 <span class="w">    </span><span class="c"># returns Y, the output vector</span><span class="w"></span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c">#defining error function to menimize as χ² </span><span class="w"></span>
-<span class="w">    </span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Se</span><span class="o">\</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
-<span class="w">    </span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">)</span><span class="o">=</span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Se</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">)</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sa</span><span class="o">\</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">iSa</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sa</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">iSe</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Se</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">χ²</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">iSe</span><span class="p">,</span><span class="n">iSa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">iSe</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">+</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">)</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">iSa</span><span class="o">*</span><span class="p">(</span><span class="n">xa</span><span class="o">.-</span><span class="n">x</span><span class="p">))</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">xa</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"></span>
-<span class="w">        </span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">maximize</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;-</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">xi</span><span class="o">=</span><span class="p">[</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">iSe</span><span class="p">,</span><span class="n">iSa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="k">else</span><span class="w"></span>
-<span class="w">        </span><span class="n">res</span><span class="o">=</span><span class="n">optimize</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Se</span><span class="p">,</span><span class="n">Sa</span><span class="p">,</span><span class="n">xa</span><span class="p">),</span><span class="n">xa</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">y</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="o">=</span><span class="n">optimize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">χ²</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">iSe</span><span class="p">,</span><span class="n">iSa</span><span class="p">,</span><span class="n">xa</span><span class="p">,</span><span class="n">F</span><span class="p">),</span><span class="n">xa</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">xi</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="w">    </span>
-<span class="w">    </span><span class="n">M</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">yerr</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">Sa</span><span class="p">)</span><span class="o">+</span><span class="n">M</span><span class="o">&#39;*</span><span class="n">inv</span><span class="p">(</span><span class="n">Se</span><span class="p">)</span><span class="o">*</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">yerr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<span class="c">#    @show χ²(Ta,y,Se,Sa,xa)</span><span class="w"></span>
+<span class="w">    </span><span class="n">M</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xi</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">xerr</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">iSa</span><span class="o">+</span><span class="n">M</span><span class="o">&#39;*</span><span class="n">iSe</span><span class="o">*</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="c">#    @show χ²(Ta,xi,iSe,iSa,xa,F)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">xerr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 <span class="w">    </span>
-<span class="n">Fw_TB</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">sit_h</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="n">sit_v</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span><span class="w"></span>
-<span class="n">Fw_IQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span><span class="w"></span>
 
-<span class="n">c</span><span class="o">=</span><span class="mi">15</span><span class="w"></span>
-<span class="n">retrieval</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">retrieval</span><span class="p">([</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],[</span><span class="mi">25</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="n">c</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="n">fill</span><span class="p">(</span><span class="mf">20000.</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">retrieval</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">retrieval</span><span class="p">([</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],[</span><span class="mi">25</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="mi">15</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="n">fill</span><span class="p">(</span><span class="mf">20000.</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
+</details>
+</div>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Sₑ</span><span class="p">,</span><span class="n">Sₐ</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">#lm method after Rodgers 2000</span><span class="w"></span>
+<span class="w">    </span><span class="c">#target: find x so that F(x)=Ta, given</span><span class="w"></span>
+<span class="w">    </span><span class="c">#Ta: measurement vector</span><span class="w"></span>
+<span class="w">    </span><span class="c">#Sₑ: error covariance of measurement</span><span class="w"></span>
+<span class="w">    </span><span class="c">#Sₐ: error covariance of physical state </span><span class="w"></span>
+<span class="w">    </span><span class="c">#xₐ: expected physical state (also used as start, i.e. first guess)</span><span class="w"></span>
+<span class="w">    </span><span class="c">#F: the forward model translating measument space into state space</span><span class="w"></span>
+<span class="w">    </span><span class="n">Sₐ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">Sₑ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₑ</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">#function to minimize with changing input x</span><span class="w"></span>
+<span class="w">    </span><span class="n">J</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">+</span><span class="p">(</span><span class="n">xₐ</span><span class="o">.-</span><span class="n">x</span><span class="p">)</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sₐ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xₐ</span><span class="o">.-</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="c">#first two temrs of eq 5.3</span><span class="w"></span>
+<span class="w">    </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="n">xₐ</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">γ</span><span class="o">=</span><span class="mf">1e-5</span><span class="w"> </span><span class="c">#set to 0 for gauss newton</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">2000</span><span class="w"></span>
+<span class="w">        </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">Ŝ⁻¹</span><span class="o">=</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="w"> </span><span class="c">#eq 5.13</span><span class="w"></span>
+<span class="w">        </span><span class="n">xᵢ₊₁</span><span class="o">=</span><span class="n">xᵢ</span><span class="o">+</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">γ</span><span class="p">)</span><span class="o">*</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="o">\</span><span class="p">(</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">Ta</span><span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="n">xᵢ</span><span class="p">))</span><span class="o">-</span><span class="n">Sₐ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xₐ</span><span class="p">))</span><span class="w"> </span><span class="c">#eq 5.36</span><span class="w"></span>
+<span class="w">        </span><span class="n">Jᵢ₊₁</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ₊₁</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">d²</span><span class="o">=</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">Ŝ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="w"> </span><span class="c">#eq 5.29</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">Jᵢ₊₁</span><span class="o">&lt;</span><span class="n">Jᵢ</span><span class="w"> </span><span class="c">#accepting &amp; rejecting criterion from our local OEM</span><span class="w"></span>
+<span class="w">            </span><span class="n">γ</span><span class="o">/=</span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">γ</span><span class="o">*=</span><span class="mi">10</span><span class="w"></span>
+<span class="w">            </span><span class="k">continue</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">xᵢ₊₁</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">d²</span><span class="o">&lt;</span><span class="mf">1e-10</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">Jᵢ₊₁</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">Ŝ</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="w"> </span><span class="c"># eq 5.38</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Ŝ</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+
+<span class="n">retrievallm</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">first</span><span class="o">.</span><span class="p">(</span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">SA</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],</span><span class="n">SA</span><span class="p">[</span><span class="mi">25</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="mi">15</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="kt">SMatrix</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}(</span><span class="mf">20000.0</span><span class="p">),</span><span class="n">SA</span><span class="p">[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 <p>The comparison will be done with a least squares fit based <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-retrieval from Huntemann et al. 2014, i.e., the cost function is</p>
 <div class="math notranslate nohighlight" id="equation-eq-iqcost">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-iqcost" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-iqcost" title="Permalink to this equation">#</a></span>\[
 c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
 \]</div>
 <p>which is minimized to obtain the best ice thickness <span class="math notranslate nohighlight">\(x\)</span> for a given measured <span class="math notranslate nohighlight">\(I_m\)</span> and <span class="math notranslate nohighlight">\(Q_m\)</span>.</p>
-<div class="cell tag_remove-output tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span><span class="p">(</span><span class="n">II</span><span class="p">,</span><span class="n">QQ</span><span class="p">)</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">fI</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">II</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">fQ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">QQ</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"></span>
-<span class="n">retrieval_hun</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)</span><span class="o">=</span><span class="n">maximize</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;-</span><span class="n">cost</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">qq</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimizer</span><span class="w"> </span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="uncertainties">
 <h2>Uncertainties<a class="headerlink" href="#uncertainties" title="Permalink to this headline">#</a></h2>
@@ -571,50 +626,50 @@ c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
 <h3>Daily ice thickness variation<a class="headerlink" href="#daily-ice-thickness-variation" title="Permalink to this headline">#</a></h3>
 <p>an empirical model of the ice thickness increase was proposed by Lebedev 1918, with the so called cummulative freezing degree days. The idea is the negative air temperature over time is a proxy for the physical ice thickness increase. The original formulation is</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfdd-sit">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-cfdd-sit" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-cfdd-sit" title="Permalink to this equation">#</a></span>\[
 d_{\text{ice}}(\Theta) = 1.33*{\Theta}^{-0.58}
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-cfdd">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-cfdd" title="Permalink to this equation">#</a></span>\[\Theta = \sum_{\text{days}} T_{\text {air}}+1.8\ {}^\circ \text C \text ,
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-cfdd" title="Permalink to this equation">#</a></span>\[\Theta = \sum_{\text{days}} T_{\text {air}}+1.8\ {}^\circ \text C \text ,
 \]</div>
-<p>with <span class="math notranslate nohighlight">\(T_{air}\)</span> being the daily average air temperature. The exponent of <span class="math notranslate nohighlight">\(\Theta\)</span> in equation <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a> was found to vary depending on the location, snow accumulation and wind and cloud conditions. <a class="reference internal" href="#fig-sitchange"><span class="std std-numref">Fig. 9</span></a> shows the SIT uncertainty from daily ice thickness variations from <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a> for three different reference temperatures. For the following we use <span class="math notranslate nohighlight">\(-25\ \text{°C}\)</span> as uncertainty reference for contribution to the combined error calculation.
-Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>, for a fixed temperature, the cumulative freezing degree days to reach a certain ice thickness is</p>
+<p>with <span class="math notranslate nohighlight">\(T_{air}\)</span> being the daily average air temperature. The exponent of <span class="math notranslate nohighlight">\(\Theta\)</span> in equation <a class="reference internal" href="#equation-eq-cfdd-sit">(6)</a> was found to vary depending on the location, snow accumulation and wind and cloud conditions. <a class="reference internal" href="#fig-sitchange"><span class="std std-numref">Fig. 1</span></a> shows the SIT uncertainty from daily ice thickness variations from <a class="reference internal" href="#equation-eq-cfdd-sit">(6)</a> for three different reference temperatures. For the following we use <span class="math notranslate nohighlight">\(-25\ \text{°C}\)</span> as uncertainty reference for contribution to the combined error calculation.
+Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(6)</a>, for a fixed temperature, the cumulative freezing degree days to reach a certain ice thickness is</p>
 <div class="math notranslate nohighlight">
 \[t_{\text{S}}(\text{d}_{\text{ice}},T)=-(\text{d}_{\text{ice}}/1.33)^{(1/0.58)}/(T+1.8)
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-sic-uncertainty">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-sic-uncertainty" title="Permalink to this equation">#</a></span>\[ \sigma_{\text{growth}} = 0.68\ (d_{\text{ice}}(t_\text{S}+1\ \text {day})-d_{\text{ice}}(t_\text{S}))
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-sic-uncertainty" title="Permalink to this equation">#</a></span>\[ \sigma_{\text{growth}} = 0.68\ (d_{\text{ice}}(t_\text{S}+1\ \text {day})-d_{\text{ice}}(t_\text{S}))
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-sitchange">
-<img alt="_images/840b21d125775d45bbb40d5922f418f2ac1ebec40bf793107abfdc5dd2f4fe94.svg" src="_images/840b21d125775d45bbb40d5922f418f2ac1ebec40bf793107abfdc5dd2f4fe94.svg" /><p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
+<img alt="_images/a32d8e2ca88156a1dc5267b7f017f1d9f205221b6ad554fc76aea8e01c420311.svg" src="_images/a32d8e2ca88156a1dc5267b7f017f1d9f205221b6ad554fc76aea8e01c420311.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="propagation-of-brightness-temperature-uncertainty">
 <h3>Propagation of brightness temperature uncertainty<a class="headerlink" href="#propagation-of-brightness-temperature-uncertainty" title="Permalink to this headline">#</a></h3>
-<p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described in <a class="reference internal" href="#equation-eq-error">(9)</a> and is a direct result of the sensitivity of the forward model to changes in brightness temperature.</p>
+<p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described in <a class="reference internal" href="#equation-eq-error">(3)</a> and is a direct result of the sensitivity of the forward model to changes in brightness temperature.</p>
 </div>
 <div class="section" id="uncertainty-from-full-ice-cover-assumption">
 <h3>Uncertainty from full ice cover assumption<a class="headerlink" href="#uncertainty-from-full-ice-cover-assumption" title="Permalink to this headline">#</a></h3>
-<p>The assumption of the full ice coverage originates from the uknown ice concentration. It can occur that a part of the footprint is open water which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> in for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 2</span></a> gives the open water tie point, i.e. at 0cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
+<p>The assumption of the full ice coverage originates from the uknown ice concentration. It can occur that a part of the footprint is open water which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> in for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> gives the open water tie point, i.e. at 0cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
 <div class="math notranslate nohighlight">
 \[ T_{b,h/v}(\text{SIC})=T_{b,h/v}*\text{SIC} + p_{1,h/v}*(1-\text{SIC})\]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight" id="equation-eq-sicerror">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-sicerror" title="Permalink to this equation">#</a></span>\[ σ_\text{SIC} = 1/2 \left(F^{-1}\left(T_{b,h/v}(0.95)\right)+F^{-1}\left(T_{b,h/v}(1.05)\right)\right)
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-sicerror" title="Permalink to this equation">#</a></span>\[ σ_\text{SIC} = 1/2 \left(F^{-1}\left(T_{b,h/v}(0.95)\right)+F^{-1}\left(T_{b,h/v}(1.05)\right)\right)
 \]</div>
 </div>
 <div class="section" id="total-uncertainty">
 <h3>Total uncertainty<a class="headerlink" href="#total-uncertainty" title="Permalink to this headline">#</a></h3>
 <p>The overall uncertainty is calculated as a composition of individual uncertainties in the parameter space, i.e. on ice thickness directly as</p>
 <div class="math notranslate nohighlight" id="equation-eq-totaluncertainty">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eq-totaluncertainty" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-totaluncertainty" title="Permalink to this equation">#</a></span>\[ 
 σ_\text{tot}=\sqrt{\left(σ_{\text{SIC}}^2+σ_\text{growth}^2 + \sigma_\text{retr}^2\right)},
 \]</div>
-<p>assuming they are uncorrelated. The indiviual terms as well as the total uncertainty are shown in <a class="reference internal" href="#fig-siterrors"><span class="std std-numref">Fig. 10</span></a>. At small ice thickness the largest contribution is from the ice growth error up to about <span class="math notranslate nohighlight">\(15\ \text{cm}\)</span>. From there, the sensitivity to changes in ice thickness gets smaller and the uncertainty from the SIC takes over the higher contribution.</p>
+<p>assuming they are uncorrelated. The indiviual terms as well as the total uncertainty are shown in <a class="reference internal" href="#fig-siterrors"><span class="std std-numref">Fig. 2</span></a>. At small ice thickness the largest contribution is from the ice growth error up to about <span class="math notranslate nohighlight">\(15\ \text{cm}\)</span>. From there, the sensitivity to changes in ice thickness gets smaller and the uncertainty from the SIC takes over the higher contribution.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The ice concentration error is not a fixed function of the ice thickness as it is evaluated in the brightness temperature space and thus depends on the input brightness temperatures.</p>
@@ -622,14 +677,14 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-siterrors">
-<img alt="_images/06f2d48c6c33ea74fd70e173ee00431827be95fb8f51c25443c0d61ea7b7969b.svg" src="_images/06f2d48c6c33ea74fd70e173ee00431827be95fb8f51c25443c0d61ea7b7969b.svg" /><p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
+<img alt="_images/cc4a039851464b0af9495bfa7c4325a1c8e7b75f35511fc31476cb5ca97a0fc1.svg" src="_images/cc4a039851464b0af9495bfa7c4325a1c8e7b75f35511fc31476cb5ca97a0fc1.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-retrievalcomp">
-<img alt="_images/e80a9315f7cac2dd93faa33c7c52c22fa8112b05200c3849f2628cc293d29ac2.svg" src="_images/e80a9315f7cac2dd93faa33c7c52c22fa8112b05200c3849f2628cc293d29ac2.svg" /><p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
+<img alt="_images/bd2949e1b145d6cb1a2793e8f44b3505aa985093e9c95597f82a62ba146d8e55.svg" src="_images/bd2949e1b145d6cb1a2793e8f44b3505aa985093e9c95597f82a62ba146d8e55.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -646,16 +701,16 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "julia-sit-atbd-1.8"
+            mode: "julia-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-sit-atbd-1.8",
+            kernelName: "julia-1.8",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'julia-sit-atbd-1.8'</script>
+    <script>kernelName = 'julia-1.8'</script>
 
               </div>
               
@@ -664,17 +719,17 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(12)</a>,
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="training_data_smos53.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="baseline_algorithm_definition.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Establishing relation TB to ice thickness</p>
+            <p class="prev-next-title">Baseline Algorithm Definition</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Validation.html" title="next page">
+    <a class='right-next' id="next-link" href="algorithm_input_output_data_definition.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Performance evaluation of Sea ice thickness retrieval</p>
+        <p class="prev-next-title">Algorithm Input and Output Data Definition (IODD)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
