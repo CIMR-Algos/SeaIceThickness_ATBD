@@ -1,6 +1,6 @@
 # Introduction, purpose and scope
 
-This is a ATBD of {cite}`SIT` retrieval algorithm for {term}`CIMR`. It method
+This is a ATBD of {term}`SIT` retrieval algorithm for {term}`CIMR`. It method
 described supposed to act on the CIMR L1b brightness temperatures and
 corresponding output will be L2b, i.e. Swath based brightness temperature in
 original footprint coordinates. For the retrieval only L-band brightness

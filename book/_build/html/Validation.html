@@ -358,12 +358,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cimr-sit-vs-smos-sit">
+   CIMR SIT vs SMOS SIT
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -375,6 +399,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cimr-sit-vs-smos-sit">
+   CIMR SIT vs SMOS SIT
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -394,7 +431,7 @@ It contains brightness temperatures and thin ice thickness retrieved from SMOS. 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-refcompare">
-<img alt="_images/a0e35f2640ead09d15c644aa3f784690138a7749be7e71d408e893564e88dea9.svg" src="_images/a0e35f2640ead09d15c644aa3f784690138a7749be7e71d408e893564e88dea9.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
+<img alt="_images/babaf9b68dd640cee17c26adf8b84a5888a664f1427c504aef974daa56f96351.svg" src="_images/babaf9b68dd640cee17c26adf8b84a5888a664f1427c504aef974daa56f96351.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -402,7 +439,38 @@ It contains brightness temperatures and thin ice thickness retrieved from SMOS. 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-rrdplocs">
-<img alt="_images/f981b6c4c2a0f66107cde6e2a02d6e827baea80f2a845388ed77c9452fadc2b3.svg" src="_images/f981b6c4c2a0f66107cde6e2a02d6e827baea80f2a845388ed77c9452fadc2b3.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
+<img alt="_images/965185a55f3c58e1af64ca64e473ebed55dd4341e42f2bc2d4dc3fd1e776a7eb.svg" src="_images/965185a55f3c58e1af64ca64e473ebed55dd4341e42f2bc2d4dc3fd1e776a7eb.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="cimr-sit-vs-smos-sit">
+<h2>CIMR SIT vs SMOS SIT<a class="headerlink" href="#cimr-sit-vs-smos-sit" title="Permalink to this headline">#</a></h2>
+<p>The CIMR ATBD retrieval is applied to daily gridded SMOS brightness temperature data for one day in the arctic for demonstration in <a class="reference internal" href="#fig-cimr-sit-example"><span class="std std-numref">Fig. 6</span></a> for the 16th of October 2021. The central Arctic is not well covered as the retrieval work on an incidence angle of 53° (SMOS averaged 50°-56°).
+In this incidence angle regime SMOS is nearly forward looking and thus has a very narrow swath.
+Typical multi year ice regions are covered with thick ice in the retrieval and are marked with a high uncertainty. Note that beyond 80cm SIT data corresponds to the extrapolation range of the agorithm and is not trustwothy. This is indicated with the high uncertainty value of the retrieval. Thinner ice is well represented at the ice edge as the 16th of October typically corresponds to a date of early freeze-up date with considerably high new ice formation. The uncertainty over open water is associated with the fact that moderate winds may increase the brightness temperatures. Which would be detected as increased ice thickness by the retrieval.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-cimr-sit-example">
+<img alt="_images/8502302bc9a28170497cc1841691d7a9dbb10d6b3c6f0511f106f23e9d71188d.svg" src="_images/8502302bc9a28170497cc1841691d7a9dbb10d6b3c6f0511f106f23e9d71188d.svg" /><p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">CIMR sea ice thickness retrieval applied to SMOS data for  16th of October 2021.</span><a class="headerlink" href="#fig-cimr-sit-example" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<p>For direct comparison we show the ESA SMOS SIT product in <a class="reference internal" href="#fig-esa-smos-sit"><span class="std std-numref">Fig. 7</span></a> for the Same day using the same colorscale as in <a class="reference internal" href="#fig-cimr-sit-example"><span class="std std-numref">Fig. 6</span></a>. The central areas look a bit smoother and an overlying pattern is visible which originates from the auxilary data as the weight of background values overpower the weight of brightness temperatures for the outcome of the retrieval <span id="id1">[<a class="reference internal" href="references.html#id7" title="X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. Cryosphere, 8:997-1018, 5 2014. URL: http://www.the-cryosphere.net/8/997/2014/, doi:10.5194/tc-8-997-2014.">Tian-Kunze <em>et al.</em>, 2014</a>]</span>`</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-esa-smos-sit">
+<img alt="_images/ed3edc8a19eadbb86d1e115da3fae8ec65b71eacc53b0e62e83918e614254d74.svg" src="_images/ed3edc8a19eadbb86d1e115da3fae8ec65b71eacc53b0e62e83918e614254d74.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">ESA SMOS sea ice thickness product for 16th of October 2021.</span><a class="headerlink" href="#fig-esa-smos-sit" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<p>A direct comparison between the ESA SIT product from SMOS and the CIMR algorithm using SMOS data is shown in <a class="reference internal" href="#fig-smos-vs-cimr"><span class="std std-numref">Fig. 8</span></a>. The agreement is very high in interediate ice thickness areas, between 50 cm and 70 cm. For thin ice, the CIMR SIT gives higher values compared to the ESA SMOS SIT retrieval. This is in line with <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 4</span></a>.
+The areas where the SMOS product has 0 cm ice thickness while the CIMR retrieval gives non-zero values, probably correspond to ice pixel which are land contaminated in the brightness temperatures used by the CIMR retrieval. Note that the ESA SMOS product uses data up to an incidence angle from 0°-40° which have a smaller footprint size compared to the 50°-56° used in the CIMR retrieval. More restrictive landmasking would mitigate this issue.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-smos-vs-cimr">
+<img alt="_images/e7639537492fbe8bbe35143362070fbbf10665bede2715795e5f39023a517641.png" src="_images/e7639537492fbe8bbe35143362070fbbf10665bede2715795e5f39023a517641.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">ESA SMOS Sea ice thickness vs CIMR algorithm applied on SMOS data.</span><a class="headerlink" href="#fig-smos-vs-cimr" title="Permalink to this image">#</a></p>
+</div>
 </div>
 </div>
 </div>
