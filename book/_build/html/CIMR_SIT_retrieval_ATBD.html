@@ -600,7 +600,7 @@ The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</spa
 <span class="k">end</span><span class="w"></span>
 
 
-<span class="n">retrievallm</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">first</span><span class="o">.</span><span class="p">(</span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">SA</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],</span><span class="n">SA</span><span class="p">[</span><span class="mi">25</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="mi">5</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="kt">SMatrix</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}(</span><span class="mf">20000.0</span><span class="p">),</span><span class="n">SA</span><span class="p">[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">))</span><span class="w"></span>
+<span class="n">retrievallm</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">first</span><span class="o">.</span><span class="p">(</span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">SA</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],</span><span class="n">SA</span><span class="p">[</span><span class="mi">25</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="mi">15</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="kt">SMatrix</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}(</span><span class="mf">20000.0</span><span class="p">),</span><span class="n">SA</span><span class="p">[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -643,7 +643,7 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(6)</a>, 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-sitchange">
-<img alt="_images/6dd9d88420de4a63aaa7aece8c70b9bcc8d9206f3252d03c380d7bba3c796bd2.svg" src="_images/6dd9d88420de4a63aaa7aece8c70b9bcc8d9206f3252d03c380d7bba3c796bd2.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
+<img alt="_images/c6e35b8b36706d3d546373cffd9ff701b2cbce01216b50abf6e59c0dada52104.svg" src="_images/c6e35b8b36706d3d546373cffd9ff701b2cbce01216b50abf6e59c0dada52104.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
@@ -677,14 +677,14 @@ Rearranging <a class="reference internal" href="#equation-eq-cfdd-sit">(6)</a>, 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-siterrors">
-<img alt="_images/5a07e53cec64d949dbaa968e44b5d7dc5a5bba137a2259ca96d7d016f4e4a941.svg" src="_images/5a07e53cec64d949dbaa968e44b5d7dc5a5bba137a2259ca96d7d016f4e4a941.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
+<img alt="_images/468f56798ac87b4aaaada90d5661c9339f235cc2b2f3a61f06e039d402b9ee0d.svg" src="_images/468f56798ac87b4aaaada90d5661c9339f235cc2b2f3a61f06e039d402b9ee0d.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="figure align-default" id="fig-retrievalcomp">
-<img alt="_images/753cb3674e3b99320793a43b3c823bd6d3a1f63b5e4cf378b5e4d725dc26586d.svg" src="_images/753cb3674e3b99320793a43b3c823bd6d3a1f63b5e4cf378b5e4d725dc26586d.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
+<img alt="_images/202308852a355253a0c4cc9ab542a7b5fa262075dd8141fdd98ad4810d7eb1fe.svg" src="_images/202308852a355253a0c4cc9ab542a7b5fa262075dd8141fdd98ad4810d7eb1fe.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>
