@@ -27,10 +27,17 @@ Note: over land areas, only the status flags will have a valid value, all the ot
 
 
 ## Auxiliary data
-Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be less accurate without them. This includes the {term}`TEC` for the transformation from TOA to surface brightness temperature.
+
+Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be
+less accurate without them. This includes the {term}`TEC` for the transformation from {term}`TOA` to surface
+brightness temperature.
 
 ## Ancillary data
-Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas from the retrieval.
+
+Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed
+fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice
+mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas
+from the retrieval.
 
 
 

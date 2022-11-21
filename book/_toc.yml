@@ -6,8 +6,8 @@ root: intro
 chapters:
 - file: abstract.md
   title: Abstract
-- file: applicable_ref_docs.md
-  title: Applicable and Reference Documents
+#- file: applicable_ref_docs.md
+  #title: Applicable and Reference Documents
 - file: acronyms.md
   title: Acronyms
 - file: definitions.md
@@ -21,18 +21,16 @@ chapters:
 - file: baseline_algorithm_definition.md
   title: Baseline Algorithm Definition
   sections:
+  - file: training_data_smos53.ipynb
   - file: CIMR_SIT_retrieval_ATBD.ipynb
-    title: The ice thickness retrieval
 - file: algorithm_input_output_data_definition.md
   title: Algorithm Input and Output Data Definition (IODD)
 - file: algorithm_performance_assessment.md
   title: Algorithm Performance Assessment
-- file: Validation.ipynb
-  title: Performance evaluation of SIT retrieval
+  sections:
+  - file: Validation.ipynb
 - file: references.md
   title: References
 - file: annex.md
   title: Annex
-  sections:
-  - file: training_data_smos53.ipynb
 

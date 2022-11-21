@@ -1,3 +1,4 @@
+book/_build/*
 .ipynb_checkpoints
 .python-version
 sit_atbd_env_jl/.CondaPkg/*
