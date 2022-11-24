@@ -6,7 +6,7 @@ root: intro
 chapters:
 - file: abstract.md
   title: Abstract
-#- file: applicable_ref_docs.md
+- file: applicable_ref_docs.md
   #title: Applicable and Reference Documents
 - file: acronyms.md
   title: Acronyms
