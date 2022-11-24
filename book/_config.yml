@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: ATBD Sea Ice Thickness
-author: CIMR Devalgo
+title: CIMR L2 Sea Ice Thickness ATBD v1
+author: Marcus Huntemann and Gunnar Spreen, University of Bremen
 logo: logo.jpg
 
 # Force re-execution of notebooks on each build.
@@ -25,6 +25,7 @@ sphinx:
   config:
     nb_render_markdown_format: myst
     bibtex_reference_style: author_year
+    html_show_copyright: false
   extra_extensions:
     - sphinxcontrib.mermaid
       
@@ -33,15 +34,21 @@ parse:
   - deflist
   - dollarmath
 
-
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/CIMR-Algos/ATBD-Template  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/CIMR-Algos/SeaIceThickness_ATBD
+  # Online location of your book
+  path_to_book: book  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: false
   use_repository_button: true
+  extra_footer: |
+    <p>
+    This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+    <br>
+    ESA is not responsible in any way for the content of this document.
+    </p>	
