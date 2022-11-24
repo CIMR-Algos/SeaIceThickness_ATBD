@@ -11,8 +11,8 @@ conventions](http://cfconventions.org/):
 (product_variables)=
 | variable name | description | unit | dimensions |
 | --- | ---- | ---| ---- |
-| `sea_ice_thickness` | mean ice thickness in given grid cell as per retrieval | n_scans * n_samples_earth |
-| `sea_ice_thickness standard_error` | the standard error as described in {ref}`uncertainties` | n_scans * n_samples_earth |
+| `sea_ice_thickness` | mean ice thickness in given grid cell as per retrieval | m | n_scans * n_samples_earth |
+| `sea_ice_thickness standard_error` | the standard error as described in {ref}`uncertainties` | m | n_scans * n_samples_earth |
 | `sea_ice_thickness quality_flag` | product quality flag | 1 | n_scans * n_samples_earth| 
 
 
@@ -30,6 +30,15 @@ The quality flag is a 16-bit mask with the following bits:
 | 5-16 | Reserved |
 
 
-The quality flag is an important indicator for users of the product. While for full ice coverage of a grid cell gives the best retrieval of sea ice thickness, the retrieval is still valid for lower ice cover. The sea ice edge mask is set for grid cells where the retrieval is not valid due to the presence of the sea ice edge. The ice shelf mask is set for grid cells where the retrieval is not valid due to the presence of an ice shelf. The landmask bit is set for grid cells where the retrieval is not valid due to the presence of land. The validity of the retrieved ice thickness is set for grid cells where the retrieval is valid in general, which is the major indicator for users of the product.
+The quality flag is an important indicator for users of the product. While for
+full ice coverage of a grid cell gives the best retrieval of sea ice thickness,
+the retrieval is still valid for lower ice cover. The sea ice edge mask is set
+for grid cells where the retrieval is not valid due to the presence of the sea
+ice edge. The ice shelf mask is set for grid cells where the retrieval is
+not valid due to the presence of an ice shelf. The landmask bit is set for
+grid cells where the retrieval is not valid due to the presence of land.
+The validity of the retrieved ice thickness is set for grid cells where the
+retrieval is valid in general, which is the major indicator for users of
+the product.
 
 
