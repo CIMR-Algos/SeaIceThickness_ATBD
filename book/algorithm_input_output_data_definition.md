@@ -1,8 +1,14 @@
 # Algorithm Input and Output Data Definition (IODD)
 
-# Sea Ice Thickness Input and Output Data Definition
-In order to process a swath of L2 SIT,  the processing starts from a recent SIC map (in swath projection). Land-mask information should be contained in the SIC map. Land is removed before processing and while a flag for ice-free ocean can be used, those pixels would be retrieved as 0 cm in any case. 
-The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their uncertainties NeΔT which are assumed gaussian noise in this retrieval. The corresponding output is thickness of thin sea ice up to 50 cm including the uncertainty as described in this document. For retrieved values above 50 cm the output will have the status flag for 50+ cm. 
+In order to process a swath of L2 SIT, the processing starts from a recent SIC
+map (in swath projection). Land-mask information should be contained in the SIC
+map. Land is removed before processing and while a flag for ice-free ocean can
+be used, those pixels would be retrieved as 0 cm in any case. The input for the
+ice thickness consists of $T_{b,h}$ and $T_{b,v}$ at 1.4 GHz and their
+uncertainties NeΔT which are assumed Gaussian noise in this retrieval. The
+corresponding output is thickness of thin sea ice up to 50 cm including the
+uncertainty as described in this document. For retrieved values above 50 cm the
+output will have the status flag for 50+ cm. 
 
 
 
