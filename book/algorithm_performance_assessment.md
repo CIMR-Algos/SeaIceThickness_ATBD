@@ -1,7 +1,6 @@
 # Algorithm Performance Assessment (Version 2 ATBD)
 
-Self standing Python code and results within Jupyter Book
-
+A first {ref}`Validation` is done, while a more elaborate performance assessment will be done in version 2 of this ATBD.
 ## L1 E2ES Demonstration Reference Scenario (Picasso) scene definition
 
 ## Algorithm Performance Metrics (MPEF)
@@ -14,7 +13,7 @@ Self standing Python code and results within Jupyter Book
 
 ## Algorithm Performance Assessment using Demonstration Reference Scenario
 
-# Version 2 ATBD: Roadmap for future ATBD development
+## Version 2 ATBD: Roadmap for future ATBD development
 
 
 

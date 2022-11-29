@@ -12,10 +12,11 @@ including their uncertainties.
 
 This document is describing the algorithm and processing steps and the
 processing of the L2b {term}`SIT` product. The document is intended for the
-{term}`CIMR` users and interested parties in the details. It is not intended to
-replace a product user guide. The algorithm is implemented in the {term}`SIT`
-retrieval software package which is distributed in the "algorithm" directory of
-this repository.
+{term}`CIMR` users and parties interested in the details of the algorithm. It
+is not intended to replace a product user guide.  For the first version of the
+ATBD, the entire code is embedded in the corresponding notebooks. The code will
+be separated from the notebooks in the future and will be distributed in the
+"algorithm" directory of this repository.
 
 
 
