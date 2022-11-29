@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Algorithm Input and Output Data Definition (IODD) &#8212; ATBD Sea Ice Thickness</title>
+    <title>Algorithm Input and Output Data Definition (IODD) &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -49,12 +51,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Algorithm Performance Assessment (Version 2 ATBD)" href="algorithm_performance_assessment.html" />
-    <link rel="prev" title="Sea ice thickness retrieval implementation" href="CIMR_SIT_retrieval_ATBD.html" />
+    <link rel="prev" title="Sea Ice Thickness Retrieval Algorithm" href="CIMR_SIT_retrieval_ATBD.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,7 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -122,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,8 +165,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -172,24 +181,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -198,11 +192,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -268,7 +272,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -349,37 +353,25 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Algorithm Input and Output Data Definition (IODD)
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-data">
+   Input data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sea-ice-thickness-input-and-output-data-definition">
-   Sea Ice Thickness Input and Output Data Definition
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-data">
+   Output data
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#input-data">
-     Input data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#output-data">
-     Output data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auxiliary-data">
-     Auxiliary data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ancillary-data">
-     Ancillary data
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auxiliary-data">
+   Auxiliary data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ancillary-data">
+   Ancillary data
+  </a>
  </li>
 </ul>
 
@@ -400,37 +392,25 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Algorithm Input and Output Data Definition (IODD)
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-data">
+   Input data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sea-ice-thickness-input-and-output-data-definition">
-   Sea Ice Thickness Input and Output Data Definition
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-data">
+   Output data
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#input-data">
-     Input data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#output-data">
-     Output data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auxiliary-data">
-     Auxiliary data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ancillary-data">
-     Ancillary data
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auxiliary-data">
+   Auxiliary data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ancillary-data">
+   Ancillary data
+  </a>
  </li>
 </ul>
 
@@ -444,11 +424,15 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="algorithm-input-and-output-data-definition-iodd">
 <h1>Algorithm Input and Output Data Definition (IODD)<a class="headerlink" href="#algorithm-input-and-output-data-definition-iodd" title="Permalink to this headline">#</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="sea-ice-thickness-input-and-output-data-definition">
-<h1>Sea Ice Thickness Input and Output Data Definition<a class="headerlink" href="#sea-ice-thickness-input-and-output-data-definition" title="Permalink to this headline">#</a></h1>
-<p>In order to process a swath of L2 SIT,  the processing starts from a recent SIC map (in swath projection). Land-mask information should be contained in the SIC map. Land is removed before processing and while a flag for ice-free ocean can be used, those pixels would be retrieved as 0 cm in any case.
-The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their uncertainties NeΔT which are assumed gaussian noise in this retrieval. The corresponding output is thickness of thin sea ice up to 50 cm including the uncertainty as described in this document. For retrieved values above 50 cm the output will have the status flag for 50+ cm.</p>
+<p>In order to process a swath of L2 SIT, the processing starts from a recent SIC
+map (in swath projection). Land-mask information should be contained in the SIC
+map. Land is removed before processing and while a flag for ice-free ocean can
+be used, those pixels would be retrieved as 0 cm in any case. The input for the
+ice thickness consists of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> at 1.4 GHz and their
+uncertainties NeΔT which are assumed Gaussian noise in this retrieval. The
+corresponding output is thickness of thin sea ice up to 50 cm including the
+uncertainty as described in this document. For retrieved values above 50 cm the
+output will have the status flag for 50+ cm.</p>
 <div class="section" id="input-data">
 <h2>Input data<a class="headerlink" href="#input-data" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
@@ -502,11 +486,16 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
 </div>
 <div class="section" id="auxiliary-data">
 <h2>Auxiliary data<a class="headerlink" href="#auxiliary-data" title="Permalink to this headline">#</a></h2>
-<p>Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be less accurate without them. This includes the <a class="reference internal" href="acronyms.html#term-TEC"><span class="xref std std-term">TEC</span></a> for the transformation from TOA to surface brightness temperature.</p>
+<p>Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be
+less accurate without them. This includes the <a class="reference internal" href="acronyms.html#term-TEC"><span class="xref std std-term">TEC</span></a> for the transformation from <a class="reference internal" href="acronyms.html#term-TOA"><span class="xref std std-term">TOA</span></a> to surface
+brightness temperature.</p>
 </div>
 <div class="section" id="ancillary-data">
 <h2>Ancillary data<a class="headerlink" href="#ancillary-data" title="Permalink to this headline">#</a></h2>
-<p>Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas from the retrieval.</p>
+<p>Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed
+fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice
+mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas
+from the retrieval.</p>
 </div>
 </div>
 
@@ -541,7 +530,7 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Sea ice thickness retrieval implementation</p>
+            <p class="prev-next-title">Sea Ice Thickness Retrieval Algorithm</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="algorithm_performance_assessment.html" title="next page">
@@ -558,9 +547,16 @@ The input for the ice thickness consists of Tb,h and Tb,v at  1.4 GHz and their 
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>

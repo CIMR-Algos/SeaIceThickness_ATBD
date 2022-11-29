@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Background and justification of selected algorithm &#8212; ATBD Sea Ice Thickness</title>
+    <title>Background and justification of selected algorithm &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -98,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -122,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,8 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -172,24 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -198,11 +190,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -268,7 +270,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -354,18 +356,22 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="background-and-justification-of-selected-algorithm">
 <h1>Background and justification of selected algorithm<a class="headerlink" href="#background-and-justification-of-selected-algorithm" title="Permalink to this headline">#</a></h1>
 <p>Over the course of the different L-band radiometers such as <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> and
-<a class="reference internal" href="acronyms.html#term-SMAP"><span class="xref std std-term">SMAP</span></a>, several different algorithms were proposed and implemented for the
-retrieval of the <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a>.  <span id="id1">[<a class="reference internal" href="references.html#id7" title="X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. Cryosphere, 8:997-1018, 5 2014. URL: http://www.the-cryosphere.net/8/997/2014/, doi:10.5194/tc-8-997-2014.">Tian-Kunze <em>et al.</em>, 2014</a>]</span> presented an algorithm
+<a class="reference internal" href="acronyms.html#term-SMAP"><span class="xref std std-term">SMAP</span></a>, several algorithms were proposed and implemented for the
+retrieval of the <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a>.  <span id="id1">[<a class="reference internal" href="references.html#id8" title="X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. Cryosphere, 8:997-1018, 5 2014. doi:10.5194/tc-8-997-2014.">Tian-Kunze <em>et al.</em>, 2014</a>]</span> presented an algorithm
 which is used today in the ESA <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> official <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> product. While
 it is based on a combination of physical models, it provides similar <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a>
-values to the empirical formulation from <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, allthough,
+values to the empirical formulation from <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, although,
 extending the range of retrievable <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> values up to 1m of ice thickness
 for growing sea ice in freeze-up conditions.</p>
-<p>Consequently, the algorithm used for CIMR <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> retrieval is setteled with
-the emperical variant of <span id="id3">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, but also extended to higher ice
-thicknesses at increased uncertainty. Technically this is achieved by assuming a
-certain background ice thickness, which has a low weight on the retrieved ice
-thickness, but enough to prevent it from divergence.</p>
+<p>Consequently, the algorithm used for CIMR <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> retrieval is settled with
+the empirical variant of <span id="id3">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, but also extended to higher ice
+thicknesses at increased uncertainty. Technically this is achieved by
+considering a certain background ice thickness with a very low weight. Once the
+sensitivity of brightness temperatures to thickness decreases in the thick ice
+case, the weight on the background value is increased. This is done to avoid the
+retrieval of unrealistically high ice thicknesses without artificially
+constraining at a fixed boundary like in <span id="id4">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and
+<span id="id5">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span>. The algorithm is described in detail in <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html#retrievalalgorithm"><span class="std std-ref">Sea Ice Thickness Retrieval Algorithm</span></a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -416,9 +422,16 @@ thickness, but enough to prevent it from divergence.</p>
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>

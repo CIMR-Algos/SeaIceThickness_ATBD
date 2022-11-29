@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ATBD Sea Ice Thickness &#8212; ATBD Sea Ice Thickness</title>
+    <title>ATBD Sea Ice Thickness &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -97,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -121,7 +123,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,8 +162,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -171,24 +178,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -197,11 +189,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -267,7 +269,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -356,7 +358,7 @@ title="Print to PDF"
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="applicable_ref_docs.html">Applicable and Reference Documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applicable_ref_docs.html">Applicable and reference documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acronyms.html">Acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction_purpose_scope.html">Introduction, purpose and scope</a></li>
@@ -364,10 +366,7 @@ title="Print to PDF"
 <li class="toctree-l1"><a class="reference internal" href="L2_product_definition.html">Level-2 product definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baseline_algorithm_definition.html">Baseline Algorithm Definition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm_input_output_data_definition.html">Algorithm Input and Output Data Definition (IODD)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="algorithm_input_output_data_definition.html#sea-ice-thickness-input-and-output-data-definition">Sea Ice Thickness Input and Output Data Definition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="algorithm_performance_assessment.html">Algorithm Performance Assessment (Version 2 ATBD)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="algorithm_performance_assessment.html#version-2-atbd-roadmap-for-future-atbd-development">Version 2 ATBD: Roadmap for future ATBD development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Validation.html">Performance evaluation of SIT retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm_performance_assessment.html">Algorithm Performance Assessment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex.html">Annex</a></li>
 </ul>
@@ -415,9 +414,16 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>References &#8212; ATBD Sea Ice Thickness</title>
+    <title>References &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -98,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -122,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,8 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -172,24 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -198,11 +190,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -268,7 +270,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -356,16 +358,31 @@ title="Print to PDF"
 <div class="docutils container" id="id1">
 <dl class="citation">
 <dt class="label" id="id3"><span class="brackets">1</span></dt>
-<dd><p>M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. <em>The Cryosphere</em>, 8(2):439–451, 2014.</p>
+<dd><p>M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. <em>The Cryosphere</em>, 8(2):439–451, 2014. <a class="reference external" href="https://doi.org/10.5194/tc-8-439-2014">doi:10.5194/tc-8-439-2014</a>.</p>
 </dd>
 <dt class="label" id="id2"><span class="brackets">2</span></dt>
-<dd><p>C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. <em>The Cryosphere</em>, 13(2):675–691, 2019. URL: <a class="reference external" href="https://tc.copernicus.org/articles/13/675/2019/">https://tc.copernicus.org/articles/13/675/2019/</a>, <a class="reference external" href="https://doi.org/10.5194/tc-13-675-2019">doi:10.5194/tc-13-675-2019</a>.</p>
+<dd><p>C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. <em>The Cryosphere</em>, 13(2):675–691, 2019. <a class="reference external" href="https://doi.org/10.5194/tc-13-675-2019">doi:10.5194/tc-13-675-2019</a>.</p>
 </dd>
 <dt class="label" id="id8"><span class="brackets">3</span></dt>
-<dd><p>Leif Toudal Pedersen, Roberto Saldo, Natalia Ivanova, Stefan Kern, Georg Heygster, Rasmus Tonboe, Marcus Huntemann, Burcu Ozsoy, Fanny Ardhuin, and Lars Kaleschke. Reference dataset for sea ice concentration. 11 2021. URL: <a class="reference external" href="https://figshare.com/articles/dataset/Reference_dataset_for_sea_ice_concentration/6626549">https://figshare.com/articles/dataset/Reference_dataset_for_sea_ice_concentration/6626549</a>, <a class="reference external" href="https://doi.org/10.6084/m9.figshare.6626549.v7">doi:10.6084/m9.figshare.6626549.v7</a>.</p>
+<dd><p>X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. <em>Cryosphere</em>, 8:997–1018, 5 2014. <a class="reference external" href="https://doi.org/10.5194/tc-8-997-2014">doi:10.5194/tc-8-997-2014</a>.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets">4</span></dt>
-<dd><p>X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. <em>Cryosphere</em>, 8:997–1018, 5 2014. URL: <a class="reference external" href="http://www.the-cryosphere.net/8/997/2014/">http://www.the-cryosphere.net/8/997/2014/</a>, <a class="reference external" href="https://doi.org/10.5194/tc-8-997-2014">doi:10.5194/tc-8-997-2014</a>.</p>
+<dt class="label" id="id9"><span class="brackets">4</span></dt>
+<dd><p>Leif Toudal Pedersen, Roberto Saldo, Natalia Ivanova, Stefan Kern, Georg Heygster, Rasmus Tonboe, Marcus Huntemann, Burcu Ozsoy, Fanny Ardhuin, and Lars Kaleschke. Reference dataset for sea ice concentration. 11 2021. <a class="reference external" href="https://doi.org/10.6084/m9.figshare.6626549.v7">doi:10.6084/m9.figshare.6626549.v7</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">5</span></dt>
+<dd><p>Michael A. Bilello. Formation, growth, and decay of sea-ice in the canadian arctic archipelago. <em>ARCTIC</em>, 1 1961. <a class="reference external" href="https://doi.org/10.14430/arctic3658">doi:10.14430/arctic3658</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">6</span></dt>
+<dd><p>E. Kalnay, M. Kanamitsu, R. Kistler, W. Collins, D. Deaven, L. Gandin, M. Iredell, S. Saha, G. White, J. Woollen, Y. Zhu, A. Leetmaa, R. Reynolds, M. Chelliah, W. Ebisuzaki, W. Higgins, J. Janowiak, K. C. Mo, C. Ropelewski, J. Wang, Roy Jenne, and Dennis Joseph. The ncep/ncar 40-year reanalysis project. <em>Bulletin of the American Meteorological Society</em>, 77:437–471, 3 1996. <a class="reference external" href="https://doi.org/10.1175/1520-0477(1996)077&lt;0437:TNYRP&gt;2.0.CO;2">doi:10.1175/1520-0477(1996)077&lt;0437:TNYRP&gt;2.0.CO;2</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">7</span></dt>
+<dd><p>Clive D Rodgers. <em>Inverse Methods for Atmospheric Sounding</em>. WORLD SCIENTIFIC, 2000. <a class="reference external" href="https://doi.org/10.1142/3171">doi:10.1142/3171</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">8</span></dt>
+<dd><p>Donald W. Marquardt. An algorithm for least-squares estimation of nonlinear parameters. <em>Journal of the Society for Industrial and Applied Mathematics</em>, 11:431–441, 6 1963. <a class="reference external" href="https://doi.org/10.1137/0111030">doi:10.1137/0111030</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">9</span></dt>
+<dd><p>Jeff Bezanson, Alan Edelman, Stefan Karpinski, and Viral B Shah. Julia: a fresh approach to numerical computing. <em>SIAM review</em>, 59(1):65–98, 2017. <a class="reference external" href="https://doi.org/10.1137/141000671">doi:10.1137/141000671</a>.</p>
 </dd>
 </dl>
 </div>
@@ -419,9 +436,16 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>

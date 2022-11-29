@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baseline Algorithm Definition &#8212; ATBD Sea Ice Thickness</title>
+    <title>Baseline Algorithm Definition &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -49,13 +51,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sea ice thickness retrieval implementation" href="CIMR_SIT_retrieval_ATBD.html" />
+    <link rel="next" title="Forward model development" href="training_data_smos53.html" />
     <link rel="prev" title="Level-2 product definition" href="L2_product_definition.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -124,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -163,8 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -174,24 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -200,11 +190,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -270,7 +270,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -329,36 +329,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#forward-model">
-   Forward Model
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -370,19 +346,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#forward-model">
-   Forward Model
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -392,27 +355,12 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="baseline-algorithm-definition">
 <h1>Baseline Algorithm Definition<a class="headerlink" href="#baseline-algorithm-definition" title="Permalink to this headline">#</a></h1>
-<p>The sea ice thickness (SIT) retrieval algorithm is based on the algorithm
-described in RD-3, RD-4 and <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. It is an empirical
+<p>The basic idea of the sea ice thickness (SIT) retrieval algorithm is based on the algorithm
+described <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and <span id="id2">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span>. It is an empirical
 algorithm based on modeled ice thicknesses during the freeze-up in the Kara-
 and Barents Seas. The underlying physical principle is the penetration depth of
 L-band radiation into sea ice and the resulting correlation of the emitted
-radiation to ice thickness.</p>
-<div class="section" id="forward-model">
-<h2>Forward Model<a class="headerlink" href="#forward-model" title="Permalink to this headline">#</a></h2>
-<p>The algorithm (<span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>]</span>) was initially introduced for the SMOS
-(Soil Moisture Ocean Salinity) mission for an incidence angle range of 40°-50°
-and is adapted here to the CIMR incidence angle of 53° using the fitting
-procedure for horizontal and vertically polarized radiation.
-The SMOS data in the training areas in the Kara and Barents Seas are used and the relations of
-Intensity and Polarization difference is fitted using a least square fit with 6
-parameters in total:</p>
-<div class="math notranslate nohighlight" id="equation-intensity-sit">
-<span class="eqno">(1)<a class="headerlink" href="#equation-intensity-sit" title="Permalink to this equation">#</a></span>\[I(a,b,c,x)=(a−(a−b)\exp(−x/c)\]</div>
-<p>Where x is the ice thickness in m, and a to g are the fitting parameters. The
-parameters estimated from the least square fit of SMOS data are given in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a>.
-The derivation of the forward model parameters is outlined in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fw-model</span></code>.</p>
-</div>
+radiation to ice thickness. In the following the fitting of the <a class="reference internal" href="training_data_smos53.html#fw-model"><span class="std std-ref">Forward model development</span></a> is described, followed by the <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html#retrievalalgorithm"><span class="std std-ref">Sea Ice Thickness Retrieval Algorithm</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -451,10 +399,10 @@ The derivation of the forward model parameters is outlined in <code class="xref 
             <p class="prev-next-title">Level-2 product definition</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="CIMR_SIT_retrieval_ATBD.html" title="next page">
+    <a class='right-next' id="next-link" href="training_data_smos53.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sea ice thickness retrieval implementation</p>
+        <p class="prev-next-title">Forward model development</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -465,9 +413,16 @@ The derivation of the forward model parameters is outlined in <code class="xref 
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>

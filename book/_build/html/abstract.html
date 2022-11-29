@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abstract &#8212; ATBD Sea Ice Thickness</title>
+    <title>Abstract &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -98,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ATBD Sea Ice Thickness</h1>
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -122,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="applicable_ref_docs.html">
-   Applicable and Reference Documents
+   Applicable and reference documents
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,8 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="training_data_smos53.html">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
-     The ice thickness retrieval
+     Sea Ice Thickness Retrieval Algorithm
     </a>
    </li>
   </ul>
@@ -172,24 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
    Algorithm Input and Output Data Definition (IODD)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithm_performance_assessment.html">
-   Algorithm Performance Assessment (Version 2 ATBD)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Validation.html">
-   Performance evaluation of SIT retrieval
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   References
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="annex.html">
-   Annex
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -198,11 +190,21 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="training_data_smos53.html">
-     Forward model development
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
  </li>
 </ul>
 
@@ -268,7 +270,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/CIMR-Algos/ATBD-Template"
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -354,15 +356,18 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">#</a></h1>
 <p>Several variants for the retrieval of the thickness of thin sea ice was
-proposed for space borne L-band radiometers such as <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> by ESA and <a class="reference internal" href="acronyms.html#term-SMAP"><span class="xref std std-term">SMAP</span></a> by NASA.
-The algorithm presented here is based on the work of <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and
-works originally on intensity and polarization difference. In this ATBD the
-algorithm is modified to use directly instrument provided horizontal and
-vertical polarization, including their uncertainties. Another modification
-compared to <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014.">Huntemann <em>et al.</em>, 2014</a>, <a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. URL: https://tc.copernicus.org/articles/13/675/2019/, doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span> is the removal of a forced upper
-limit of 50cm of retrievable ice thickness. Higher ice thicknesses, even though
-retrieved, do come with higher uncertainties. The evaluation is done against the
-ESA CCI Round robin data package <span id="id3">[<a class="reference internal" href="references.html#id8" title="Leif Toudal Pedersen, Roberto Saldo, Natalia Ivanova, Stefan Kern, Georg Heygster, Rasmus Tonboe, Marcus Huntemann, Burcu Ozsoy, Fanny Ardhuin, and Lars Kaleschke. Reference dataset for sea ice concentration. 11 2021. URL: https://figshare.com/articles/dataset/Reference_dataset_for_sea_ice_concentration/6626549, doi:10.6084/m9.figshare.6626549.v7.">Pedersen <em>et al.</em>, 2021</a>]</span>.</p>
+proposed for space borne L-band radiometers such as <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> by ESA and
+<a class="reference internal" href="acronyms.html#term-SMAP"><span class="xref std std-term">SMAP</span></a> by NASA. The algorithm used here in this <a class="reference internal" href="acronyms.html#term-ATBD"><span class="xref std std-term">ATBD</span></a> based on the
+work of <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and <span id="id2">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span>. It works originally on
+intensity and polarization difference. In this <a class="reference internal" href="acronyms.html#term-ATBD"><span class="xref std std-term">ATBD</span></a> the algorithm is
+modified to use directly instrument provided horizontal and vertical
+polarization, including their uncertainties. Another modification compared to
+<span id="id3">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>, <a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span> is the removal of a forced upper limit of 50
+cm of retrievable ice thickness. Higher ice thicknesses, even though retrieved,
+do come with higher uncertainties. With this modification it is similar to the
+ESA <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> algorithm <span id="id4">[<a class="reference internal" href="references.html#id8" title="X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. Cryosphere, 8:997-1018, 5 2014. doi:10.5194/tc-8-997-2014.">Tian-Kunze <em>et al.</em>, 2014</a>]</span>. The evaluation is done
+using <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> brightness temperatures against the ESA CCI Round robin
+data package <span id="id5">[<a class="reference internal" href="references.html#id9" title="Leif Toudal Pedersen, Roberto Saldo, Natalia Ivanova, Stefan Kern, Georg Heygster, Rasmus Tonboe, Marcus Huntemann, Burcu Ozsoy, Fanny Ardhuin, and Lars Kaleschke. Reference dataset for sea ice concentration. 11 2021. doi:10.6084/m9.figshare.6626549.v7.">Pedersen <em>et al.</em>, 2021</a>]</span> and the ESA <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> product.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -413,9 +418,16 @@ ESA CCI Round robin data package <span id="id3">[<a class="reference internal" h
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By CIMR Devalgo<br/>
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
   
-      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
 </p>
         </footer>
     </div>
