@@ -493,16 +493,16 @@ title="Print to PDF"
 to brightness temperatures and a minimization scheme including uncertainties
 using the error covariance matrix of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> at 1.4 GHz. In
 contrast to the original <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> retrieval, the upper limit is not
-determined capped but left open, very loosely constrained by a background ice
-thickness. For comparison the original fit parameters from <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>
+capped but left open, but very loosely constrained by a background ice
+thickness. In the following the original fit parameters from <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>
 in the latest version are used for comparison and evaluation. However, the
 original parameters where obtained for an incidence angle range from 40° to 50°
 while the new fit parameters were obtained to match the CIMR incidence angle of
 53°. The equations used for their fits are <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(3)</a> and
-<a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(4)</a>. <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(3)</a> is also used for fitting horizontal and
+<a class="reference internal" href="training_data_smos53.html#equation-eq-poldiff">(4)</a>. Equation <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(3)</a> is also used for fitting horizontal and
 vertical polarization directly to the ice thickness dependence. The inversion of
-this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to obtain the ice thickness.</p>
-<p>in Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> the fitted values were shown which are used for the inversion.</p>
+this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to obtain the ice thickness.
+Both, <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> were fitted to the ice thickness dependence in the <a class="reference internal" href="training_data_smos53.html#fw-model"><span class="std std-ref">Forward model development</span></a>.</p>
 </div>
 <div class="section" id="retrieval-definition">
 <h2>Retrieval definition<a class="headerlink" href="#retrieval-definition" title="Permalink to this headline">#</a></h2>
@@ -512,7 +512,7 @@ this system in the <span class="math notranslate nohighlight">\(H\)</span> and <
 χ^2(\mathbf y,\mathbf x,\mathbf S_e,\mathbf S_a,\mathbf x_a)=\left(\mathbf y-F(\mathbf x)\right)^\mathbf{T}\mathbf S_e^{-1}(\mathbf y-F(\mathbf x))+(\mathbf x_a-\mathbf x)^{\mathbf T}\mathbf S_a^{-1}(\mathbf x_a - \mathbf x) 
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf y= \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span> is the vector of input (measured) brightness temperatures at L-band, <span class="math notranslate nohighlight">\(\mathbf x\)</span> is the result vector (in case of the retrieval of only one quantity, ice thickness, this is a scalar),  <span class="math notranslate nohighlight">\(\mathbf S_e\)</span> is the error covariance matrix of the input brightness temperatures, <span class="math notranslate nohighlight">\(\mathbf S_a\)</span> is the covariance matrix of the background values (in this case a scalar), <span class="math notranslate nohighlight">\(\textbf x_a\)</span> is the background value (ice thickness) and <span class="math notranslate nohighlight">\(F\)</span> is the forward operator, in our caes the individual fit function for a given ice thickness, i.e.,
-<span class="math notranslate nohighlight">\(F(\mathbf x) = \begin{bmatrix}f_h(\mathbf x)\\ f_v(\mathbf x)\end{bmatrix}\)</span></p>
+<span class="math notranslate nohighlight">\(F(\mathbf x) = \begin{bmatrix}f_h(\mathbf x)\\ f_v(\mathbf x)\end{bmatrix}\)</span>, with <span class="math notranslate nohighlight">\(f_p(x)\)</span> from <a class="reference internal" href="training_data_smos53.html#equation-eq-intensity">(3)</a> and the corresponding parameters coming from Table <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a>.</p>
 <p>The optimal solution <span class="math notranslate nohighlight">\(\hat {\mathbf y}\)</span> which minimizes equation <a class="reference internal" href="#equation-eq-chi2">(5)</a> is found by iteration.
 The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</span> can then be obtained as</p>
 <div class="math notranslate nohighlight" id="equation-eq-error">
@@ -521,8 +521,8 @@ The uncertainty of <span class="math notranslate nohighlight">\(\mathbf y\)</spa
 \]</div>
 <p>with <span class="math notranslate nohighlight">\(\mathbf {\hat M}\)</span> is the Jacobian of the optimal solution of <a class="reference internal" href="#equation-eq-chi2">(5)</a> which is in this case also a scalar.</p>
 <p>Some variables are fixed in this scheme, this is the background ice thickness
-<span class="math notranslate nohighlight">\(\mathbf x_a=x_a=100\)</span> cm and its variance <span class="math notranslate nohighlight">\(\mathbf S_a=S_a=20000\ cm^2\)</span> which
-is practically used to very loosly constrain the ice thickness. Others
+<span class="math notranslate nohighlight">\(\mathbf x_a=x_a=100\)</span> cm and its variance <span class="math notranslate nohighlight">\(\mathbf S_a=S_a=20000\ cm^2\)</span>, which
+is used here as a practical way to very loosely constrain the upper ice thickness range. Other
 parameters are obtained from the CIMR satellite like <span class="math notranslate nohighlight">\(\mathbf y=
 \begin{bmatrix}T_{b,h}\\T_{b,v}\end{bmatrix}\)</span>, the brightness temperatures at
 L-band, and the diagonal components of the error covariance matrix <span class="math notranslate nohighlight">\(\mathbf
@@ -530,8 +530,8 @@ S_a\)</span>, for the off-diagonal of <span class="math notranslate nohighlight"
 is not expected that the uncertainties of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> are
 uncorrelated. At least most physical effects which are not considered in this
 empirical forward model, would have to go into the uncertainty of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and
-<span class="math notranslate nohighlight">\(_{b,v}\)</span> which introduce correlation. For the lack of a better estimate, we
-claim a correlation of 0.6 which results in off diagonal elements of
+<span class="math notranslate nohighlight">\(T_{b,v}\)</span> which introduce correlation. For the lack of a better estimate, we
+claim a correlation of 0.6 which results in off-diagonal elements of
 <span class="math notranslate nohighlight">\(0.6*\sigma_{Tbh}\sigma_{TBv}\)</span>. For illustration of the algorithm we use</p>
 <div class="math notranslate nohighlight" id="equation-eq-tberror">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eq-tberror" title="Permalink to this equation">#</a></span>\[\begin{split}
@@ -627,11 +627,11 @@ Rearranging <a class="reference internal" href="training_data_smos53.html#equati
 </div>
 <div class="section" id="propagation-of-brightness-temperature-uncertainty">
 <h3>Propagation of brightness temperature uncertainty<a class="headerlink" href="#propagation-of-brightness-temperature-uncertainty" title="Permalink to this headline">#</a></h3>
-<p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described in <a class="reference internal" href="#equation-eq-error">(6)</a> and is a direct result of the sensitivity of the forward modeled brightness temperatures to changes in physical parameters.</p>
+<p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described by equation <a class="reference internal" href="#equation-eq-error">(6)</a> and they are a direct result of the sensitivity of the forward modeled brightness temperatures to changes in physical parameters.</p>
 </div>
 <div class="section" id="uncertainty-from-full-ice-cover-assumption">
 <h3>Uncertainty from full ice cover assumption<a class="headerlink" href="#uncertainty-from-full-ice-cover-assumption" title="Permalink to this headline">#</a></h3>
-<p>The assumption of the full ice coverage originates from the unknown ice concentration. It can occur that a part of the footprint is open water which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> in for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> gives the open water tie point, i.e. at 0 cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
+<p>The assumption of full sea ice coverage within the CIMR L-band footprint originates from the unknown ice concentration. It can occur that a part of the footprint is open water, which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> gives the open water tie point, i.e. at 0 cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
 <div class="math notranslate nohighlight">
 \[ T_{b,h/v}(\text{SIC})=T_{b,h/v}\text{SIC} + p_{1,h/v}(1-\text{SIC})\]</div>
 <p>so that</p>

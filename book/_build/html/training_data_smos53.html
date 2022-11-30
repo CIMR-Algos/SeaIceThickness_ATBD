@@ -473,8 +473,8 @@ title="Print to PDF"
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>The training data was generated in <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. It consists of modeled
 ice thickness increase from a cumulative freezing degree day model for the
-freeze-up in 2010 in a Kara and Barents Seas.  In this document we are using the
-data from <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> and the cumulative freezing degree day model to fit an
+freeze-up in 2010 in the Kara and Barents Seas.  In this document we are using the
+data from <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> (because <a class="reference internal" href="acronyms.html#term-CIMR"><span class="xref std std-term">CIMR</span></a>is not available yet) and the cumulative freezing degree day model to fit an
 analytic equation to the dependency of brightness temperature and ice thickness.
 In contrast to <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, here instead of the Intensity and
 Polarization difference, the horizontal and vertical polarized brightness
@@ -483,7 +483,7 @@ temperatures are used directly.</p>
 <div class="section" id="the-sea-ice-thickness-dataset">
 <h2>The sea ice thickness dataset<a class="headerlink" href="#the-sea-ice-thickness-dataset" title="Permalink to this headline">#</a></h2>
 <p>An empirical model of the ice thickness increase was proposed with the so-called cumulative freezing degree days <span id="id3">[<a class="reference internal" href="references.html#id4" title="Michael A. Bilello. Formation, growth, and decay of sea-ice in the canadian arctic archipelago. ARCTIC, 1 1961. doi:10.14430/arctic3658.">Bilello, 1961</a>]</span>. The
-idea is the negative air temperature over time is a proxy for the physical ice
+idea is that the integration of negative air temperatures over time is a proxy for the physical ice
 thickness increase. The original formulation is</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfdd-sit">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-cfdd-sit" title="Permalink to this equation">#</a></span>\[
@@ -500,11 +500,11 @@ NCEP/NCAR reanalysis <span id="id5">[<a class="reference internal" href="referen
 <p>The dataset was acquired in 2010 in the Kara and Barents Seas. The dataset here
 is treated differently compared to <span id="id6">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> in two points</p>
 <ul class="simple">
-<li><p>From initial 10 small subregions only 3,6, and 7 was used to obtain
-the original fit parameters, here all regions are kept.</p></li>
+<li><p>From the initial 10 small subregions only regions 3, 6, and 7 were used to obtain
+the original fit parameters, here all regions are used.</p></li>
 <li><p>The original retrieval removed the <span class="math notranslate nohighlight">\(0\ \text{cm}\)</span> ice thickness, i.e., open water
 cases in the fit, due to instability in fitting procedure for the polarization
-difference <span class="math notranslate nohighlight">\(Q\)</span>, these points are included here.</p></li>
+difference <span class="math notranslate nohighlight">\(Q\)</span>, these open water points are now included here.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
