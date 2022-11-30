@@ -4,10 +4,10 @@ Here follows a glossary, or list of definitions
 
 ```{glossary}
 
-Soil Moisture and Ocean Salinity (SMOS)
+Soil Moisture and Ocean Salinity
     The Soil Moisture and Ocean Salinity (SMOS) is a Satellite based L-Band Radiometer launched by ESA in 2009.
 
-Soil Moisture Active/Passive (SMAP)
+Soil Moisture Active/Passive
     The Soil Moisture Active/Passive (SMAP) is a Satellite based L-Band Radiometer launched by NASA in 2015.
 
 Sea Ice Concentration
@@ -16,7 +16,7 @@ Sea Ice Concentration
 Sea Ice Thickness
     The Sea Ice Thickness is the thickness of the sea ice. It is usually expressed in meters.
 
-Copernicus Imaging Microwave Radiometer (CIMR)
+Copernicus Imaging Microwave Radiometer
     The Copernicus Imaging Microwave Radiometer (CIMR) is a Microwave Radiometer which launch is planned by the EU and ESA in 2029.
 
 Brightness Temperature
@@ -28,4 +28,6 @@ Top of Atmosphere
 Total Electron Content
     The Total Electron Content is the total number of electrons per unit volume in the path between the satellite and the Earth. It is usually expressed in electrons per square meter. Higher TEC values lead to higher rotation of the polarization plane of the microwave radiation.
 
+DEVALGO
+    {term}`CIMR` DEVALGO is an ESA project to develop Level-2 algorithms for the CIMR satellite.
 ```

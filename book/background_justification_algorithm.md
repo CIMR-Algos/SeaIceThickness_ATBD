@@ -18,6 +18,16 @@ sensitivity of brightness temperatures to thickness decreases in the thick ice
 case, the weight on the background value is increased. This is done to avoid the
 retrieval of unrealistically high ice thicknesses without artificially
 constraining at a fixed boundary like in {cite}`Huntemann2014` and
-{cite}`Patilea2019`. The algorithm is described in detail in {ref}`retrievalalgorithm`.
+{cite}`Patilea2019`. Another difference to the original formulation is the use of 
+horizontal and vertical polarization instead of intensity and polarization
+difference. The motivation is that the horizontal and vertical
+polarization are directly obtained from the instrument without transformation.
+For illustration, the intensity and polarization difference are still serving as
+comparisons for the $H$ and $V$ based retrieval. The entire algorithm is
+described in detail in {ref}`retrievalalgorithm`.
 
-The algorithm from  {cite}`Tiankunze2014` uses {term}`SMOS` incidence angles close to nadir and thus no polarization information. While the algorithm from {cite}`Huntemann2014` uses SMOS incidence angles similar to the 53° of {term}`CIMR`, which makes it particular suitable for an adaption to {term}`CIMR`.
+The algorithm from {cite}`Tiankunze2014` uses {term}`SMOS` incidence angles
+close to nadir and thus no polarization information. While the algorithm from
+{cite}`Huntemann2014` uses SMOS incidence angles similar to the 53° of
+{term}`CIMR`, which makes it particular suitable for an adaption to
+{term}`CIMR`.
