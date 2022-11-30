@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forward model development &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sea Ice Thickness Retrieval Algorithm" href="CIMR_SIT_retrieval_ATBD.html" />
+    <link rel="prev" title="Baseline Algorithm Definition" href="baseline_algorithm_definition.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CIMR L2 Sea Ice Thickness ATBD v1</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ATBD Sea Ice Thickness
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="applicable_ref_docs.html">
+   Applicable and reference documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acronyms.html">
+   Acronyms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="definitions.html">
+   Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction_purpose_scope.html">
+   Introduction, purpose and scope
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="background_justification_algorithm.html">
+   Background and justification of selected algorithm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L2_product_definition.html">
+   Level-2 product definition
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="baseline_algorithm_definition.html">
+   Baseline Algorithm Definition
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Forward model development
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">
+     Sea Ice Thickness Retrieval Algorithm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="algorithm_input_output_data_definition.html">
+   Algorithm Input and Output Data Definition (IODD)
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="algorithm_performance_assessment.html">
+   Algorithm Performance Assessment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Validation.html">
+     Performance evaluation of Sea ice thickness retrieval
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="annex.html">
+   Annex
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/CIMR-Algos/SeaIceThickness_ATBD/main?urlpath=tree/book/training_data_smos53.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/training_data_smos53.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sea-ice-thickness-dataset">
+   The sea ice thickness dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameter-estimation">
+   Parameter estimation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-between-i-q-and-h-v-fit">
+   Comparison between
+   <span class="math notranslate nohighlight">
+    \(I-Q\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(h-v\)
+   </span>
+   fit
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Forward model development</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sea-ice-thickness-dataset">
+   The sea ice thickness dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameter-estimation">
+   Parameter estimation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-between-i-q-and-h-v-fit">
+   Comparison between
+   <span class="math notranslate nohighlight">
+    \(I-Q\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(h-v\)
+   </span>
+   fit
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="forward-model-development">
+<span id="fw-model"></span><h1>Forward model development<a class="headerlink" href="#forward-model-development" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>The training data was generated in <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. It consists of modeled
+ice thickness increase from a cumulative freezing degree day model for the
+freeze-up in 2010 in the Kara and Barents Seas.  In this document we are using the
+data from <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> (because <a class="reference internal" href="acronyms.html#term-CIMR"><span class="xref std std-term">CIMR</span></a>is not available yet) and the cumulative freezing degree day model to fit an
+analytic equation to the dependency of brightness temperature and ice thickness.
+In contrast to <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, here instead of the Intensity and
+Polarization difference, the horizontal and vertical polarized brightness
+temperatures are used directly.</p>
+</div>
+<div class="section" id="the-sea-ice-thickness-dataset">
+<h2>The sea ice thickness dataset<a class="headerlink" href="#the-sea-ice-thickness-dataset" title="Permalink to this headline">#</a></h2>
+<p>An empirical model of the ice thickness increase was proposed with the so-called cumulative freezing degree days <span id="id3">[<a class="reference internal" href="references.html#id4" title="Michael A. Bilello. Formation, growth, and decay of sea-ice in the canadian arctic archipelago. ARCTIC, 1 1961. doi:10.14430/arctic3658.">Bilello, 1961</a>]</span>. The
+idea is that the integration of negative air temperatures over time is a proxy for the physical ice
+thickness increase. The original formulation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-cfdd-sit">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-cfdd-sit" title="Permalink to this equation">#</a></span>\[
+d_{\text{ice}}(\Theta) = 1.33{\Theta}^{-0.58}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-cfdd">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-cfdd" title="Permalink to this equation">#</a></span>\[\Theta = \sum_{\text{days}} T_{\text {air}}+1.8\ {}^\circ \text C \text ,
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(T_{air}\)</span> being the daily average air temperature. The exponent of
+<span class="math notranslate nohighlight">\(\Theta\)</span> in equation <a class="reference internal" href="#equation-eq-cfdd-sit">(1)</a> was found to vary depending on the
+location, snow accumulation and wind and cloud conditions <span id="id4">[<a class="reference internal" href="references.html#id4" title="Michael A. Bilello. Formation, growth, and decay of sea-ice in the canadian arctic archipelago. ARCTIC, 1 1961. doi:10.14430/arctic3658.">Bilello, 1961</a>]</span>.
+The air temperature used to calculate for <span class="math notranslate nohighlight">\(\Theta\)</span> here originate from
+NCEP/NCAR reanalysis <span id="id5">[<a class="reference internal" href="references.html#id5" title="E. Kalnay, M. Kanamitsu, R. Kistler, W. Collins, D. Deaven, L. Gandin, M. Iredell, S. Saha, G. White, J. Woollen, Y. Zhu, A. Leetmaa, R. Reynolds, M. Chelliah, W. Ebisuzaki, W. Higgins, J. Janowiak, K. C. Mo, C. Ropelewski, J. Wang, Roy Jenne, and Dennis Joseph. The ncep/ncar 40-year reanalysis project. Bulletin of the American Meteorological Society, 77:437-471, 3 1996. doi:10.1175/1520-0477(1996)077&lt;0437:TNYRP&gt;2.0.CO;2.">Kalnay <em>et al.</em>, 1996</a>]</span>.</p>
+<p>The dataset was acquired in 2010 in the Kara and Barents Seas. The dataset here
+is treated differently compared to <span id="id6">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> in two points</p>
+<ul class="simple">
+<li><p>From the initial 10 small subregions only regions 3, 6, and 7 were used to obtain
+the original fit parameters, here all regions are used.</p></li>
+<li><p>The original retrieval removed the <span class="math notranslate nohighlight">\(0\ \text{cm}\)</span> ice thickness, i.e., open water
+cases in the fit, due to instability in fitting procedure for the polarization
+difference <span class="math notranslate nohighlight">\(Q\)</span>, these open water points are now included here.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The extraction of brightness tempertarue for the fit procedure and
+algortihm development had to be reevaluated at an incidence angle of 53° for
+this document since the incidence angle for previous fit attempts where
+different with <span id="id7">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> being 40°-50° average, and <span id="id8">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span> using 40°.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-tbsmos">
+<img alt="_images/75265e656762af4ce022a907ba5ca35d2e6717e4f2a52bacd80f7035f089db19.svg" src="_images/75265e656762af4ce022a907ba5ca35d2e6717e4f2a52bacd80f7035f089db19.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Ice thickness to brightness temperature relation showing the original SMOS data for the three resions from <span id="id9">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> extracted at 53° incidence angle</span><a class="headerlink" href="#fig-tbsmos" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<p>The <a class="reference internal" href="#fig-tbsmos"><span class="std std-numref">Fig. 1</span></a> gives a nice relation beween ice thickness and the brightness temperatures in horizontal and vertical polarization. Horizontal shows a slower increase and later saturation but is subject to more noise in general. For the fitting procedure <span class="math notranslate nohighlight">\(0\ \text{cm}\)</span> ice thickness, i.e. open water, is excluded.
+The individual regions are shown in <a class="reference internal" href="#fig-kararegions"><span class="std std-numref">Fig. 2</span></a>. The regions in <a class="reference internal" href="#fig-tbsmos"><span class="std std-numref">Fig. 1</span></a> and <a class="reference internal" href="#fig-kararegions"><span class="std std-numref">Fig. 2</span></a> are corresponding according to their color. Most regions are located East to North-East of Novaya Zemlya in the Kara Sea but some regions are also located North-West of Novaya Zemlya in the Barents Sea.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-kararegions">
+<img alt="_images/85e78d05b9bf30ca98480b2aa64d8585531d0975f6a8a8f14cc9b3fe7b10b2d9.svg" src="_images/85e78d05b9bf30ca98480b2aa64d8585531d0975f6a8a8f14cc9b3fe7b10b2d9.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Regions in the Kara and Barents Seas from the 2010 training data.</span><a class="headerlink" href="#fig-kararegions" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parameter-estimation">
+<h2>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">#</a></h2>
+<p>As a fit function a simple exponential is used with</p>
+<div class="math notranslate nohighlight" id="equation-eq-intensity">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-intensity" title="Permalink to this equation">#</a></span>\[
+f_p(x)= p_2 - (p_2 - p_1)\exp(-x/p_3)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_1\)</span> is effectively the brightness temperature of open water close to sea ice under freezing conditions, <span class="math notranslate nohighlight">\(p_2\)</span> is the brightness temerature of thick sea ice, and <span class="math notranslate nohighlight">\(p_3\)</span> is a curvature parameter connecting the two TBs. The index <span class="math notranslate nohighlight">\(p\)</span> of <span class="math notranslate nohighlight">\(f_p\)</span> indicates the polarization, either <span class="math notranslate nohighlight">\(h\)</span> or <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>The parameters <span class="math notranslate nohighlight">\(p_i\)</span> are optained in a fit to the data from the ten regions mentioned.
+A least square fit of equation <a class="reference internal" href="#equation-eq-intensity">(3)</a> for <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> individually gives 6 parameters in total.
+The same can be done in intensity and polarization difference space while for polarization difference another fit formula is used</p>
+<div class="math notranslate nohighlight" id="equation-eq-poldiff">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-poldiff" title="Permalink to this equation">#</a></span>\[
+f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
+\]</div>
+<p>To compare the ice thickness to brightness temperature relation based on the new fit parameters, the original fit parameters have to be recalculated for the 53° incidence angle of CIMR. This gives 7 parameters for the recalculation of the original fit, with an additional parameter <span class="math notranslate nohighlight">\(p_4\)</span> for the polarization difference fit. The fit parameters are given in <a class="reference internal" href="#retrieval-parameters"><span class="std std-numref">Table 1</span></a>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<table class="colwidths-auto table" id="retrieval-parameters">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Fit parameters for intensity and polarization difference</span><a class="headerlink" href="#retrieval-parameters" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>polarization\parameter</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p_3\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p_4\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>horizontal <span class="math notranslate nohighlight">\(T_{b,h}\)</span></p></td>
+<td><p>74.527</p></td>
+<td><p>217.795</p></td>
+<td><p>21.021</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>vertical <span class="math notranslate nohighlight">\(T_{b,v}\)</span></p></td>
+<td><p>145.170</p></td>
+<td><p>247.636</p></td>
+<td><p>12.509</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>intensity <span class="math notranslate nohighlight">\(I=(T_{b,v}+T_{b,h})/2\)</span></p></td>
+<td><p>109.891</p></td>
+<td><p>231.596</p></td>
+<td><p>16.829</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>polarization difference <span class="math notranslate nohighlight">\(Q=(T_{b,v}-T_{b,h})\)</span></p></td>
+<td><p>71.086</p></td>
+<td><p>34.322</p></td>
+<td><p>38.731</p></td>
+<td><p>2.142</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="comparison-between-i-q-and-h-v-fit">
+<h2>Comparison between <span class="math notranslate nohighlight">\(I-Q\)</span> and <span class="math notranslate nohighlight">\(h-v\)</span> fit<a class="headerlink" href="#comparison-between-i-q-and-h-v-fit" title="Permalink to this headline">#</a></h2>
+<p>A resulting fit through all datapoints show that also the direct horizontal and vertical fits are suitable for representation of ice thickness to brightness temperature relation, similar to the orginally <span class="math notranslate nohighlight">\(I-Q\)</span> fit from <span id="id10">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. Only slight divergence is seen in <span class="math notranslate nohighlight">\(T_{b,h}\)</span> at higher ice thickness. The fit parameters are given in <a class="reference internal" href="#retrieval-parameters"><span class="std std-numref">Table 1</span></a>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-tbsitfit">
+<img alt="_images/44de3fcc3ae736f8f974091687cb31274c369038905f46f172eade161ce0af96.svg" src="_images/44de3fcc3ae736f8f974091687cb31274c369038905f46f172eade161ce0af96.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Ice thickness to brightness temperature relation showing both fits <span class="math notranslate nohighlight">\(T_{b,h}, T_{b,v}\)</span> and <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(Q\)</span></span><a class="headerlink" href="#fig-tbsitfit" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<p>The relation for polarization difference, i.e. <span class="math notranslate nohighlight">\(T_{b,v} - T_{b,h}\)</span> to ice
+thickness, shows also good agreement with the data in both fit variants in
+<a class="reference internal" href="#fig-qfitcomp"><span class="std std-numref">Fig. 4</span></a>. However, some differences are visible for thin ice and
+in the extrapolation to higher thicknesses. The increase of polarization
+difference after the initial freeze-up, between <span class="math notranslate nohighlight">\(5\ \text{cm}\)</span> and <span class="math notranslate nohighlight">\(10\ \text{cm}\)</span> ice thickness, seems
+physically plausible as calming of seawater results in smaller sea surface
+roughness and thus increased polarization difference. This is not captured by
+the <span class="math notranslate nohighlight">\(I-Q\)</span> fit functions as the <a class="reference internal" href="#equation-eq-poldiff">(4)</a> is constrained in this regard.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-qfitcomp">
+<img alt="_images/d3215bc3bf1d56ef7a2d717ac351e944c98ae31080b31cf3607f42e05d115d2c.svg" src="_images/d3215bc3bf1d56ef7a2d717ac351e944c98ae31080b31cf3607f42e05d115d2c.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison fo fifunction in Q space between original Q fit and individual <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> fit</span><a class="headerlink" href="#fig-qfitcomp" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+<p>The polarization difference plotted versus intensity, which is the original
+representation used by <span id="id11">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and <span id="id12">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span> also shows
+that the fit is appropriate in the <span class="math notranslate nohighlight">\(I-Q\)</span>-space in <a class="reference internal" href="#fig-iqcomp"><span class="std std-numref">Fig. 5</span></a>. The most
+notable difference is the same as in the <a class="reference internal" href="#fig-qfitcomp"><span class="std std-numref">Fig. 4</span></a> figure, i.e. the
+increase of polarization difference after the initial freeze-up, in the 5-10 cm
+regime. The highest ice thickness displayed here is 120 cm, which is a
+extrapolation for the current fit and comes with an extra uncertainty.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="figure align-default" id="fig-iqcomp">
+<img alt="_images/ef6365413fc8bb69f6788018c765949712b0f071d3dac67178eb4884815196d0.svg" src="_images/ef6365413fc8bb69f6788018c765949712b0f071d3dac67178eb4884815196d0.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Comparison of fit function in <span class="math notranslate nohighlight">\(I-Q\)</span>-space</span><a class="headerlink" href="#fig-iqcomp" title="Permalink to this image">#</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.8"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.8",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.8'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="baseline_algorithm_definition.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Baseline Algorithm Definition</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="CIMR_SIT_retrieval_ATBD.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sea Ice Thickness Retrieval Algorithm</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Marcus Huntemann and Gunnar Spreen, University of Bremen<br/>
+  
+    <div class="extra_footer">
+      <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
