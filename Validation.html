@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Performance evaluation of Sea ice thickness retrieval &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -421,7 +422,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="performance-evaluation-of-sea-ice-thickness-retrieval">
+  <section class="tex2jax_ignore mathjax_ignore" id="performance-evaluation-of-sea-ice-thickness-retrieval">
 <span id="validation"></span><h1>Performance evaluation of Sea ice thickness retrieval<a class="headerlink" href="#performance-evaluation-of-sea-ice-thickness-retrieval" title="Permalink to this headline">#</a></h1>
 <p>For the performance evaluation of the sea ice thickness retrieval the Round Robin data Package (RRDP) in version 3.0 from <span id="id1">[<a class="reference internal" href="references.html#id9" title="Leif Toudal Pedersen, Roberto Saldo, Natalia Ivanova, Stefan Kern, Georg Heygster, Rasmus Tonboe, Marcus Huntemann, Burcu Ozsoy, Fanny Ardhuin, and Lars Kaleschke. Reference dataset for sea ice concentration. 11 2021. doi:10.6084/m9.figshare.6626549.v7.">Pedersen <em>et al.</em>, 2021</a>]</span>, is used. The part of the dataset relevant here is the thin ice reference dataset
 It contains brightness temperatures and thin ice thickness retrieved from SMOS. For this evaluation of the algorithm, it can not be used directly since the 53° degree incidence angle equivalent brightness temperatures are not part of the dataset. We extracted the corresponding locations at the given days from SMOS L1C data in version 7.24.</p>
@@ -432,60 +433,84 @@ It contains brightness temperatures and thin ice thickness retrieved from SMOS. 
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-refcompare">
-<img alt="_images/f5fc446d30c678d62756b25984e484fffd72d50b456c7b3b06b3f1acc9baf0a9.svg" src="_images/f5fc446d30c678d62756b25984e484fffd72d50b456c7b3b06b3f1acc9baf0a9.svg" /><p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-refcompare">
+<img alt="_images/b8713486940765b458483b1a11179ce9a494691193a53a861ba5ee50d6211b40.svg" src="_images/b8713486940765b458483b1a11179ce9a494691193a53a861ba5ee50d6211b40.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Scatter plot between the RRDP reference dataset and the CIMR retrieval using SMOS data.</span><a class="headerlink" href="#fig-refcompare" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>In Figure <a class="reference internal" href="#fig-rrdplocs"><span class="std std-numref">Fig. 10</span></a> the locations an corresponding ice thicknesses are shown which resultet in a valid data point in the comparsion to <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 9</span></a>. Most data points are coming from the Barents and Kara Seas as well as the Chuckchi Sea, while only few data points come from the Laptev Sea and the Baffin Bay area.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-rrdplocs">
-<img alt="_images/c1c6fbed2a3297d3e553e7c15eb0566e9910054a02385784cde8e00e67d84906.svg" src="_images/c1c6fbed2a3297d3e553e7c15eb0566e9910054a02385784cde8e00e67d84906.svg" /><p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-rrdplocs">
+<img alt="_images/80f64e9ca75bc1dee34afbda149b5beffce2a1bb26d55f484a2b1823014bcb8b.svg" src="_images/80f64e9ca75bc1dee34afbda149b5beffce2a1bb26d55f484a2b1823014bcb8b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Location and values of RRDP thin ice dataset for valid comparison data.</span><a class="headerlink" href="#fig-rrdplocs" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="cimr-sit-vs-smos-sit">
+<section id="cimr-sit-vs-smos-sit">
 <h2>CIMR SIT vs SMOS SIT<a class="headerlink" href="#cimr-sit-vs-smos-sit" title="Permalink to this headline">#</a></h2>
 <p>The CIMR ATBD retrieval is applied to daily gridded SMOS brightness temperature data for one day in the arctic for demonstration in <a class="reference internal" href="#fig-cimr-sit-example"><span class="std std-numref">Fig. 11</span></a> for the 16th of October 2021. The central Arctic is not well covered as the retrieval work on an incidence angle of 53° (SMOS averaged 50°-56°).
 In this incidence angle regime SMOS is nearly forward looking and thus has a very narrow swath.
 Typical multi year ice regions are covered with thick ice in the retrieval and are marked with a high uncertainty. Note that beyond 80cm SIT data corresponds to the extrapolation range of the agorithm and is not trustwothy. This is indicated with the high uncertainty value of the retrieval. Thinner ice is well represented at the ice edge as the 16th of October typically corresponds to a date of early freeze-up date with considerably high new ice formation. The uncertainty over open water is associated with the fact that moderate winds may increase the brightness temperatures. Which would be detected as increased ice thickness by the retrieval.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-cimr-sit-example">
-<img alt="_images/a9fd3c858069bdd6a2b606b82a2c74983f5c3e07d767d8111a01380f6f2a42f3.svg" src="_images/a9fd3c858069bdd6a2b606b82a2c74983f5c3e07d767d8111a01380f6f2a42f3.svg" /><p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">CIMR sea ice thickness retrieval applied to SMOS data for  16th of October 2021.</span><a class="headerlink" href="#fig-cimr-sit-example" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-cimr-sit-example">
+<img alt="_images/c2f6772d87ad24da9a402e52587f69ae1728ccd427358c70ce218c5b21354046.svg" src="_images/c2f6772d87ad24da9a402e52587f69ae1728ccd427358c70ce218c5b21354046.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">CIMR sea ice thickness retrieval applied to SMOS data for  16th of October 2021.</span><a class="headerlink" href="#fig-cimr-sit-example" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>For direct comparison we show the ESA SMOS SIT product in <a class="reference internal" href="#fig-esa-smos-sit"><span class="std std-numref">Fig. 12</span></a> for the Same day using the same color scale as in <a class="reference internal" href="#fig-cimr-sit-example"><span class="std std-numref">Fig. 11</span></a>. The central areas look a bit smoother and an overlying pattern is visible which originates from the auxiliary data as the weight of background values overpower the weight of brightness temperatures for the outcome of the retrieval <span id="id2">[<a class="reference internal" href="references.html#id8" title="X. Tian-Kunze, L. Kaleschke, N. Maaß, M. Mäkynen, N. Serra, M. Drusch, and T. Krumpen. Smos-derived thin sea ice thickness: algorithm baseline, product specifications and initial verification. Cryosphere, 8:997-1018, 5 2014. doi:10.5194/tc-8-997-2014.">Tian-Kunze <em>et al.</em>, 2014</a>]</span>`</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-esa-smos-sit">
-<img alt="_images/94ba68b8b3db0afdbc1a2f3af7556d2e092fb8b87fabce3071a71960c9c5e6c7.svg" src="_images/94ba68b8b3db0afdbc1a2f3af7556d2e092fb8b87fabce3071a71960c9c5e6c7.svg" /><p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">ESA SMOS sea ice thickness product for 16th of October 2021.</span><a class="headerlink" href="#fig-esa-smos-sit" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-esa-smos-sit">
+<img alt="_images/d791c4ea4b1d32b5de3bca9f6ee957550546b921d30541112f22188476bb6943.svg" src="_images/d791c4ea4b1d32b5de3bca9f6ee957550546b921d30541112f22188476bb6943.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">ESA SMOS sea ice thickness product for 16th of October 2021.</span><a class="headerlink" href="#fig-esa-smos-sit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>A direct comparison between the ESA SIT product from SMOS and the CIMR algorithm using SMOS data is shown in <a class="reference internal" href="#fig-smos-vs-cimr"><span class="std std-numref">Fig. 13</span></a>. The agreement is very high in interediate ice thickness areas, between 50 cm and 70 cm. For thin ice, the CIMR SIT gives higher values compared to the ESA SMOS SIT retrieval. This is in line with <a class="reference internal" href="#fig-refcompare"><span class="std std-numref">Fig. 9</span></a>.
 The areas where the SMOS product has 0 cm ice thickness while the CIMR retrieval gives non-zero values, probably correspond to ice pixel which are land contaminated in the brightness temperatures used by the CIMR retrieval. Note that the ESA SMOS product uses data up to an incidence angle from 0°-40° which have a smaller footprint size compared to the 50°-56° used in the CIMR retrieval. More restrictive landmasking would mitigate this issue.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-smos-vs-cimr">
-<img alt="_images/9936e7ffdd09f74445d340665fb7066cdaca2a940c0e2a8648e748e0ef24e1fc.png" src="_images/9936e7ffdd09f74445d340665fb7066cdaca2a940c0e2a8648e748e0ef24e1fc.png" />
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">ESA SMOS Sea ice thickness vs CIMR algorithm applied on SMOS data.</span><a class="headerlink" href="#fig-smos-vs-cimr" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-smos-vs-cimr">
+<img alt="_images/2638348991167a99fcbcf552feab2b874fa237959576116799e2f4d1e51ab8c2.png" src="_images/2638348991167a99fcbcf552feab2b874fa237959576116799e2f4d1e51ab8c2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">ESA SMOS Sea ice thickness vs CIMR algorithm applied on SMOS data.</span><a class="headerlink" href="#fig-smos-vs-cimr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>In <a class="reference internal" href="#fig-ub-vs-cimr"><span class="std std-numref">Fig. 14</span></a> the CIMR algorithm is compared to algorithm used in the SMOS ice thickness roduct from the University of Bremen. Here, also the CIMR algorithm shows about 25% higher SIT values.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-ub-vs-cimr">
-<img alt="_images/ae0ae31fe7feeb650b232cfc2ee0b480f8ec6619887527332e96eca5568ec09c.png" src="_images/ae0ae31fe7feeb650b232cfc2ee0b480f8ec6619887527332e96eca5568ec09c.png" />
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">UB SMOS Sea ice thickness vs CIMR algorithm applied on SMOS data.</span><a class="headerlink" href="#fig-ub-vs-cimr" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-ub-vs-cimr">
+<img alt="_images/2ad07af808efe26efcb9fe28bfa20c9f4cd3bd52f7a0777f38847dbb0c9526b8.png" src="_images/2ad07af808efe26efcb9fe28bfa20c9f4cd3bd52f7a0777f38847dbb0c9526b8.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">UB SMOS Sea ice thickness vs CIMR algorithm applied on SMOS data.</span><a class="headerlink" href="#fig-ub-vs-cimr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -499,7 +524,7 @@ The areas where the SMOS product has 0 cm ice thickness while the CIMR retrieval
             mode: "julia-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-1.8",
+            name: "julia-1.8",
             path: "./."
         },
         predefinedOutput: true

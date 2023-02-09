@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Sea Ice Thickness Retrieval Algorithm &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -485,9 +486,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sea-ice-thickness-retrieval-algorithm">
+  <section class="tex2jax_ignore mathjax_ignore" id="sea-ice-thickness-retrieval-algorithm">
 <span id="retrievalalgorithm"></span><h1>Sea Ice Thickness Retrieval Algorithm<a class="headerlink" href="#sea-ice-thickness-retrieval-algorithm" title="Permalink to this headline">#</a></h1>
-<div class="section" id="introduction">
+<section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>The retrieval uses the fitted parameters from individual fits of ice thickness
 to brightness temperatures and a minimization scheme including uncertainties
@@ -503,8 +504,8 @@ while the new fit parameters were obtained to match the CIMR incidence angle of
 vertical polarization directly to the ice thickness dependence. The inversion of
 this system in the <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(V\)</span> space is used to obtain the ice thickness.
 Both, <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b_v}\)</span> were fitted to the ice thickness dependence in the <a class="reference internal" href="training_data_smos53.html#fw-model"><span class="std std-ref">Forward model development</span></a>.</p>
-</div>
-<div class="section" id="retrieval-definition">
+</section>
+<section id="retrieval-definition">
 <h2>Retrieval definition<a class="headerlink" href="#retrieval-definition" title="Permalink to this headline">#</a></h2>
 <p>The retrieval is following a typical scheme with the objective to minimize</p>
 <div class="math notranslate nohighlight" id="equation-eq-chi2">
@@ -545,47 +546,47 @@ claim a correlation of 0.6 which results in off-diagonal elements of
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Sₑ</span><span class="p">,</span><span class="n">Sₐ</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c">#Levenberg Marquardt method after Rodgers (2000)</span><span class="w"></span>
-<span class="w">    </span><span class="c">#target: find x so that F(x)=Ta, given</span><span class="w"></span>
-<span class="w">    </span><span class="c">#Ta: measurement vector</span><span class="w"></span>
-<span class="w">    </span><span class="c">#Sₑ: error covariance of measurement</span><span class="w"></span>
-<span class="w">    </span><span class="c">#Sₐ: error covariance of physical state </span><span class="w"></span>
-<span class="w">    </span><span class="c">#xₐ: expected physical state (also used as start, i.e. first guess)</span><span class="w"></span>
-<span class="w">    </span><span class="c">#F: the forward model translating measument space into state space</span><span class="w"></span>
-<span class="w">    </span><span class="n">Sₐ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">Sₑ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₑ</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c">#function to minimize with changing input x</span><span class="w"></span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">Sₑ</span><span class="p">,</span><span class="n">Sₐ</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="w">    </span><span class="c">#Levenberg Marquardt method after Rodgers (2000)</span>
+<span class="w">    </span><span class="c">#target: find x so that F(x)=Ta, given</span>
+<span class="w">    </span><span class="c">#Ta: measurement vector</span>
+<span class="w">    </span><span class="c">#Sₑ: error covariance of measurement</span>
+<span class="w">    </span><span class="c">#Sₐ: error covariance of physical state </span>
+<span class="w">    </span><span class="c">#xₐ: expected physical state (also used as start, i.e. first guess)</span>
+<span class="w">    </span><span class="c">#F: the forward model translating measument space into state space</span>
+<span class="w">    </span><span class="n">Sₐ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Sₑ⁻¹</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₑ</span><span class="p">)</span>
+<span class="w">    </span><span class="c">#function to minimize with changing input x</span>
 <span class="w">    </span><span class="n">J</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">+</span><span class="p">(</span><span class="n">xₐ</span><span class="o">.-</span><span class="n">x</span><span class="p">)</span><span class="o">&#39;*</span><span class="p">(</span><span class="n">Sₐ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xₐ</span><span class="o">.-</span><span class="n">x</span><span class="p">))</span><span class="w"> </span>
-<span class="w">    </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="n">xₐ</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">γ</span><span class="o">=</span><span class="mf">1e-5</span><span class="w"> </span><span class="c">#set to 0 for gauss newton</span><span class="w"></span>
+<span class="w">    </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="n">xₐ</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="w">    </span><span class="n">γ</span><span class="o">=</span><span class="mf">1e-5</span><span class="w"> </span><span class="c">#set to 0 for gauss newton</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">2000</span><span class="w"> </span>
-<span class="w">        </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">Ŝ⁻¹</span><span class="o">=</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="w"> </span><span class="c">#eq 5.13</span><span class="w"></span>
-<span class="w">        </span><span class="n">xᵢ₊₁</span><span class="o">=</span><span class="n">xᵢ</span><span class="o">+</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">γ</span><span class="p">)</span><span class="o">*</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="o">\</span><span class="p">(</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">Ta</span><span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="n">xᵢ</span><span class="p">))</span><span class="o">-</span><span class="n">Sₐ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xₐ</span><span class="p">))</span><span class="w"> </span><span class="c">#eq 5.36</span><span class="w"></span>
-<span class="w">        </span><span class="n">Jᵢ₊₁</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ₊₁</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">d²</span><span class="o">=</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">Ŝ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="w"> </span><span class="c">#eq 5.29</span><span class="w"></span>
+<span class="w">        </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ŝ⁻¹</span><span class="o">=</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="w"> </span><span class="c">#eq 5.13</span>
+<span class="w">        </span><span class="n">xᵢ₊₁</span><span class="o">=</span><span class="n">xᵢ</span><span class="o">+</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">γ</span><span class="p">)</span><span class="o">*</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="o">\</span><span class="p">(</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">Ta</span><span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="n">xᵢ</span><span class="p">))</span><span class="o">-</span><span class="n">Sₐ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xₐ</span><span class="p">))</span><span class="w"> </span><span class="c">#eq 5.36</span>
+<span class="w">        </span><span class="n">Jᵢ₊₁</span><span class="o">=</span><span class="n">J</span><span class="p">(</span><span class="n">Ta</span><span class="p">,</span><span class="n">xᵢ₊₁</span><span class="p">,</span><span class="n">Sₑ⁻¹</span><span class="p">,</span><span class="n">Sₐ⁻¹</span><span class="p">,</span><span class="n">xₐ</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="w">        </span><span class="n">d²</span><span class="o">=</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">Ŝ⁻¹</span><span class="o">*</span><span class="p">(</span><span class="n">xᵢ</span><span class="o">-</span><span class="n">xᵢ₊₁</span><span class="p">)</span><span class="w"> </span><span class="c">#eq 5.29</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">Jᵢ₊₁</span><span class="o">&lt;</span><span class="n">Jᵢ</span><span class="w"> </span>
-<span class="w">            </span><span class="n">γ</span><span class="o">/=</span><span class="mi">2</span><span class="w"></span>
-<span class="w">        </span><span class="k">else</span><span class="w"></span>
-<span class="w">            </span><span class="n">γ</span><span class="o">*=</span><span class="mi">10</span><span class="w"></span>
-<span class="w">            </span><span class="k">continue</span><span class="w"></span>
-<span class="w">        </span><span class="k">end</span><span class="w"></span>
-<span class="w">        </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">xᵢ₊₁</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">d²</span><span class="o">&lt;</span><span class="mf">1e-10</span><span class="w"></span>
-<span class="w">            </span><span class="k">break</span><span class="w"></span>
-<span class="w">        </span><span class="k">end</span><span class="w"></span>
-<span class="w">        </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">Jᵢ₊₁</span><span class="w"></span>
-<span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="w">    </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">Ŝ</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="w"> </span><span class="c"># eq 5.38</span><span class="w"></span>
+<span class="w">            </span><span class="n">γ</span><span class="o">/=</span><span class="mi">2</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">γ</span><span class="o">*=</span><span class="mi">10</span>
+<span class="w">            </span><span class="k">continue</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="n">xᵢ</span><span class="o">=</span><span class="n">xᵢ₊₁</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">d²</span><span class="o">&lt;</span><span class="mf">1e-10</span>
+<span class="w">            </span><span class="k">break</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="n">Jᵢ</span><span class="o">=</span><span class="n">Jᵢ₊₁</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">Kᵢ</span><span class="o">=</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">xᵢ</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ŝ</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">Sₐ⁻¹</span><span class="o">+</span><span class="n">Kᵢ</span><span class="o">&#39;*</span><span class="n">Sₑ⁻¹</span><span class="o">*</span><span class="n">Kᵢ</span><span class="p">)</span><span class="w"> </span><span class="c"># eq 5.38</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Ŝ</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">xᵢ</span><span class="p">,</span><span class="n">Ŝ</span>
+<span class="k">end</span>
 
 
-<span class="n">retrievallm</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">first</span><span class="o">.</span><span class="p">(</span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">SA</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],</span><span class="n">SA</span><span class="p">[</span><span class="mi">25</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="mi">15</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="kt">SMatrix</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}(</span><span class="mf">20000.0</span><span class="p">),</span><span class="n">SA</span><span class="p">[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">))</span><span class="w"></span>
+<span class="n">retrievallm</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">=</span><span class="n">first</span><span class="o">.</span><span class="p">(</span><span class="n">lm_retrieval</span><span class="p">(</span><span class="n">SA</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">v</span><span class="p">],</span><span class="n">SA</span><span class="p">[</span><span class="mi">25</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="mi">15</span><span class="w"> </span><span class="mf">25.0</span><span class="p">],</span><span class="kt">SMatrix</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}(</span><span class="mf">20000.0</span><span class="p">),</span><span class="n">SA</span><span class="p">[</span><span class="mf">100.</span><span class="p">],</span><span class="n">Fw_TB</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -597,8 +598,8 @@ claim a correlation of 0.6 which results in off-diagonal elements of
 c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
 \]</div>
 <p>which is minimized to obtain the best ice thickness <span class="math notranslate nohighlight">\(x\)</span> for a given measured <span class="math notranslate nohighlight">\(I_m\)</span> and <span class="math notranslate nohighlight">\(Q_m\)</span>.</p>
-</div>
-<div class="section" id="uncertainties">
+</section>
+<section id="uncertainties">
 <span id="id6"></span><h2>Uncertainties<a class="headerlink" href="#uncertainties" title="Permalink to this headline">#</a></h2>
 <p>The uncertainty follows <span id="id7">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span> using three terms:</p>
 <ul class="simple">
@@ -607,7 +608,7 @@ c(x)=(I(x)-I_m)^2+(Q(x)-Q_m)^2
 <li><p>Uncertainty from the ice concentration (not full ice coverage)</p></li>
 </ul>
 <p>Technically, these uncertainties should be considered forward model errors and treated as such.</p>
-<div class="section" id="daily-ice-thickness-variation">
+<section id="daily-ice-thickness-variation">
 <h3>Daily ice thickness variation<a class="headerlink" href="#daily-ice-thickness-variation" title="Permalink to this headline">#</a></h3>
 <p><a class="reference internal" href="#fig-sitchange"><span class="std std-numref">Fig. 6</span></a> shows the SIT uncertainty from daily ice thickness variations from <a class="reference internal" href="training_data_smos53.html#equation-eq-cfdd-sit">(1)</a> for three different reference temperatures. For the following we use <span class="math notranslate nohighlight">\(-25\ \text{°C}\)</span> as uncertainty reference for contribution to the combined error calculation.
 Rearranging <a class="reference internal" href="training_data_smos53.html#equation-eq-cfdd-sit">(1)</a>, for a fixed temperature, the cumulative freezing degree days to reach a certain ice thickness is</p>
@@ -619,17 +620,19 @@ Rearranging <a class="reference internal" href="training_data_smos53.html#equati
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-sitchange">
-<img alt="_images/dd23c76dae0b543c1da211e4381083f73a2614e14fdf70b4e85cc2526c91ea8b.svg" src="_images/dd23c76dae0b543c1da211e4381083f73a2614e14fdf70b4e85cc2526c91ea8b.svg" /><p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-sitchange">
+<img alt="_images/453fe316a15d53d99b88b56ddeabfd0634d27f1a743ca0e79ce062a207f9ba7b.svg" src="_images/453fe316a15d53d99b88b56ddeabfd0634d27f1a743ca0e79ce062a207f9ba7b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Daily SIT increase at different temperatures and thicknesses</span><a class="headerlink" href="#fig-sitchange" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="propagation-of-brightness-temperature-uncertainty">
+</section>
+<section id="propagation-of-brightness-temperature-uncertainty">
 <h3>Propagation of brightness temperature uncertainty<a class="headerlink" href="#propagation-of-brightness-temperature-uncertainty" title="Permalink to this headline">#</a></h3>
 <p>The uncertainty of the CIMR brightness temperatures propagate into uncertainty in the retrieval natively. These are described by equation <a class="reference internal" href="#equation-eq-error">(6)</a> and they are a direct result of the sensitivity of the forward modeled brightness temperatures to changes in physical parameters.</p>
-</div>
-<div class="section" id="uncertainty-from-full-ice-cover-assumption">
+</section>
+<section id="uncertainty-from-full-ice-cover-assumption">
 <h3>Uncertainty from full ice cover assumption<a class="headerlink" href="#uncertainty-from-full-ice-cover-assumption" title="Permalink to this headline">#</a></h3>
 <p>The assumption of full sea ice coverage within the CIMR L-band footprint originates from the unknown ice concentration. It can occur that a part of the footprint is open water, which lowers the brightness temperature and thus make the ice look thinner. This error is accounted for with a <span class="math notranslate nohighlight">\(5\ \%\)</span> error on ice concentration. The <span class="math notranslate nohighlight">\(p_1\)</span> for each parameter in <a class="reference internal" href="training_data_smos53.html#retrieval-parameters"><span class="std std-numref">Table 1</span></a> gives the open water tie point, i.e. at 0 cm ice thickness. For estimating the uncertainty, these values are mixed with the weight of the ice concentration as</p>
 <div class="math notranslate nohighlight">
@@ -638,8 +641,8 @@ Rearranging <a class="reference internal" href="training_data_smos53.html#equati
 <div class="math notranslate nohighlight" id="equation-eq-sicerror">
 <span class="eqno">(10)<a class="headerlink" href="#equation-eq-sicerror" title="Permalink to this equation">#</a></span>\[ σ_\text{SIC} = \frac{F^{-1}\left(T_{b,h/v}(0.95)\right)+F^{-1}\left(T_{b,h/v}(1.05)\right)}{2}
 \]</div>
-</div>
-<div class="section" id="total-uncertainty">
+</section>
+<section id="total-uncertainty">
 <h3>Total uncertainty<a class="headerlink" href="#total-uncertainty" title="Permalink to this headline">#</a></h3>
 <p>The overall uncertainty is calculated as a composition of individual uncertainties in the parameter space, i.e. on ice thickness directly as</p>
 <div class="math notranslate nohighlight" id="equation-eq-totaluncertainty">
@@ -653,23 +656,30 @@ Rearranging <a class="reference internal" href="training_data_smos53.html#equati
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-siterrors">
-<img alt="_images/df97a4d334dc82579b09e20c220cd931d2893a2c60697c4998759dc88294b2ba.svg" src="_images/df97a4d334dc82579b09e20c220cd931d2893a2c60697c4998759dc88294b2ba.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys:1: MatplotlibDeprecationWarning: Passing the minor parameter of set_ticks() positionally is deprecated since Matplotlib 3.2; the parameter will become keyword-only two minor releases later.
+</pre></div>
 </div>
+<figure class="align-default" id="fig-siterrors">
+<img alt="_images/212c07b873d4adaca98405bdbaecaa84b1d4ef2228f25ca8db7ed23d0845485b.svg" src="_images/212c07b873d4adaca98405bdbaecaa84b1d4ef2228f25ca8db7ed23d0845485b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Influence of different error terms on SIT error caculation. Left: absolute error, in dashed is the new implementation described here. Right: relative error for given ice thickness</span><a class="headerlink" href="#fig-siterrors" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>The overall retrieval <a class="reference internal" href="acronyms.html#term-SIT"><span class="xref std std-term">SIT</span></a> for a given combination of <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> is shown in a contour plot in <a class="reference internal" href="#fig-retrievalcomp"><span class="std std-numref">Fig. 8</span></a>. The dots represent the forward model evaluation for a given ice thickness in <span class="math notranslate nohighlight">\(10\ \text{cm}\)</span> steps, converted to <span class="math notranslate nohighlight">\(I-Q\)</span>-space. The orange dots are the CIMR algorithm described in this ATBD, the red dots correspond to the <span class="math notranslate nohighlight">\(I-Q\)</span> space fit variant from <span id="id8">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> and <span id="id9">[<a class="reference internal" href="references.html#id2" title="C. Paţilea, G. Heygster, M. Huntemann, and G. Spreen. Combined smap–smos thin sea ice thickness retrieval. The Cryosphere, 13(2):675–691, 2019. doi:10.5194/tc-13-675-2019.">Paţilea <em>et al.</em>, 2019</a>]</span>. The bottom right dots show <span class="math notranslate nohighlight">\(0\ \text{cm}\)</span> ice thickness, where both function essentially give the same point. At the <span class="math notranslate nohighlight">\(10\ \text{cm}\)</span> up to <span class="math notranslate nohighlight">\(40\ \text{cm}\)</span> there is a slight discrepancy in the direction of polarization difference. Also, at higher SIT values the red points do not reach as high intensities and polarization difference as the orange points of the new retrieval.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-retrievalcomp">
-<img alt="_images/28e3c92ff3d61a1c68eb9d7538600abfb80dd8f1f53607fe8634b47f6264d549.png" src="_images/28e3c92ff3d61a1c68eb9d7538600abfb80dd8f1f53607fe8634b47f6264d549.png" />
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-retrievalcomp">
+<img alt="_images/58bb8c2638deb809c195165ff3a19ad29cb28a3c0ab10a1739bb41f9f2c226be.png" src="_images/58bb8c2638deb809c195165ff3a19ad29cb28a3c0ab10a1739bb41f9f2c226be.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Display of retrieval function in <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>-space. Orange dots show the forward function <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> for a given ice thickness in 10cm steps, blue dots are from an actual <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> fit</span><a class="headerlink" href="#fig-retrievalcomp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -683,7 +693,7 @@ Rearranging <a class="reference internal" href="training_data_smos53.html#equati
             mode: "julia-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-1.8",
+            name: "julia-1.8",
             path: "./."
         },
         predefinedOutput: true
