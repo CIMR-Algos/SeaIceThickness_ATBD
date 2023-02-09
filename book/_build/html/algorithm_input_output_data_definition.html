@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Algorithm Input and Output Data Definition (IODD) &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -422,7 +423,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algorithm-input-and-output-data-definition-iodd">
+  <section class="tex2jax_ignore mathjax_ignore" id="algorithm-input-and-output-data-definition-iodd">
 <h1>Algorithm Input and Output Data Definition (IODD)<a class="headerlink" href="#algorithm-input-and-output-data-definition-iodd" title="Permalink to this headline">#</a></h1>
 <p>In order to process a swath of L2 SIT, the processing starts from a recent SIC
 map (in swath projection). Land-mask information should be contained in the SIC
@@ -433,7 +434,7 @@ uncertainties NeΔT which are assumed Gaussian noise in this retrieval. The
 corresponding output is thickness of thin sea ice up to 50 cm including the
 uncertainty as described in this document. For retrieved values above 50 cm the
 output will have the status flag for 50+ cm.</p>
-<div class="section" id="input-data">
+<section id="input-data">
 <h2>Input data<a class="headerlink" href="#input-data" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -457,8 +458,8 @@ output will have the status flag for 50+ cm.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="output-data">
+</section>
+<section id="output-data">
 <h2>Output data<a class="headerlink" href="#output-data" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -483,21 +484,21 @@ output will have the status flag for 50+ cm.</p>
 </tbody>
 </table>
 <p>Note: over land areas, only the status flags will have a valid value, all the others will have “NaN” (_FillValue). Over ice-free ocean, the SIT will be 0 cm.</p>
-</div>
-<div class="section" id="auxiliary-data">
+</section>
+<section id="auxiliary-data">
 <h2>Auxiliary data<a class="headerlink" href="#auxiliary-data" title="Permalink to this headline">#</a></h2>
 <p>Auxiliary data are used to improve the retrieval. They are not mandatory, but the retrieval will be
 less accurate without them. This includes the <a class="reference internal" href="acronyms.html#term-TEC"><span class="xref std std-term">TEC</span></a> for the transformation from <a class="reference internal" href="acronyms.html#term-TOA"><span class="xref std std-term">TOA</span></a> to surface
 brightness temperature.</p>
-</div>
-<div class="section" id="ancillary-data">
+</section>
+<section id="ancillary-data">
 <h2>Ancillary data<a class="headerlink" href="#ancillary-data" title="Permalink to this headline">#</a></h2>
 <p>Ancillary data includes the Masks for filling shelf and land areas. While Land areas are assumed
 fixed, shelf ice is changing over time, in particular pronounced in the Antarctic. The shelf ice
 mask is used to exclude shelf ice from the retrieval. The land mask is used to exclude land areas
 from the retrieval.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -511,7 +512,7 @@ from the retrieval.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true

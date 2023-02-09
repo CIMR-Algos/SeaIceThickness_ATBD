@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Forward model development &#8212; CIMR L2 Sea Ice Thickness ATBD v1</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -467,20 +468,20 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="forward-model-development">
+  <section class="tex2jax_ignore mathjax_ignore" id="forward-model-development">
 <span id="fw-model"></span><h1>Forward model development<a class="headerlink" href="#forward-model-development" title="Permalink to this headline">#</a></h1>
-<div class="section" id="introduction">
+<section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>The training data was generated in <span id="id1">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. It consists of modeled
 ice thickness increase from a cumulative freezing degree day model for the
 freeze-up in 2010 in the Kara and Barents Seas.  In this document we are using the
-data from <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> (because <a class="reference internal" href="acronyms.html#term-CIMR"><span class="xref std std-term">CIMR</span></a>is not available yet) and the cumulative freezing degree day model to fit an
+data from <a class="reference internal" href="acronyms.html#term-SMOS"><span class="xref std std-term">SMOS</span></a> (because <a class="reference internal" href="acronyms.html#term-CIMR"><span class="xref std std-term">CIMR</span></a> is not available yet) and the cumulative freezing degree day model to fit an
 analytic equation to the dependency of brightness temperature and ice thickness.
 In contrast to <span id="id2">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>, here instead of the Intensity and
 Polarization difference, the horizontal and vertical polarized brightness
 temperatures are used directly.</p>
-</div>
-<div class="section" id="the-sea-ice-thickness-dataset">
+</section>
+<section id="the-sea-ice-thickness-dataset">
 <h2>The sea ice thickness dataset<a class="headerlink" href="#the-sea-ice-thickness-dataset" title="Permalink to this headline">#</a></h2>
 <p>An empirical model of the ice thickness increase was proposed with the so-called cumulative freezing degree days <span id="id3">[<a class="reference internal" href="references.html#id4" title="Michael A. Bilello. Formation, growth, and decay of sea-ice in the canadian arctic archipelago. ARCTIC, 1 1961. doi:10.14430/arctic3658.">Bilello, 1961</a>]</span>. The
 idea is that the integration of negative air temperatures over time is a proxy for the physical ice
@@ -515,22 +516,34 @@ different with <span id="id7">[<a class="reference internal" href="references.ht
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-tbsmos">
-<img alt="_images/75265e656762af4ce022a907ba5ca35d2e6717e4f2a52bacd80f7035f089db19.svg" src="_images/75265e656762af4ce022a907ba5ca35d2e6717e4f2a52bacd80f7035f089db19.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Ice thickness to brightness temperature relation showing the original SMOS data for the three resions from <span id="id9">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> extracted at 53° incidence angle</span><a class="headerlink" href="#fig-tbsmos" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-tbsmos">
+<img alt="_images/39684468c3a08782aa5be87645fd2893d23d3021ce83331fb4274ccbaa6a3522.svg" src="_images/39684468c3a08782aa5be87645fd2893d23d3021ce83331fb4274ccbaa6a3522.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Ice thickness to brightness temperature relation showing the original SMOS data for the three resions from <span id="id9">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span> extracted at 53° incidence angle</span><a class="headerlink" href="#fig-tbsmos" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>The <a class="reference internal" href="#fig-tbsmos"><span class="std std-numref">Fig. 1</span></a> gives a nice relation beween ice thickness and the brightness temperatures in horizontal and vertical polarization. Horizontal shows a slower increase and later saturation but is subject to more noise in general. For the fitting procedure <span class="math notranslate nohighlight">\(0\ \text{cm}\)</span> ice thickness, i.e. open water, is excluded.
 The individual regions are shown in <a class="reference internal" href="#fig-kararegions"><span class="std std-numref">Fig. 2</span></a>. The regions in <a class="reference internal" href="#fig-tbsmos"><span class="std std-numref">Fig. 1</span></a> and <a class="reference internal" href="#fig-kararegions"><span class="std std-numref">Fig. 2</span></a> are corresponding according to their color. Most regions are located East to North-East of Novaya Zemlya in the Kara Sea but some regions are also located North-West of Novaya Zemlya in the Barents Sea.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-kararegions">
-<img alt="_images/85e78d05b9bf30ca98480b2aa64d8585531d0975f6a8a8f14cc9b3fe7b10b2d9.svg" src="_images/85e78d05b9bf30ca98480b2aa64d8585531d0975f6a8a8f14cc9b3fe7b10b2d9.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Regions in the Kara and Barents Seas from the 2010 training data.</span><a class="headerlink" href="#fig-kararegions" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-kararegions">
+<img alt="_images/0245f99aa302db4662b18a6a3fa5c18a208423421fc97420077a0dea2ce4da82.svg" src="_images/0245f99aa302db4662b18a6a3fa5c18a208423421fc97420077a0dea2ce4da82.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Regions in the Kara and Barents Seas from the 2010 training data.</span><a class="headerlink" href="#fig-kararegions" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/huntemann/SeaIceThickness_ATBD/sit_atbd_env_jl/.CondaPkg/env/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="parameter-estimation">
+</section>
+<section id="parameter-estimation">
 <h2>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">#</a></h2>
 <p>As a fit function a simple exponential is used with</p>
 <div class="math notranslate nohighlight" id="equation-eq-intensity">
@@ -551,7 +564,7 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 <table class="colwidths-auto table" id="retrieval-parameters">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Fit parameters for intensity and polarization difference</span><a class="headerlink" href="#retrieval-parameters" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>polarization\parameter</p></th>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(p_1\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(p_2\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(p_3\)</span></p></th>
@@ -587,15 +600,17 @@ f_Q(x)= p_2 - (p_2 -p_1)\exp(-(x/p_3)^{p_4})
 </table>
 </div>
 </div>
-</div>
-<div class="section" id="comparison-between-i-q-and-h-v-fit">
+</section>
+<section id="comparison-between-i-q-and-h-v-fit">
 <h2>Comparison between <span class="math notranslate nohighlight">\(I-Q\)</span> and <span class="math notranslate nohighlight">\(h-v\)</span> fit<a class="headerlink" href="#comparison-between-i-q-and-h-v-fit" title="Permalink to this headline">#</a></h2>
 <p>A resulting fit through all datapoints show that also the direct horizontal and vertical fits are suitable for representation of ice thickness to brightness temperature relation, similar to the orginally <span class="math notranslate nohighlight">\(I-Q\)</span> fit from <span id="id10">[<a class="reference internal" href="references.html#id3" title="M. Huntemann, G. Heygster, L. Kaleschke, T. Krumpen, M. Mäkynen, and M. Drusch. Empirical sea ice thickness retrieval during the freeze-up period from smos high incident angle observations. The Cryosphere, 8(2):439–451, 2014. doi:10.5194/tc-8-439-2014.">Huntemann <em>et al.</em>, 2014</a>]</span>. Only slight divergence is seen in <span class="math notranslate nohighlight">\(T_{b,h}\)</span> at higher ice thickness. The fit parameters are given in <a class="reference internal" href="#retrieval-parameters"><span class="std std-numref">Table 1</span></a>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-tbsitfit">
-<img alt="_images/44de3fcc3ae736f8f974091687cb31274c369038905f46f172eade161ce0af96.svg" src="_images/44de3fcc3ae736f8f974091687cb31274c369038905f46f172eade161ce0af96.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Ice thickness to brightness temperature relation showing both fits <span class="math notranslate nohighlight">\(T_{b,h}, T_{b,v}\)</span> and <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(Q\)</span></span><a class="headerlink" href="#fig-tbsitfit" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-tbsitfit">
+<img alt="_images/5ee95e62337267154f462a0f4391e0d8c7b8705f6f27922c7a9efa37283564c1.svg" src="_images/5ee95e62337267154f462a0f4391e0d8c7b8705f6f27922c7a9efa37283564c1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Ice thickness to brightness temperature relation showing both fits <span class="math notranslate nohighlight">\(T_{b,h}, T_{b,v}\)</span> and <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(Q\)</span></span><a class="headerlink" href="#fig-tbsitfit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>The relation for polarization difference, i.e. <span class="math notranslate nohighlight">\(T_{b,v} - T_{b,h}\)</span> to ice
@@ -608,9 +623,11 @@ roughness and thus increased polarization difference. This is not captured by
 the <span class="math notranslate nohighlight">\(I-Q\)</span> fit functions as the <a class="reference internal" href="#equation-eq-poldiff">(4)</a> is constrained in this regard.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-qfitcomp">
-<img alt="_images/d3215bc3bf1d56ef7a2d717ac351e944c98ae31080b31cf3607f42e05d115d2c.svg" src="_images/d3215bc3bf1d56ef7a2d717ac351e944c98ae31080b31cf3607f42e05d115d2c.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison fo fifunction in Q space between original Q fit and individual <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> fit</span><a class="headerlink" href="#fig-qfitcomp" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-qfitcomp">
+<img alt="_images/30c95c48aa3c20ab3eb5a157b163cb0af08fa36293b32a1406c9e27900d873d7.svg" src="_images/30c95c48aa3c20ab3eb5a157b163cb0af08fa36293b32a1406c9e27900d873d7.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison fo fifunction in Q space between original Q fit and individual <span class="math notranslate nohighlight">\(T_{b,h}\)</span> and <span class="math notranslate nohighlight">\(T_{b,v}\)</span> fit</span><a class="headerlink" href="#fig-qfitcomp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
 <p>The polarization difference plotted versus intensity, which is the original
@@ -622,13 +639,15 @@ regime. The highest ice thickness displayed here is 120 cm, which is a
 extrapolation for the current fit and comes with an extra uncertainty.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="figure align-default" id="fig-iqcomp">
-<img alt="_images/ef6365413fc8bb69f6788018c765949712b0f071d3dac67178eb4884815196d0.svg" src="_images/ef6365413fc8bb69f6788018c765949712b0f071d3dac67178eb4884815196d0.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Comparison of fit function in <span class="math notranslate nohighlight">\(I-Q\)</span>-space</span><a class="headerlink" href="#fig-iqcomp" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="fig-iqcomp">
+<img alt="_images/4ffc5aca07ba5e43942ee47c80dba484fcbde7adee9ff400e887164b1f631048.svg" src="_images/4ffc5aca07ba5e43942ee47c80dba484fcbde7adee9ff400e887164b1f631048.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Comparison of fit function in <span class="math notranslate nohighlight">\(I-Q\)</span>-space</span><a class="headerlink" href="#fig-iqcomp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -642,7 +661,7 @@ extrapolation for the current fit and comes with an extra uncertainty.</p>
             mode: "julia-1.8"
         },
         kernelOptions: {
-            kernelName: "julia-1.8",
+            name: "julia-1.8",
             path: "./."
         },
         predefinedOutput: true
