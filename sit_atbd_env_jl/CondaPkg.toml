@@ -1,5 +1,3 @@
 [deps]
 cartopy = ""
-matplotlib = ""
-
-[pip.deps]
+matplotlib = "3.6.3"
