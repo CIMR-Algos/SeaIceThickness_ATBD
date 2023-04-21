@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: CIMR L2 Sea Ice Thickness ATBD
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Marcus
+    family-names: Huntemann
+    affiliation: University of Bremen
+    email: marcus.huntemann@uni-bremen.de
+  - given-names: Gunnar
+    family-names: Spreen
+    email: gunnar.spreen@uni-bremen.de
+    affiliation: University of Bremen
+repository-code: 'https://github.com/CIMR-Algos/SeaIceThickness_ATBD'
+url: >-
+  https://cimr-algos.github.io/SeaIceThickness_ATBD/intro.html
+keywords:
+  - Copernicus Imaging Microwave Radiometer (CIMR)
+  - ESA DEVALGO
+version: '1'
