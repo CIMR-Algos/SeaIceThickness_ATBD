@@ -18,7 +18,7 @@ output will have the status flag for 50+ cm.
 | Field | Description | Shape/Amount |
 | ---   | ----------- | ------------ |
 | L1B TB | L1B Brightness Temperature at L-band (both H and V polarization) | full swath or section of it (Nscans, Npos) |
-| L1B NeΔT | Radiometric accuracy of the channels | full swath or section of it (Nscans, Npos) |
+| L1B NeΔT | Random radiometric uncertainty of the channels | full swath or section of it (Nscans, Npos) |
 | sea-ice and land mask | A recent sea-ice concentration field including land information | SIC and land-mask collocated to swath. |
 
 ## Output data
